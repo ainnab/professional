@@ -22,6 +22,9 @@ where mdl_user.username = '$login_session' ";
   $username = $userRow['username'];
   $userRole = $userRow['id'];
     $name = $userRow['firstname'];
+    $name = $userRow['firstname']
+
+
 
 
 }
