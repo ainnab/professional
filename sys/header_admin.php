@@ -56,7 +56,7 @@ include 'talum.php';
   <body class="az-body az-body-sidebar">
     <div class="az-sidebar">
       <div class="az-sidebar-header">
-        <a href="index.html" class="az-logo">Admission</a>
+        <a href="index.html" class="az-logo ml-3 mt-3">Admission</a>
       </div><!-- az-sidebar-header -->
       <div class="az-sidebar-loggedin">
         <div class="az-img-user online"><img src="../img/faces/face1.jpg" alt=""></div>
