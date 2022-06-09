@@ -75,6 +75,14 @@ include 'talum.php';
               <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listapplication1.php' ?'active' : " ");?>"><a href="tab_listapplication1.php" class="nav-sub-link ">List of Application</a></li>
             </ul>
               </li><!-- nav-item -->
+          <li class="nav-item show current">
+            <a href="tab_program.php" class="nav-link with-sub"><i class="typcn typcn-clipboard"></i>Program</a>
+            <ul class="nav-sub">
+              <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listprogramDip.php' ?'active' : " ");?>"><a href="tab_listprogramDip.php" class="nav-sub-link ">Professional Diploma</a></li>
+              <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listprogramBch.php' ?'active' : " ");?>"><a href="tab_listprogramBch.php" class="nav-sub-link ">Executive Bachelor</a></li>
+              <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listprogramMas.php' ?'active' : " ");?>"><a href="tab_listprogramMas.php" class="nav-sub-link ">Executive Master</a></li>
+            </ul>
+          </li><!-- nav-item -->
       <?php }if ($role == 'admin2') { ?>
         <li class="nav-item show <?php echo (basename($_SERVER['PHP_SELF']) == 'dashboard5.php' ?'active' : " ");?>">
         <a href="dashboard5.php" class="nav-link"><i class="typcn typcn-clipboard"></i>Dashboard</a>
@@ -90,14 +98,6 @@ include 'talum.php';
       </ul>
         </li><!-- nav-item -->
       <?php } ?>
-          <li class="nav-item show current">
-            <a href="tab_program.php" class="nav-link with-sub"><i class="typcn typcn-clipboard"></i>Program</a>
-            <ul class="nav-sub">
-              <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listprogramDip.php' ?'active' : " ");?>"><a href="tab_listprogramDip.php" class="nav-sub-link ">Professional Diploma</a></li>
-              <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listprogramBch.php' ?'active' : " ");?>"><a href="tab_listprogramBch.php" class="nav-sub-link ">Executive Bachelor</a></li>
-              <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listprogramMas.php' ?'active' : " ");?>"><a href="tab_listprogramMas.php" class="nav-sub-link ">Executive Master</a></li>
-            </ul>
-          </li><!-- nav-item -->
       </div><!-- az-sidebar-body -->
     </div><!-- az-sidebar -->
 
