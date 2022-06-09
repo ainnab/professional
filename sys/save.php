@@ -37,13 +37,18 @@ if (isset($_POST['update_program'])) {
     $adsName =strtoupper($_POST['adsName']);
     // $$mode = $_POST['mode'];
     $certificate = $_POST['certificate'];
+    $mode = $_POST['mode'];
 
 
     $sql2= "UPDATE program_diploma SET pg_name = '$progName', keyin_date= '$date_start', pg_code='$progCode',inst_name='$inst_name',adsName = '$adsName', certificate = '$certificate' where pg_id = '$id'";
 
   if(mysqli_query($dbconfig, $sql2) == TRUE){
-     // echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_program.php';</script>";
-echo $progName;
+      if($mode == 'DIP'){
+        echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramDip.php';</script>";
+      }elseif($mode == 'BACHELOR'){
+        echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramBch.php';</script>";
+      }else
+      echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramMas.php';</script>";
     } else{
         echo "ERROR: Hush! Sorry $result. "
             . mysqli_error($dbconfig);

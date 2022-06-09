@@ -15,7 +15,7 @@
 </div><!-- az-content-header -->
 <div class="az-content-body">
 <div class="row row-sm">
-<div class="col-md-12 col-lg-12 col-xl-10">
+<div class="col-md-12 col-lg-12 col-xl-12">
   <div class="card card-dashboard-seven">
     <div class="card-body">
     <button type="button" class="btn btn-rounded btn-warning" data-toggle="modal" data-target="#addEdu">
@@ -66,16 +66,6 @@
                             <input type="text" class="form-control" id="certificate" name="certificate" value="PROFESSIONAL DIPLOMA" readonly>
                             <input type="hidden" class="form-control" id="mode" name="mode" value="DIP" readonly>
                           </div>
-                          <!-- <div class="form-group">
-                          <label>Certificate Category</label>
-                          <select name="certificate" id="certificate" class="form-control" required="PROFESSIONAL DIPLOMA" readonly>
-                          <option selected disabled="" style="font-size:14px;">Select Type</option>
-                          <option>PROFESSIONAL DIPLOMA</option>
-                          <option>EXECUTIVE BACHELOR</option>
-                          <option>EXECUTIVE MASTER</option>
-                        </select>
-                      </div> -->
-
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -110,7 +100,7 @@
                           <?php 
 
 
-                          $sql3=mysqli_query($dbconfig,"SELECT * FROM program_diploma WHERE mode='DIP'");
+                          $sql3=mysqli_query($dbconfig,"SELECT * FROM program_diploma WHERE mode='BACHELOR'");
                           $cnt=1;
                           while($row=mysqli_fetch_array($sql3)){
                              $id=$row['pg_id'];

@@ -34,6 +34,7 @@
                         <input type="text" name="id" value="<?php echo $row['pg_id']; ?>" hidden>
 									      <div class="modal-body">
 
+                        <input type="text" name="mode" value="<?php echo $row['mode']; ?>" hidden>
 									      	<div class="form-group">
 									      		<label>Program Name</label>
 									      		<input type="text" class="form-control" id="progName" name="progName" value="<?php echo $row['pg_name']; ?>">
@@ -55,15 +56,6 @@
 									      		<label>Admission Name</label>
 									      		<input type="text" class="form-control" id="adsName" name="adsName" value="<?php echo $row['adsName']; ?>">
 									      	</div>
-                         <!--  <div class="form-group">
-									      		<label>Mode of Admission</label>
-                            <input type="text" class="form-control" id="modeAds" name="modeAds" value="<?php echo $row['mode']; ?>">
-									      	</div> -->
-                          <!-- <div class="form-group">
-                            <label>Upload Picture</label>
-                            <input type="file" class="form-control" id="picDip" name="picDip">
-                            <span class="help-block">*The maximum file size you can upload is 30MB</span>
-                          </div> -->
                           <div class="form-group">
                           <label>Certificate Category</label>
                           <select name="certificate" id="certificate" class="form-control" required="">
@@ -82,7 +74,15 @@
 
 									      </div>
 									      <div class="modal-footer">
-									        <a href="tab_listprogram.php"><button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+                          <?php 
+                          $mode = $row['mode'];
+                          if($mode == 'DIP'){ ?>
+                            <a href="tab_listprogramDip.php"><button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+                          <?php }elseif($mode == 'BACHELOR'){?>
+									        <a href="tab_listprogramBch.php"><button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+                          <?php }else{?>
+                            <a href="tab_listprogramMas.php"><button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+                        <?php  } ?>
 									        <button type="submit" name="update_program" class="btn btn-primary">Update</button>
 									      </div>
 								      </form>
