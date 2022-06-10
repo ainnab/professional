@@ -160,7 +160,8 @@ $target_file = $target2 . basename($newfilename);
 
    if(mysqli_query($dbconfig, $query) == TRUE){
     move_uploaded_file($_FILES['fileA']['tmp_name'], $target_file);
-   echo $fileA; // echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test.php';</script>";
+   echo $fileA; 
+   echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test.php?id=$id';</script>";
 
     } else{
         echo "ERROR: Hush! Sorry $result. " 
@@ -195,8 +196,7 @@ $target_file = $target2 . basename($newfilename);
 
     if ($dbconfig->multi_query($sql1) == TRUE) {
 
-          echo "<script>alert('Data updated');</script>";
-         // echo "<script>window.location.assign('dashboard_agent.php')</script>";
+          echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test.php?id=$studid';</script>";
     }else
     {
           echo "<script>alert('Tidak dapat diproses');</script>";

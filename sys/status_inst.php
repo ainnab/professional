@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/jpg" href="img/favicon.png"/>
 
-    
+
 
     <!-- Meta -->
     <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
@@ -37,42 +37,42 @@
 
     <!-- azia CSS -->
     <link rel="stylesheet" href="css/azia.css">
-   
-    <?php 
+
+    <?php
     include 'talum.php';
-   
+
     ?>
 
     <?php
-    if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    } 
-    $ic=$_SESSION['ic'];       
-    $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
-    while($data2 = mysqli_fetch_array($records)) { 
-      
-           
+    if(!isset($_SESSION))
+    {
+        session_start();
+    }
+    $ic=$_SESSION['ic'];
+    $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'");
+    while($data2 = mysqli_fetch_array($records)) {
+
+
   $role = $data2['role'];
-   $agent=$data2['stud_name'];  
+   $agent=$data2['stud_name'];
 
         include 'main_menu.php';
       }
-       
+
     ?>
-    <?php     
+    <?php
     $sql31 = "SELECT * FROM `spm_subject`";
     $all_sub = mysqli_query($dbconfig,$sql31);
-    $sql32 = "SELECT * FROM `spm_grade`";  
-    $records3 = mysqli_query($dbconfig,"select * from application where stud_ic='$ic'"); 
-    while($data = mysqli_fetch_array($records3)) {   
+    $sql32 = "SELECT * FROM `spm_grade`";
+    $records3 = mysqli_query($dbconfig,"select * from application where stud_ic='$ic'");
+    while($data = mysqli_fetch_array($records3)) {
 
     ?>
       </head>
 
-    
+
   <body class="az-body az-body-sidebar">
-  
+
 
     <div class="az-content az-content-dashboard-two">
            <div class="az-content-header d-block d-md-flex">
@@ -87,9 +87,9 @@
           <div class="col-md-12 col-lg-12 col-xl-12">
             <div class="card card-dashboard-seven">
               <div class="card-body">
-    
 
-   
+
+
 <div id="accordion" class="accordion" role="tablist" aria-multiselectable="true">
   <div class="card">
     <div class="card-header" role="tab" id="headingOne">
@@ -99,7 +99,7 @@
     </div><!-- card-header -->
     <div id="collapseOne" data-parent="#accordion" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
       <div class="card-body">
-        <div class="col-6 col-md-4 col-xl-11">
+        <div class="col-6 col-md-4 col-xl-12">
                                   <div>
             <table id="example1" class="table">
               <thead>
@@ -108,18 +108,18 @@
                   <th class="wd-25p">NAME</th>
                   <th class="wd-15p">IC</th>
                   <th class="wd-20p">EMAIL</th>
-                 
+
                   <th class="wd-15p">STATUS</th>
                   <th class="wd-20p">ACTION</th>
                   <th class="wd-20p">PROGRAM</th>
                 </tr>
               </thead>
               <tbody>
-                                         
+
                  <?php
 $i = 0;
 
-                  
+
 
   $query = "SELECT * FROM `student`  where  agent='$agent'";
 
@@ -130,23 +130,31 @@ $i = 0;
 
 
 $i++;
-                                    
+
                       $stud_name = $row1['stud_name'];
                        $stud_ic = $row1['stud_ic'];
                     $email = $row1['stud_email'];
            $status = $row1['app_status'];
-          
-                    ?> 
+
+                    ?>
                           <tr>
                    <td><?php echo $i;?></td>
-                <td><?php echo $stud_name;?></td>  
+                <td><?php echo $stud_name;?></td>
                 <td><?php echo $stud_ic;?></td>
-                   <td><?php echo $email;?></td> 
+                   <td><?php echo $email;?></td>
                     <td><?php echo $status;?></td>
           <td><a href="tab_test.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md">Update</button></a></td>
-           <td>if status=submitted display<a href="professional_dip.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md">DIPLOMA</button></a><b>
-            <a href="degree.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md">DEGREE</button></a>
-           <a href="master.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md">MASTER</button></a></td>
+          <?php if ($status == 'Submitted') { ?>
+            <td><a href="professional_dip.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md mb-2">DIPLOMA</button></a>
+             <a href="degree.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md mb-2">DEGREE</button></a>
+            <a href="master.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md">MASTER</button></a></td>
+        <?php  }else{ ?>
+          <td><a href="professional_dip.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md mb-2" disabled>DIPLOMA</button></a>
+           <a href="degree.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md mb-2" disabled>DEGREE</button></a>
+          <a href="master.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md" disabled>MASTER</button></a></td>
+        <?php } ?>
+
+
            <!--  <td>
                       <a class="btn btn-link font-24  no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                         <i class="dw dw-more"></i>
@@ -157,12 +165,12 @@ $i++;
                         <a class="dropdown-item" href="coordinator_inst_update.php?id=<?php echo $id;?>"><i class="dw dw-eye"></i> Master</a>
                       </div>
                     </td> -->
-          
-                  
+
+
                 </tr>
-                
-                
-               
+
+
+
                 <?php } ?>
               </tbody>
             </table>
@@ -186,8 +194,8 @@ $i++;
       </div>
     </div>
 </div>
-          
-         
+
+
          </div><!-- card-body -->
         </div><!-- card -->
     </div><!-- col -->
@@ -198,7 +206,7 @@ $i++;
           <span>&copy; 2022 UMP Advanced, Malaysia· All rights reserved.</span>
         </div><!-- container -->
       </div><!-- az-footer -->
-    
+
 
 
     <script src="lib/jquery/jquery.min.js"></script>
@@ -208,7 +216,7 @@ $i++;
     <script src="lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
     <script src="lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
-    
+
 
     <script src="js/azia.js"></script>
     <script>
