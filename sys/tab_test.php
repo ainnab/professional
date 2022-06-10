@@ -687,13 +687,6 @@ body {font-family: Arial;}
 
 
         <div class="col-lg-12 text-right">
-            <div class="form-group m-b-0">
-                    <button type="submit" name="submit_new_edu"  class="btn btn-lg btn-primary waves-effect waves-light">
-                        <i class="far fa-save"></i>&nbsp;&nbsp;Simpan
-                    </button>
-                    
-                </div>
-            </div><!-- card-body -->
             </form>
       </br>
 

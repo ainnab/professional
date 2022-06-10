@@ -85,7 +85,7 @@ $okutype = $_POST['okutype'];
   //$res2=mysqli_query($dbconfig, $result);
     if(mysqli_query($dbconfig, $result) == TRUE){
         //$result2 = mysqli_query($dbconfig, $result2);
-        echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'status_inst.php';</script>";
+        echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test.php?id=$id';</script>";
 
     } else{
         echo "ERROR: Hush! Sorry $result. " 
@@ -124,8 +124,7 @@ $household = $_POST['household'];
     //$res2=mysqli_query($dbconfig, $result);
     if(mysqli_query($dbconfig, $result) == TRUE){
         //$result2 = mysqli_query($dbconfig, $result2);
-        echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'status_inst.php';</script>";
-
+        echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test.php?id=$id';</script>";
     } else{
         echo "ERROR: Hush! Sorry $result. " 
             . mysqli_error($dbconfig);
@@ -215,7 +214,7 @@ $target_file = $target2 . basename($newfilename);
             echo "<script>alert('Data updated');</script>";
             //window.close();
         
-            echo "<script>window.location.assign('status_inst.php')</script>";
+            // echo "<script>window.location.assign('status_inst.php')</script>";
       }else
       {
             echo "<script>alert('Tidak dapat diproses');</script>";
@@ -450,7 +449,7 @@ if (isset($_POST['enrol'])) {
 
 
   if(mysqli_query($dbconfig, $sql_u) == TRUE){
-     echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'status_inst.php';</script>";
+    //  echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'status_inst.php';</script>";
  } else{
         echo "ERROR: Hush! Sorry $result. " 
             . mysqli_error($dbconfig);
