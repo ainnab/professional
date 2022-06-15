@@ -15,24 +15,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Twitter -->
-    <!-- <meta name="twitter:site" content="@bootstrapdash">
-    <meta name="twitter:creator" content="@bootstrapdash">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Azia">
-    <meta name="twitter:description" content="Responsive Bootstrap 4 Dashboard Template">
-    <meta name="twitter:image" content="https://www.bootstrapdash.com/azia/img/azia-social.png"> -->
-
-    <!-- Facebook -->
-    <!-- <meta property="og:url" content="https://www.bootstrapdash.com/azia">
-    <meta property="og:title" content="Azia">
-    <meta property="og:description" content="Responsive Bootstrap 4 Dashboard Template">
-
-    <meta property="og:image" content="https://www.bootstrapdash.com/azia/img/azia-social.png">
-    <meta property="og:image:secure_url" content="https://www.bootstrapdash.com/azia/img/azia-social.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="600"> -->
 
     <!-- Meta -->
     <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
@@ -51,12 +33,12 @@
     <!-- azia CSS -->
     <link rel="stylesheet" href="../css/azia.css">
     <?php
-    if(!isset($_SESSION)) 
-    { 
+    if(!isset($_SESSION))
+    {
       include 'talum.php';
-        session_start(); 
+        session_start();
          $ic=$_SESSION['ic'];
-    
+
 
     $sql_query="select * from student where stud_ic='$ic' ";
 
@@ -65,9 +47,9 @@
   $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
   $role = $userRow['role'];
   $agent = $userRow['agent'];
-} 
+}
 ?>
-    
+
   </head>
 
   <body class="az-body az-body-sidebar">
@@ -91,16 +73,16 @@
            <li class="nav-item ">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Dashboard</a>
             <ul class="nav-sub">
-            
+
               <li class="nav-sub-item"><a href="dashboard_agent.php" class="nav-sub-link">Dashboard</a></li>
-            </ul> 
+            </ul>
           </li>
            <li class="nav-item ">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Create New Student</a>
             <ul class="nav-sub">
-            
+
               <li class="nav-sub-item"><a href="tab_personal_agent.php" class="nav-sub-link">Create New Student</a></li> -->
-            </ul> 
+            </ul>
           </li><!-- nav-item -->
          <!--li class="nav-item">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Student Application</a>
@@ -114,14 +96,14 @@
               <li class="nav-sub-item "><a href="tab_upload.php" class="nav-sub-link">Video CV/Attachment</a></li>
               <!-- <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_security.php' ?'active' : " ");?>"><a href="tab_security.php" class="nav-sub-link">Security</a></li> -->
               <!--li class="nav-sub-item "><a href="declaration.php" class="nav-sub-link">Declaration</a></li>
-            </ul> 
+            </ul>
           </li><!-- nav-item -->
 <!--  <li class="nav-item ">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>List Student</a>
             <ul class="nav-sub">
-            
+
               <li class="nav-sub-item"><a href="status_inst.php" class="nav-sub-link">List Student</a></li>
-            </ul> 
+            </ul>
  -->
 
               <ul class="nav">
@@ -135,24 +117,24 @@
               <li class="nav-sub-item  "><a href="tab_personal_agent.php" class="nav-sub-link ">Create New Student</a></li>
               <li class="nav-sub-item  "><a href="status_inst.php" class="nav-sub-link ">List Student</a></li>
                <!--  <li class="nav-sub-item  "><a href="professional_dip.php" class="nav-sub-link ">List Module</a></li> -->
-              
+
             </ul>
           </li><!-- nav-item -->
-<?php 
-} 
+<?php
+}
 
 if ($role == 'student' ){?>
 
 
 
-       
+
 
         <ul class="nav">
           <li class="nav-label">Main Menu</li>
             <li class="nav-item show">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Dashboard</a>
             <ul class="nav-sub">
-            
+
               <li class="nav-sub-item"><a href="" class="nav-sub-link">Dashboard</a></li>
             </ul>
          <li class="nav-item show">
@@ -172,19 +154,19 @@ if ($role == 'student' ){?>
  <li class="nav-item show">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>View</a>
             <ul class="nav-sub">
-            
+
               <li class="nav-sub-item"><a href="view_submission.php" class="nav-sub-link">View submission</a></li>
             </ul>
             <li class="nav-item show">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Program</a>
             <ul class="nav-sub">
-            
+
               <li class="nav-sub-item"><a href="professional_dip_stud.php" class="nav-sub-link">Professional diploma</a></li>
                <li class="nav-sub-item"><a href="" class="nav-sub-link">Bachelor eksekutif</a></li>
                <li class="nav-sub-item"><a href="" class="nav-sub-link">Master eksekutif</a></li>
             </ul>
           <!-- nav-item -->
-        
+
 
 
  <?php } ?>
