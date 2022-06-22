@@ -142,6 +142,7 @@
                     </div><!-- input-group -->
                 </div><!-- form group -->
             </div><!-- col-4 -->
+            
             <div class="col-lg-4 mg-t-20 mg-lg-t-0">
                 <div class="form-group">
                 <label class="form-control-label">State Of Birth: <span class="tx-danger">*</span></label>
@@ -164,6 +165,7 @@
                 </select>
                 </div><!-- form group -->
             </div><!-- col-4 -->
+            
             <div class="col-md-5 col-lg-4">
                 <div class="form-group">
                 <label class="form-control-label">Marital Status: <span class="tx-danger">*</span></label>
@@ -175,7 +177,7 @@
                 </select>
                 </div><!-- form group -->
             </div><!-- col -->
-            <div class="col-md-5 col-lg-4">
+            <div class="col-md-5 col-lg-6">
                 <div class="form-group">
                 <label class="form-control-label">Religion: <span class="tx-danger">*</span></label>
                 <select name="religion" class="form-control select2">
@@ -186,7 +188,7 @@
                 </select>
                 </div><!-- form group -->
             </div><!-- col -->
-            <div class="col-md-5 col-lg-4">
+            <div class="col-md-5 col-lg-6">
                 <div class="form-group">
                 <label class="form-control-label">Ethnic: <span class="tx-danger">*</span></label>
                 <select name="race" class="form-control select2">
@@ -197,6 +199,37 @@
                 </select>
                 </div><!-- form group -->
             </div><!-- col -->
+            </div><!-- row -->
+            <div class="row row-sm">
+            <div class="col-md-12 col-lg-12">
+                <div class="form-group">
+                <label class="form-control-label">Address: <span class="tx-danger"></span></label>
+                <input type="text" id="about" class="form-control" name="address1" placeholder="Enter address line 1" value="<?php echo $data['address1']; ?>" >
+                <input type="text" id="about" class="form-control" name="address2" placeholder="Enter address line 2" value="<?php echo $data['address2']; ?>" >
+                </div><!-- form group -->
+            </div>
+            </div><!-- row -->
+            <div class="row row-sm">
+            <div class="col-md-12 col-lg-12">
+                <div class="form-group">
+                <label class="form-control-label">City: <span class="tx-danger"></span></label>
+                <input type="text" id="about" class="form-control" name="city" placeholder="Enter city" value="<?php echo $data['city']; ?>" >
+                </div><!-- form group -->
+            </div>
+            </div><!-- row -->
+            <div class="row row-sm">
+            <div class="col-md-12 col-lg-6">
+                <div class="form-group">
+                <label class="form-control-label">Postcode: <span class="tx-danger"></span></label>
+                <input type="text" id="about" class="form-control" name="postcode" placeholder="Enter postcode" value="<?php echo $data['postcode']; ?>" >
+                </div><!-- form group -->
+            </div>
+            <div class="col-md-12 col-lg-6">
+                <div class="form-group">
+                <label class="form-control-label">State: <span class="tx-danger"></span></label>
+                <input type="text" id="about" class="form-control" name="state" placeholder="Enter state" value="<?php echo $data['state']; ?>" >
+                </div><!-- form group -->
+            </div>
             </div><!-- row -->
             <div class="row row-sm">
             <div class="col-md-12 col-lg-12">

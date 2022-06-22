@@ -61,7 +61,8 @@ img:hover {
  while($data = mysqli_fetch_array($records)) {
 
 $role = $data['role'];
-   $agent=$data['stud_name'];  
+   $agent=$data['stud_name']; 
+   $app_status=$data['app_status']; 
   include 'main_menu.php';
 
   ?>

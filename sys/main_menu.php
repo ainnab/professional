@@ -47,6 +47,7 @@
   $userRow=mysqli_fetch_array($res,MYSQLI_ASSOC);
   $role = $userRow['role'];
   $agent = $userRow['agent'];
+  $app_status=$userRow['app_status'];
 }
 ?>
 
@@ -156,6 +157,9 @@ if ($role == 'student' ){?>
             <ul class="nav-sub">
 
               <li class="nav-sub-item"><a href="view_submission.php" class="nav-sub-link">View submission</a></li>
+              <?php if($app_status=='Approved'){?>
+              <li class="nav-sub-item"><a href="view_status.php" class="nav-sub-link">View status</a></li>
+              <?php }?>
             </ul>
             <li class="nav-item show">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Program</a>

@@ -40,6 +40,22 @@
                             <label>Program Code</label>
                             <input type="text" class="form-control" id="progCode" name="progCode" required="">
                           </div>
+                          <div class="form-group">
+                            <label>Duration (Year & Months)</label>
+                            <input type="text" class="form-control" id="duration" name="duration" value="<?php echo $row['duration']; ?>">
+                          </div>
+                          <div class="form-group">
+                            <label>Registration Date </label>
+                            <input type="date" class="form-control" name="regDate" id="regDate" value="<?php echo $regDate?>">
+                          </div>
+                          <div class="form-group">
+                            <label>Learning Centre</label>
+                            <input type="text" class="form-control" id="learningCentre" name="learningCentre" value="<?php echo $row['learningCentre']; ?>">
+                          </div>
+                          <div class="form-group">
+                            <label>Specialization</label>
+                            <input type="text" class="form-control" id="Specialization" name="Specialization" value="<?php echo $row['Specialization']; ?>">
+                          </div>
                            <div class="form-group">
                             <label>Institution Name</label>
                             <input type="text" class="form-control" id="instName" name="instName" required="">

@@ -2,7 +2,7 @@
 include 'talum.php';
 session_start();
 $ic=$_SESSION['ic'];
-  $stud_id = $_REQUEST['id'];
+  //$stud_id = $_REQUEST['id'];
 //$ic=$_SESSION['ic'];
  $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'");
 
@@ -62,22 +62,22 @@ $race = $_POST['race'];
 $about = $_POST['about'];
 $height = $_POST['height'];
 $weight = $_POST['weight'];
-//$add1 = strtoupper($_POST['add1']);
-//$add2 = strtoupper($_POST['add2']);
-//$city = strtoupper($_POST['city']);
-//$postcode = $_POST['postcode'];
-//$state = $_POST['state'];
+$add1 = strtoupper($_POST['address1']);
+$add2 = strtoupper($_POST['address2']);
+$postcode = $_POST['postcode'];
+$city = strtoupper($_POST['city']);
+$state = $_POST['state'];
 $nooku = $_POST['nooku'];
 $okutype = $_POST['okutype'];
 //$target2 = "sys/folder/" .basename($_FILES['file']['name']);
   //$fileStatus = $_FILES['file']['name'];
 
- $id = $_REQUEST['id'];
+ $id = $_REQUEST['ic'];
 
 
 
   $result="UPDATE student AS a SET";
-  $result.= " a.stud_name='$firstname', a.stud_nation='$nation', a.pob='$pob', a.gender='$gender',  a.about='$about',a.dob='$dob', a.marital='$marital', a.stud_race='$race', a.stud_religion='$religion', a.nooku='$nooku', a.okutype='$okutype', a.height='$height', a.weight='$weight'";
+  $result.= " a.stud_name='$firstname', a.stud_nation='$nation', a.pob='$pob', a.gender='$gender',  a.about='$about',a.dob='$dob', a.marital='$marital', a.stud_race='$race', a.stud_religion='$religion', a.nooku='$nooku', a.okutype='$okutype', a.height='$height', a.weight='$weight', a.address1='$add1', a.address2='$add2', a.postcode='$postcode', a.city='$city', a.state='$state'";
   $result.= " WHERE a.stud_ic='$id' ";
 
 
@@ -85,7 +85,7 @@ $okutype = $_POST['okutype'];
   //$res2=mysqli_query($dbconfig, $result);
     if(mysqli_query($dbconfig, $result) == TRUE){
         //$result2 = mysqli_query($dbconfig, $result2);
-        echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test.php?id=$id';</script>";
+        echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_parent.php';</script>";
 
     } else{
         echo "ERROR: Hush! Sorry $result. " 
@@ -115,7 +115,7 @@ $household = $_POST['household'];
 
     $result="UPDATE parent SET";
     $result.= " p1_name='$name1', p1_ic='$ic1', p1_occupation='$occupation1',p2_name='$name2', p2_ic='$ic2', p2_occupation='$occupation2',household='$household',income ='$income' ";
-    $result.= " WHERE stud_ic='$stud_id'";
+    $result.= " WHERE stud_ic='$ic'";
 
     //$result2="UPDATE data_ptmk SET";
     //$result2.= " NAMA='$id', EMAIL='$email', TELBIMBIT='$phone', TELEFON='$home', WARGA_JPN='$nation', TMPTLAHIR='$pob', JANTINA_JPN='$gen', UMUR='$age', TRKLAHIR_JPN='$dob', KAHWIN='$mar', KAUM_JPN='$race', AGAMA_JPN='$rel', ALAM1='$add1', ALAM2='$add2', BANDAR='$city', POSKOD='$postcode', NEGERI='$state', NOOKU='$nooku', JENCACAT='$okutype'";
@@ -488,13 +488,36 @@ if (isset($_POST['enrol'])) {
 
 
  if (isset($_POST['submit_final'])) {
-    
-    /*$id = $_REQUEST['id'];*/
-    /*$customCheck1 = $_REQUEST['customCheck1'];
-*/
-   $sql = "UPDATE student (stud_ic,app_option,app_status) VALUES ('$ic','1','Submitted')";
+    $check_stud=mysqli_query($dbconfig,"select * from student where stud_ic='$ic'");
+    while($stud=mysqli_fetch_array($check_stud)){
+      $stud_name=$stud['stud_name'];
+      $stud_nation=$stud['stud_nation'];
+      $stud_pob=$stud['pob'];
+      $stud_gender=$stud['gender'];
+      $stud_dob=$stud['dob'];
+      $stud_marital=$stud['marital'];
+      $stud_race=$stud['stud_race'];
+      $stud_religion=$stud['stud_religion'];
+      $stud_height=$stud['height'];
+      $stud_weight=$stud['weight'];
 
-    $result="UPDATE student AS a SET";
+    }
+    $check_parent=mysqli_query($dbconfig,"select * from parent where stud_ic='$ic'");
+    while($parent=mysqli_fetch_array($check_parent)){
+      $p1_name=$parent['p1_name'];
+      $p1_ic=$parent['p1_ic'];
+      $p1_occupation=$parent['p1_occupation'];
+      $p2_name=$parent['p2_name'];
+      $p2_ic=$parent['p2_ic'];
+      $p2_occupation=$parent['p2_occupation'];
+      $p_household=$parent['household'];
+      $p_income=$parent['income'];
+    }
+    if($stud_name!='' && $stud_nation != '' && $stud_pob != '' && $stud_gender != '' && $stud_dob != '' && $stud_marital != '' && $stud_race != '' && $stud_religion != '' && $stud_height != '' && $stud_weight != '' && $p1_name != '' && $p1_ic != '' && $p1_occupation != '' && $p2_name != '' && $p2_ic != '' && $p2_occupation != '' && $p_household != '' && $p_income != '')
+    {
+    $sql = "UPDATE student (stud_ic,app_option,app_status) VALUES ('$ic','1','Submitted')";
+
+    /*$result="UPDATE student AS a SET";
     $result.= " a.app_option='1', a.app_status='Submitted'";
     $result.= " WHERE a.stud_ic='$stud_id'";
 
@@ -502,14 +525,15 @@ if (isset($_POST['enrol'])) {
   if(mysqli_query($dbconfig, $result) == TRUE){
      //echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'view_submission.php';</script>";
 
-    } else{
-        echo "ERROR: Hush! Sorry $result. " 
-            . mysqli_error($dbconfig);
+    }*/
+    
+  } else{
+        /*echo "ERROR: Hush! Sorry. " 
+            . mysqli_error($dbconfig);*/
+        echo "<script type='text/javascript'>alert('PLEASE COMPLETE YOUR FORM BEFORE SUBMITTED!'); window.location.href = 'tab_personal.php';</script>";
     }
+  
 }
-
-
-
 
     mysqli_close($dbconfig);
       

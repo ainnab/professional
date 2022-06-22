@@ -1,76 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90680653-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-<?php include 'header_admin.php' ?>
-      <div class="az-content-header d-block d-md-flex">
-        <div>
-          <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">List of Application.</h2>
-        </div>
-        <div class="az-dashboard-header-right">
-        </div><!-- az-dashboard-header-right -->
-      </div><!-- az-content-header -->
-      <div class="az-content-body">
-      <div class="row row-sm">
-      <div class="col-md-12 col-lg-12 col-xl-12">
-        <div class="card card-dashboard-seven">
-          <div class="card-body">
-          <?php
+      gtag('config', 'UA-90680653-2');
+    </script>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/jpg" href="img/favicon.png"/>
+
+    
+
+    <!-- Meta -->
+    <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
+    <meta name="author" content="BootstrapDash">
+
+    <title>Admission</title>
+
+    <!-- vendor css -->
+    <link href="lib/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="lib/typicons.font/typicons.css" rel="stylesheet">
+    <link href="lib/morris.js/morris.css" rel="stylesheet">
+    <link href="lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+    <link href="lib/jqvmap/jqvmap.min.css" rel="stylesheet">
+    <link href="lib/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet">
+
+    <!-- azia CSS -->
+    <link rel="stylesheet" href="css/azia.css">   
+    <?php 
     include 'talum.php';
-    $ic=$_SESSION['ic'];
-    $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'");
-   ?>
+   
+    ?>
 
-<?php while($data = mysqli_fetch_array($records)) { ?>
-      <div class="col-6 col-md-4 col-xl-12">
-         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student'"); ?>
-            <?php if (mysqli_num_rows($result) > 0) { ?>
-          <div>
-            <table id="example1" class="table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>NAME</th>
-                  <th>Program</th>
-                  <th>IC</th>
-                  <th>STATUS</th>
-                  <th>APPROVE</th>
-                  <th>ACTION</th>
-                </tr>
-              </thead>
-              <tbody>
-              <?php $i=0; $j=1; while($row = mysqli_fetch_array($result)) { ?>
-                            <tr>
-                            <td><?php echo $j++;  ?></td>
-                            <td><?php echo $row["stud_name"]; ?></td>
-                            <td></td>
-                            <td><?php echo $row["stud_ic"]; ?></td>
-                            <td><?php echo $row["app_status"]; ?></td>
-                            <?php if ($row['app_status'] == 'Approved' || $row['app_status'] == 'Submitted') { ?>
-                              <td><a href="save.php?id=<?php echo $row['id']?>&verify1=verify1" onClick="return confirm('Are you sure you want to approve this student?')" ><button name="approve"
-                                  class="btn btn-primary btn-md" disabled>Verify</button>
-                                </a><a href="save.php?id=<?php echo $row['id']?>&reject=reject" onClick="return confirm('Are you sure you want to reject this application?')" ><button name="approve"
-                                    class="btn btn-danger btn-md" disabled>Reject</button></a></td>
-                            <?php }else { ?>
-                              <div class="row row-sm">
-                                <td><a href="save.php?id=<?php echo $row['id']?>&verify1=verify1" onClick="return confirm('Are you sure you want to approve this student?')" ><button name="approve"
-                                  class="btn btn-primary btn-md">Verify</button>
-                                </a><a href="save.php?id=<?php echo $row['id']?>&reject=reject" onClick="return confirm('Are you sure you want to reject this application?')" ><button name="approve"
-                                    class="btn btn-danger btn-md">Reject</button></a></td>
-                              </div>
-                            <?php } ?>
+    <?php
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+    $ic=$_SESSION['ic'];       
+    $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
+    while($data2 = mysqli_fetch_array($records)) { 
+        $role = $data2['role'];
+        $app_status = $data2['app_status'];
+   $agent=$data2['stud_name']; 
+        include 'main_menu.php';
+      
+       }     
+    ?>
+<?php 
+$records3 = mysqli_query($dbconfig,"select * from programselection where stud_ic='$ic'"); 
+while($data3=mysqli_fetch_array($records3)){
+    $pg_name=$data3['pg_name'];
+    $status=$data3['status'];
+}
+date_default_timezone_set("Asia/Bangkok");
+$date='Y';
+?>
 
-                            <td><a href="view.php?id=<?php echo $row["stud_ic"]; ?>">View</a></td>
-                            </tr>
-            <?php $i++;  } ?>
-              </tbody>
-            </table>
-            <?php } else{  echo "No result found"; } ?>
-            <?php } ?>
+
+<div class="az-content-header d-block d-md-flex">
+  <div>
+    <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">Status of Application</h2>
+  </div>
+  <div class="az-dashboard-header-right">
+  </div><!-- az-dashboard-header-right -->
+</div><!-- az-content-header -->
+<div class="az-content-body">
+<div class="row row-sm">
+<div class="col-md-12 col-lg-12 col-xl-10">
+  <div class="card card-dashboard-seven">
+    <div class="card-body">
+    
+    <div class="modal fade" id="addDoc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        
+                      </div>
+                     
+                        <div class="modal-body">
+                        </div>
+                        <div class="modal-footer">
+                          
+                        </div>
+                      
+                    </div>
+                  </div>
+                </div>
+   <br>
+        <div class="module">
+                            <div class="module-body table">
+                               <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped  display" width="100%">
+                                <thead>
+                                   <tr>
+                                    <th>Program Name</th>
+                                    <th>Status</th>
+                                    <th>View</th>
+                                  </tr>
+                                </thead>
+                            <tbody>
+                    <tr>
+                      <td><?php echo $pg_name;?></td>
+                      <td><?php echo $status;?></td>
+                      <td><a href='offer_letter.php' target='_blank'>Offer Letter</td>
+                     
+                    </tr>
+                   
+
+                </table>
               </div>
-
-
-         </div></div>
-         </div><!-- card-body -->
+            </div>
+        <div class="col-lg-12 text-right">
+            <div class="form-group m-b-0">
+                    
+                </div>
+            </div><!-- card-body -->
         </div><!-- card -->
-    </div><!-- col --></div>
+    </div><!-- col -->
+  </div><!-- row -->
       <div class="az-footer ht-40">
         <div class="container-fluid pd-t-0-f ht-100p">
           <span>&copy; 2019 Azia Responsive Bootstrap 4 Dashboard Template</span>
@@ -82,14 +138,15 @@
     <script src="../lib/jquery/jquery.min.js"></script>
     <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../lib/ionicons/ionicons.js"></script>
-    <script src="../lib/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
-    <script src="../lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
-
+    <script src="../lib/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <script src="../lib/raphael/raphael.min.js"></script>
+    <script src="../lib/morris.js/morris.min.js"></script>
+    <script src="../lib/jqvmap/jquery.vmap.min.js"></script>
+    <script src="../lib/jqvmap/maps/jquery.vmap.usa.js"></script>
 
     <script src="../js/azia.js"></script>
     <script>
+ 
       $(function(){
         'use strict'
 
@@ -239,32 +296,6 @@
           borderColor: '#fff',
           hoverOpacity: .85
         });
-
-      });
-    </script>
-    <script>
-      $(function(){
-        'use strict'
-
-        $('#example1').DataTable({
-          language: {
-            searchPlaceholder: 'Search...',
-            sSearch: '',
-            lengthMenu: '_MENU_ items/page',
-          }
-        });
-
-        $('#example2').DataTable({
-          responsive: true,
-          language: {
-            searchPlaceholder: 'Search...',
-            sSearch: '',
-            lengthMenu: '_MENU_ items/page',
-          }
-        });
-
-        // Select2
-        $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
 
       });
     </script>
