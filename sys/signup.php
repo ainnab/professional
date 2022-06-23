@@ -99,7 +99,10 @@ body {
 		     $result4 = mysqli_query($dbconfig, $sql4);}
           if($result4){
             $sql5 = "insert into data_ptmk (NOKP,NOKPFIN) value('".$ic."','".$ic."')";
-		        $result5 = mysqli_query($dbconfig, $sql5);
+		        $result5 = mysqli_query($dbconfig, $sql5);}
+            if($result5){
+              $sql6 = "insert into contact (stud_ic) value('".$ic."')";
+              $result6 = mysqli_query($dbconfig, $sql6);
           
         echo "<script type='text/javascript'>alert('Registration Successfully!'); window.location.href = 'signin.php';</script>";
       }
