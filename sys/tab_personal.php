@@ -204,37 +204,6 @@
             <div class="row row-sm">
             <div class="col-md-12 col-lg-12">
                 <div class="form-group">
-                <label class="form-control-label">Address: <span class="tx-danger"></span></label>
-                <input type="text" id="about" class="form-control" name="address1" placeholder="Enter address line 1" value="<?php echo $data['address1']; ?>" >
-                <input type="text" id="about" class="form-control" name="address2" placeholder="Enter address line 2" value="<?php echo $data['address2']; ?>" >
-                </div><!-- form group -->
-            </div>
-            </div><!-- row -->
-            <div class="row row-sm">
-            <div class="col-md-12 col-lg-12">
-                <div class="form-group">
-                <label class="form-control-label">City: <span class="tx-danger"></span></label>
-                <input type="text" id="about" class="form-control" name="city" placeholder="Enter city" value="<?php echo $data['city']; ?>" >
-                </div><!-- form group -->
-            </div>
-            </div><!-- row -->
-            <div class="row row-sm">
-            <div class="col-md-12 col-lg-6">
-                <div class="form-group">
-                <label class="form-control-label">Postcode: <span class="tx-danger"></span></label>
-                <input type="text" id="about" class="form-control" name="postcode" placeholder="Enter postcode" value="<?php echo $data['postcode']; ?>" >
-                </div><!-- form group -->
-            </div>
-            <div class="col-md-12 col-lg-6">
-                <div class="form-group">
-                <label class="form-control-label">State: <span class="tx-danger"></span></label>
-                <input type="text" id="about" class="form-control" name="state" placeholder="Enter state" value="<?php echo $data['state']; ?>" >
-                </div><!-- form group -->
-            </div>
-            </div><!-- row -->
-            <div class="row row-sm">
-            <div class="col-md-12 col-lg-12">
-                <div class="form-group">
                 <label class="form-control-label">About Me <span class="tx-danger"></span></label>
                 <input type="text" id="about" class="form-control" name="about" placeholder="About yourself" value="<?php echo $data['about']; ?>" >
                 </div><!-- form group -->
