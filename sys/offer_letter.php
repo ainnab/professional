@@ -163,7 +163,21 @@ body {
                 $new_date = date("d-m-Y", $timestamp);
                 $learningCentre=$row6['learningCentre'];
                 $Specialization=$row6['Specialization'];
-            
+
+          $sql7="SELECT * FROM contact where stud_ic='$ic'";
+          $result7=mysqli_query($dbconfig,$sql7);
+          $row7=mysqli_fetch_array($result7,MYSQLI_ASSOC);
+            $mailaddress=$row7['mailaddress'];
+            $postcode=$row7['postcode'];
+            $city=$row7['city'];
+            $state=$row7['state'];
+
+            $sql8="SELECT * FROM state_my where state_code='$state'";
+          $result8=mysqli_query($dbconfig,$sql8);
+          $row8=mysqli_fetch_array($result8,MYSQLI_ASSOC);
+            $state_name=$row8['state_name'];
+
+
             
         }
     
@@ -220,8 +234,8 @@ body {
 		<div>
 			<b>
             <dt class="p" ><?php echo strtoupper($name)?> (NO K/P:<?php echo $ic?>)</dt>
-			<dt class="p" ><?php echo strtoupper($address).', '. strtoupper($address2)?></dt>
-			<dt class="p" ><?php echo $postcode?> <?php echo strtoupper($city)?>, <?php echo strtoupper($state)?></dt>
+			<dt class="p" ><?php echo strtoupper($mailaddress)?></dt>
+			<dt class="p" ><?php echo $postcode?> <?php echo strtoupper($city)?>, <?php echo strtoupper($state_name)?></dt>
             </b>
 		</div>
         <div>
