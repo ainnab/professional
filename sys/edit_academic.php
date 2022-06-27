@@ -11,9 +11,9 @@
     $ic=$_SESSION['ic'];       
     $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
     while($data2 = mysqli_fetch_array($records)) { 
-       $stud_id = $_REQUEST['stud_id'];
           $role = $data2['role'];
-   $agent=$data2['stud_name']; 
+          $agent=$data2['stud_name']; 
+          $app_status = $data2['app_status'];
         include 'main_menu.php';
       
        }     
@@ -116,7 +116,6 @@ $records3 = mysqli_query($dbconfig,"select * from academic where stud_ic='$ic'")
 					<span class="help-block">*The maximum file size you can upload is 20MB</span>
 				</div>
 				</div>
-				  <input type='hidden' name='stud_id' value='<?php echo  $stud_id?>'>
 				<div class="modal-footer">
 					<a href="tab_academic.php"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					<button type="submit" name="update_new_acd" class="btn btn-primary">Update</button>

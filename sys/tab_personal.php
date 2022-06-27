@@ -99,7 +99,7 @@
       </div><!-- az-content-header -->
       <div class="az-content-body">
       <div class="row row-sm">
-      <div class="col-md-12 col-lg-12 col-xl-10">
+      <div class="col-md-12 col-lg-12 col-xl-12">
         <div class="card card-dashboard-seven">
           <div class="card-body">
             <p class="mg-b-20"></p>

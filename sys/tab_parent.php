@@ -96,7 +96,7 @@
       </div><!-- az-content-header -->
       <div class="az-content-body">
       <div class="row row-sm">
-      <div class="col-md-12 col-lg-12 col-xl-10">
+      <div class="col-md-12 col-lg-12 col-xl-12">
         <div class="card card-dashboard-seven">
           <div class="card-body">
             <p class="mg-b-20"></p>
@@ -197,7 +197,7 @@
 <?php } ?>
 <div class="col-lg-12 text-right">
             <div class="form-group m-b-0">
-                    <button type="submit" name="submit_personal"  class="btn btn-lg btn-primary waves-effect waves-light">
+                    <button type="submit" name="submit_parent"  class="btn btn-lg btn-primary waves-effect waves-light">
                         <i class="far fa-save"></i>&nbsp;&nbsp;Simpan
                     </button>
                     <button type="button" onclick="window.location.href = 'tab_workexp.php'" class="btn btn-lg btn-secondary waves-effect waves-light">

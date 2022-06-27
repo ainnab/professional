@@ -62,11 +62,6 @@ $race = $_POST['race'];
 $about = $_POST['about'];
 $height = $_POST['height'];
 $weight = $_POST['weight'];
-$add1 = strtoupper($_POST['address1']);
-$add2 = strtoupper($_POST['address2']);
-$postcode = $_POST['postcode'];
-$city = strtoupper($_POST['city']);
-$state = $_POST['state'];
 $nooku = $_POST['nooku'];
 $okutype = $_POST['okutype'];
 //$target2 = "sys/folder/" .basename($_FILES['file']['name']);
@@ -77,7 +72,7 @@ $okutype = $_POST['okutype'];
 
 
   $result="UPDATE student AS a SET";
-  $result.= " a.stud_name='$firstname', a.stud_nation='$nation', a.pob='$pob', a.gender='$gender',  a.about='$about',a.dob='$dob', a.marital='$marital', a.stud_race='$race', a.stud_religion='$religion', a.nooku='$nooku', a.okutype='$okutype', a.height='$height', a.weight='$weight', a.address1='$add1', a.address2='$add2', a.postcode='$postcode', a.city='$city', a.state='$state'";
+  $result.= " a.stud_name='$firstname', a.stud_nation='$nation', a.pob='$pob', a.gender='$gender',  a.about='$about',a.dob='$dob', a.marital='$marital', a.stud_race='$race', a.stud_religion='$religion', a.nooku='$nooku', a.okutype='$okutype', a.height='$height', a.weight='$weight'";
   $result.= " WHERE a.stud_ic='$id' ";
 
 
@@ -85,7 +80,7 @@ $okutype = $_POST['okutype'];
   //$res2=mysqli_query($dbconfig, $result);
     if(mysqli_query($dbconfig, $result) == TRUE){
         //$result2 = mysqli_query($dbconfig, $result2);
-        echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_parent.php';</script>";
+        echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_personal.php';</script>";
 
     } else{
         echo "ERROR: Hush! Sorry $result. " 
@@ -110,21 +105,13 @@ $occupation2 = $_POST['occupationStatus1'];
 $income = $_POST['income'];
 $household = $_POST['household'];
 
-
-
-
     $result="UPDATE parent SET";
     $result.= " p1_name='$name1', p1_ic='$ic1', p1_occupation='$occupation1',p2_name='$name2', p2_ic='$ic2', p2_occupation='$occupation2',household='$household',income ='$income' ";
     $result.= " WHERE stud_ic='$ic'";
 
-    //$result2="UPDATE data_ptmk SET";
-    //$result2.= " NAMA='$id', EMAIL='$email', TELBIMBIT='$phone', TELEFON='$home', WARGA_JPN='$nation', TMPTLAHIR='$pob', JANTINA_JPN='$gen', UMUR='$age', TRKLAHIR_JPN='$dob', KAHWIN='$mar', KAUM_JPN='$race', AGAMA_JPN='$rel', ALAM1='$add1', ALAM2='$add2', BANDAR='$city', POSKOD='$postcode', NEGERI='$state', NOOKU='$nooku', JENCACAT='$okutype'";
-    //$result2.= " WHERE NOKP='$ic'";
-
-    //$res2=mysqli_query($dbconfig, $result);
     if(mysqli_query($dbconfig, $result) == TRUE){
         //$result2 = mysqli_query($dbconfig, $result2);
-        echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test.php?id=$id';</script>";
+        echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_parent.php';</script>";
     } else{
         echo "ERROR: Hush! Sorry $result. " 
             . mysqli_error($dbconfig);
@@ -133,6 +120,29 @@ $household = $_POST['household'];
 
 }
 
+if (isset($_POST['submit_contact'])) {
+  
+  $email = $_POST['email'];
+  $phone = $_POST['phone'];
+  $home = $_POST['home'];
+  $mailadd = $_POST['mailaddress'];
+  $postcode = $_POST['postcode'];
+  $city = $_POST['city'];
+  $state = $_POST['state'];
+  $country = $_POST['country'];
+  $ic = $_POST['stud_ic'];
+
+
+  $sql = "UPDATE contact SET email = '$email', phone = '$phone', home = '$home', mailaddress = '$mailadd', 
+          postcode = '$postcode', city = '$city', stud_state = '$state', country = '$country' WHERE stud_ic = '$ic'";
+  
+  if (mysqli_query($dbconfig, $sql) == TRUE) {
+    echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_contact.php?id=$ic';</script>";
+  } else{
+      echo "ERROR: Hush! Sorry $result. " 
+          . mysqli_error($dbconfig);
+  }
+}
 
 if (isset($_POST['submit_new_acd'])) {
 
@@ -143,35 +153,41 @@ $startYear = $_POST['startYear'];
 $gainYear = $_POST['gainYear'];
 $level = $_POST['level'];
 $major = $_POST['major'];
-
-
-
-//$target2 = "../sys/folder/academic/".basename($_FILES['fileA']['name']);
-
+$ic = $_POST['stud_ic'];
 $fileA = $_FILES['fileA']['name'];
-
-$newfilename=$stud_id."_".$fileA;
+$newfilename=$ic."_".$fileA;
 $target2 = "../sys/folder/academic/";
 $target_file = $target2 . basename($newfilename);
 
+if (empty($fileA)) {
+  $query = "INSERT INTO academic (stud_ic,edu_type,edu_school,edu_start,edu_end,edu_gred,edu_major) VALUES ('$ic','$edu_type','$edu_school','$startYear','$gainYear','$level','$major')";
 
-     $query = "INSERT INTO academic (stud_ic,edu_type,edu_school,edu_start,edu_end,edu_gred,edu_major,fileA) VALUES ('$stud_id','$edu_type','$edu_school','$startYear','$gainYear','$level','$major','$newfilename')";
+
+  if(mysqli_query($dbconfig, $query) == TRUE){
+  echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_workexp.php';</script>";
+
+   } else{
+       echo "ERROR: Hush! Sorry $result. " 
+           . mysqli_error($dbconfig);
+   }
+}else{
+
+  $query = "INSERT INTO academic (stud_ic,edu_type,edu_school,edu_start,edu_end,edu_gred,edu_major,fileA) VALUES ('$ic','$edu_type','$edu_school','$startYear','$gainYear','$level','$major','$newfilename')";
 
 
    if(mysqli_query($dbconfig, $query) == TRUE){
     move_uploaded_file($_FILES['fileA']['tmp_name'], $target_file);
-   echo $fileA; 
-   echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test.php?id=$id';</script>";
+   echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_workexp.php';</script>";
 
     } else{
         echo "ERROR: Hush! Sorry $result. " 
             . mysqli_error($dbconfig);
     }
+  } 
 }
 if (isset($_POST['update_new_acd'])) { 
 
 $id = $_REQUEST['id'];
-$studid = $_REQUEST['stud_id'];
 $edu_type = $_POST['edu_type'];
 $edu_school = $_POST['edu_school'];
 $startYear = $_POST['startYear'];
@@ -181,7 +197,7 @@ $major = $_POST['major'];
 
 $fileA_update = $_FILES['fileA']['name'];
 //$extension=end(explode(".", $fileA));
-$newfilename=$studid."_".$fileA_update;
+$newfilename=$fileA_update;
 $target2 = "../sys/folder/academic/";
 $target_file = $target2 . basename($newfilename);
 
@@ -190,17 +206,18 @@ $target_file = $target2 . basename($newfilename);
 
   if (empty($fileA_update)) {
 
-  $sql1= "UPDATE academic SET edu_type = '$edu_type', edu_school = '$edu_school', edu_start = '$startYear', edu_end= '$gainYear', edu_gred = '$level', edu_major = '$major',fileA = '$newfilename' where id = ' $id'";
+  $sql1= "UPDATE academic SET edu_type = '$edu_type', edu_school = '$edu_school', edu_start = '$startYear', edu_end= '$gainYear', edu_gred = '$level', 
+  edu_major = '$major' where id = ' $id'";
 
 
 
-    if ($dbconfig->multi_query($sql1) == TRUE) {
+      if ($dbconfig->multi_query($sql1) == TRUE) {
 
-          echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test.php?id=$studid';</script>";
-    }else
-    {
-          echo "<script>alert('Tidak dapat diproses');</script>";
-    }
+            echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'edit_academic.php?id=$id';</script>";
+      }else
+      {
+            echo "<script>alert('Tidak dapat diproses');</script>";
+      }
   }else {
 
      $sql2= "UPDATE academic SET edu_type = '$edu_type', edu_school = '$edu_school', edu_start = '$startYear', edu_end= '$gainYear', edu_gred = '$level', edu_major = '$major', fileA = '$newfilename' where id = '$id'";
@@ -211,10 +228,8 @@ $target_file = $target2 . basename($newfilename);
       if ($dbconfig->multi_query($sql2) == TRUE) {
 
             move_uploaded_file($_FILES['fileA']['tmp_name'], $target_file);
-            echo "<script>alert('Data updated');</script>";
-            //window.close();
-        
-            // echo "<script>window.location.assign('status_inst.php')</script>";
+            echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'edit_academic.php?id=$id';</script>";
+
       }else
       {
             echo "<script>alert('Tidak dapat diproses');</script>";

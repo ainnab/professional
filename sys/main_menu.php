@@ -107,7 +107,7 @@
             </ul>
  -->
 
-              <ul class="nav">
+        <ul class="nav">
         <li class="nav-label">Main Menu</li>
           <li class="nav-item show  ">
           <a href="dashboard_agent.php" class="nav-link"><i class="typcn typcn-document"></i>Dashboard</a>
@@ -125,10 +125,6 @@
 }
 
 if ($role == 'student' ){?>
-
-
-
-
 
         <ul class="nav">
           <li class="nav-label">Main Menu</li>
@@ -157,7 +153,7 @@ if ($role == 'student' ){?>
             <ul class="nav-sub">
 
               <li class="nav-sub-item"><a href="view_submission.php" class="nav-sub-link">View submission</a></li>
-              <?php if($app_status=='Approved'){?>
+              <?php if($app_status == 'Approved'){?>
               <li class="nav-sub-item"><a href="view_status.php" class="nav-sub-link">View status</a></li>
               <?php }?>
             </ul>
@@ -185,16 +181,6 @@ if ($role == 'student' ){?>
 
       </div><!-- az-sidebar-body -->
     </div><!-- az-sidebar -->
-
-
-
-
-
-
-
-
-
-
 
 
     <div class="az-content az-content-dashboard-two">

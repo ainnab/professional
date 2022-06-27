@@ -53,6 +53,7 @@
        $role = $data2['role'];
         $agent=$data2['stud_name']; 
         $app_status = $data2['app_status'];
+        $ic = $data2['stud_ic'];
         include 'main_menu.php';
      
        }     
@@ -74,7 +75,7 @@ $records3 = mysqli_query($dbconfig,"select * from academic where stud_ic='$ic'")
       </div><!-- az-content-header -->
       <div class="az-content-body">
       <div class="row row-sm">
-      <div class="col-md-12 col-lg-12 col-xl-10">
+      <div class="col-md-12 col-lg-12 col-xl-12">
   <div class="card card-dashboard-seven">
     <div class="card-body">
     <button type="button" class="btn btn-rounded btn-warning" data-toggle="modal" data-target="#addEdu">
@@ -90,7 +91,7 @@ $records3 = mysqli_query($dbconfig,"select * from academic where stud_ic='$ic'")
                       </div>
                       <form action="save_personal.php" method="POST" enctype="multipart/form-data">
                         <div class="modal-body">
-
+                          <input type="text" name="stud_ic" value="<?php echo $ic; ?>" hidden>
                           <div class="form-group">
                         <label for="edu_type">Type</label>
                         <select name="edu_type" class="form-control" required="">

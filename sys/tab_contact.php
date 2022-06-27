@@ -57,13 +57,14 @@
       </div><!-- az-content-header -->
       <div class="az-content-body">
       <div class="row row-sm">
-      <div class="col-md-12 col-lg-12 col-xl-10">
+      <div class="col-md-12 col-lg-12 col-xl-12">
         <div class="card card-dashboard-seven">
           <div class="card-body">
             <p class="mg-b-20"></p>
             <form action="save_personal.php" method="post">
             <div class="row row-sm">
             <div class="col-md-12 col-lg-12">
+              <input type="text" name="stud_ic" value="<?php echo $data['stud_ic']?>" hidden>
                 <div class="form-group">
                 <label class="form-control-label">Email: <span class="tx-danger">*</span></label>
                 <input id="email" class="form-control" name="email" type="text" value="<?php echo $data['email']; ?>" required>
@@ -110,7 +111,7 @@
                 <select name="state" class="form-control select2" required>
                 <option value="NULL">Select</option>
                 <?php while ($state2 = mysqli_fetch_array($all_state2,MYSQLI_ASSOC)):; ?>
-                <option value="<?php echo $state2["state_code"];?>"<?php if($state2["state_code"]==$data['state']) echo 'selected="selected"'; ?>><?php echo $state2["state_name"];?></option>
+                <option value="<?php echo $state2["state_code"];?>"<?php if($state2["state_code"]==$data['stud_state']) echo 'selected="selected"'; ?>><?php echo $state2["state_name"];?></option>
                 <?php endwhile; ?>
                 </select>
                 </div><!-- form group -->
@@ -126,7 +127,7 @@
             <?php } ?>
                 <div class="col-lg-12 text-right">
             <div class="form-group m-b-0">
-                    <button type="submit" name="submit_personal"  class="btn btn-lg btn-primary waves-effect waves-light">
+                    <button type="submit" name="submit_contact"  class="btn btn-lg btn-primary waves-effect waves-light">
                         <i class="far fa-save"></i>&nbsp;&nbsp;Simpan
                     </button>
                     <button type="button" onclick="window.location.href = 'tab_parent.php'" class="btn btn-lg btn-secondary waves-effect waves-light">
@@ -140,27 +141,6 @@
             </div><!-- card-body -->
         </div><!-- card -->
     </div><!-- col -->
-    <div class="col-md-2 col-xl-2 mg-t-2 mg-md-t-2">
-            <div class="card card-dashboard-seven">
-            <div class="card-body">
-              <?php 
-              $sql_1 = "SELECT * FROM contact WHERE stud_ic = '$ic'";
-              $result_1 = mysqli_query($dbconfig, $sql_1);
-              while($row11 = mysqli_fetch_row($result_1)){
-                  $empty_count = 0;
-                  $count = count($row11);
-                  for($i = 0; $i < $count; $i++)
-                      if($row11[$i] === '' || $row11[$i] === 'NULL'|| $row11[$i] === ' ')
-                          $empty_count++;
-                      $percent = (int)(100*(1-$empty_count/($count-1)));
-              }
-              ?>
-                <p>Complete</p>
-                <?php echo $percent.'%'; ?>
-                <div class="progress mg-b-20">
-            <div style="width: <?php echo $percent.'%'; ?>;height: 30px;background-color: #4CAF50;text-align: center;line-height: 30px;color: white;" role="progressbar" aria-valuenow="<?php echo $percent; ?>" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-            </div></div></div>
   </div><!-- row -->
       <div class="az-footer ht-40">
         <div class="container-fluid pd-t-0-f ht-100p">
