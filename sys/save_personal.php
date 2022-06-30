@@ -237,6 +237,13 @@ $target_file = $target2 . basename($newfilename);
   }
 }
 
+if (isset($_POST['submit_workexp'])) {
+  
+  $name = $_POST['filename'];
+  $file = $_FILES['filename']['name'];
+  $target = "folder/workExp/" .basename($_FILES['filename']['name']);
+}
+
 if(isset($_GET['deleteacd']))
       {
 
@@ -245,21 +252,21 @@ if(isset($_GET['deleteacd']))
                 {
 
                   echo "<script>alert('Successfully delete');</script>";
-                 echo "<script>window.location.assign('status_inst.php')</script>";
+                 echo "<script>window.location.assign('tab_workexp.php')</script>";
                 }
 
                 else
                 {
                   echo"<script>alert('Tidak dapat diproses');</script>";
-                  echo "<script>window.location.assign('status_inst.php')</script>";
-             }
+                  echo "<script>window.location.assign('tab_workexp.php')</script>";
+                }
  }
 
 
 if (isset($_POST['submit_new_work'])) {
 
 
-
+$ic = $_POST['stud_ic'];
 $type = $_POST['type'];
 $wrkPostion = $_POST['wrkPostion'];
 $edu_start = $_POST['edu_start'];
@@ -275,18 +282,19 @@ $wrkPostion4 = $_POST['wrkPostion4'];
 //$target2 = "folder/workExp/" .basename($_FILES['fileWork']['name']);
 
 $fileWork = $_FILES['fileWork']['name'];
-$newfilenameW=$stud_id."_".$fileWork;
+$newfilenameW=$ic."_".$fileWork;
 $target2 = "../sys/folder/workExp/";
 $target_file = $target2 . basename($newfilenameW);
 
 
-     $queryW = "INSERT INTO working_experience (stud_ic,type,position,year_start,year_end,category,organization,employer_name,employer_address,job_scope,significant,fileWork) VALUES ('$stud_id','$type','$wrkPostion','$edu_start','$edu_end','$edu_gred','$edu_major','$wrkPostion1','$wrkPostion2',
+     $queryW = "INSERT INTO working_experience (stud_ic,type,position,year_start,year_end,category,organization,employer_name,employer_address,job_scope,significant,fileWork) VALUES 
+     ('$ic','$type','$wrkPostion','$edu_start','$edu_end','$edu_gred','$edu_major','$wrkPostion1','$wrkPostion2',
        '$wrkPostion3','$wrkPostion4','$newfilenameW')";
 
 
    if(mysqli_query($dbconfig, $queryW) == TRUE){
     move_uploaded_file($_FILES['fileWork']['tmp_name'], $target_file);
-     //echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_workexp.php';</script>";
+     echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_workexp.php';</script>";
 
     } else{
         echo "ERROR: Hush! Sorry $result. " 
@@ -376,19 +384,15 @@ if(isset($_GET['deletewrk']))
 if (isset($_POST['submit_new_doc'])) {
 
 $filename = $_POST['filename'];
-
-
 $fileDoc = $_FILES['fileDoc']['name'];
-$newfilenameD=$stud_id."_".$fileDoc;
-$target2 = "../sys/folder/upload/";
-$target_file = $target2 . basename($newfilenameD);
+$target = "folder/workExp/" .basename($_FILES['fileDoc']['name']);
+$ic = $_POST['stud_ic'];
 
-     $query = "INSERT INTO document (stud_ic,file_name,fileDoc) VALUES ('$stud_id','$filename','$fileDoc')";
-
+  $query = "INSERT INTO document (stud_ic,namaFail,fileDoc) VALUES ('$ic','$filename','$fileDoc')";
 
    if(mysqli_query($dbconfig, $query) == TRUE){
-    move_uploaded_file($_FILES['fileDoc']['tmp_name'], $target_file);
-    // echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_upload.php';</script>";
+    move_uploaded_file($_FILES['fileDoc']['tmp_name'], $target);
+    echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_upload.php';</script>";
 
     } else{
         echo "ERROR: Hush! Sorry $result. " 
@@ -400,36 +404,33 @@ $target_file = $target2 . basename($newfilenameD);
 if (isset($_POST['update_new_doc'])) { 
 
 $id = $_REQUEST['id'];
-$studid = $_REQUEST['stud_id'];
-
-$filename = $_REQUEST['filename'];
-
+$filename = $_REQUEST['namaFail'];
 $fileDoc_update = $_FILES['fileDoc']['name'];
-$newfilenameD=$stud_id."_".$fileDoc_update;
+$newfilenameD=$id."_".$fileDoc_update;
 $target2 = "../sys/folder/upload/";
 $target_file = $target2 . basename($newfilenameD);
 
   if (empty($fileDoc_update)) {
 
-  $sql1= "UPDATE document SET file_name = '$filename' where id = '$id'";
+  $sql1= "UPDATE document SET namaFail = '$filename' where id = '$id'";
 
     if ($dbconfig->multi_query($sql1) == TRUE) {
 
           echo "<script>alert('Data updated');</script>";
-          //echo "<script>window.location.assign('tab_upload.php')</script>";
+          echo "<script>window.location.assign('tab_upload.php')</script>";
     }else
     {
           echo "<script>alert('Tidak dapat diproses');</script>";
     }
   }else {
 
-     $sql2= "UPDATE document SET file_name = '$filename', fileDoc = '$fileDoc_update' where id = '$id'";
+     $sql2= "UPDATE document SET namaFail = '$filename', fileDoc = '$fileDoc_update' where id = '$id'";
 
       if ($dbconfig->multi_query($sql2) == TRUE) {
 
             move_uploaded_file($_FILES['fileDoc']['tmp_name'], $target_file);
             echo "<script>alert('Data updated');</script>";
-            //echo "<script>window.location.assign('tab_upload.php')</script>";
+            echo "<script>window.location.assign('tab_upload.php')</script>";
       }else
       {
             echo "<script>alert('Tidak dapat diproses');</script>";
@@ -532,15 +533,15 @@ if (isset($_POST['enrol'])) {
     {
     $sql = "UPDATE student (stud_ic,app_option,app_status) VALUES ('$ic','1','Submitted')";
 
-    /*$result="UPDATE student AS a SET";
+    $result="UPDATE student AS a SET";
     $result.= " a.app_option='1', a.app_status='Submitted'";
-    $result.= " WHERE a.stud_ic='$stud_id'";
+    $result.= " WHERE a.stud_ic='$ic'";
 
 
   if(mysqli_query($dbconfig, $result) == TRUE){
-     //echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'view_submission.php';</script>";
+     echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'view_submission.php';</script>";
 
-    }*/
+    }
     
   } else{
         /*echo "ERROR: Hush! Sorry. " 

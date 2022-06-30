@@ -770,8 +770,8 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                     </div>
 
                                                                 </div>
-                                                                <input type='hidden' name='id'
-                                                                    value=<?php echo  $stud_id?>>
+                                                                <input type='hidden' name='stud_ic'
+                                                                    value=<?php echo  $ic?>>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-default"
                                                                         data-dismiss="modal">Close</button>

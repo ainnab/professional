@@ -73,7 +73,7 @@ $records3 = mysqli_query($dbconfig,"select * from academic where stud_ic='$ic'")
 </div><!-- az-content-header -->
 <div class="az-content-body">
 <div class="row row-sm">
-<div class="col-md-12 col-lg-12 col-xl-10">
+<div class="col-md-12 col-lg-12 col-xl-12">
   <div class="card card-dashboard-seven">
     <div class="card-body">
     <button type="button" class="btn btn-rounded btn-warning" data-toggle="modal" data-target="#addEdu">

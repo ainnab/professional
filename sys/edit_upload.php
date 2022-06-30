@@ -11,9 +11,10 @@
     $ic=$_SESSION['ic'];       
     $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
     while($data2 = mysqli_fetch_array($records)) { 
-        $stud_id = $_REQUEST['stud_id'];
-         $role = $data2['role'];
-   $agent=$data2['stud_name']; 
+        $stud_id = $_GET['id'];
+        $role = $data2['role'];
+        $agent=$data2['stud_name']; 
+        $app_status = $data2['app_status'];
         include 'main_menu.php';
       
        }     
@@ -34,7 +35,7 @@ $records3 = mysqli_query($dbconfig,"select * from document where stud_ic='$ic'")
 </div><!-- az-content-header -->
 <div class="az-content-body">
 <div class="row row-sm">
-<div class="col-md-12 col-lg-12 col-xl-10">
+<div class="col-md-12 col-lg-12 col-xl-12">
   <div class="card card-dashboard-seven">
     <div class="card-body">
     
@@ -48,7 +49,7 @@ $records3 = mysqli_query($dbconfig,"select * from document where stud_ic='$ic'")
                         $sql4=mysqli_query($dbconfig,"select * from document where id='$id'");
                         while($row=mysqli_fetch_array($sql4))
                         {
-                          $filename = $row['file_name'];
+                          $filename = $row['namaFail'];
 
                         ?>
                         <input type="text" name="id" value="<?php echo $row['id']; ?>" hidden>
@@ -56,14 +57,14 @@ $records3 = mysqli_query($dbconfig,"select * from document where stud_ic='$ic'")
 
                         <div class="form-group">
                           <label>Filename:</label>
-                            <select name="filename" id="filename" class="form-control">
-                            <option value="filename" selected disabled="" style="font-size:14px;">Please select</option>
+                            <select name="namaFail" id="namaFail" class="form-control">
+                            <option value="namaFail" selected disabled="" style="font-size:14px;">Please select</option>
                             <?php $sql1 = "SELECT * FROM document_type";
                             $result1 = mysqli_query($dbconfig, $sql1) or die("database error:". mysqli_error($dbconfig));
                             while( $row1 = mysqli_fetch_assoc($result1) ) {
                                 $docname=$row1['document_name'];
                                 ?>
-                                <option value="<?php echo $row1["document_name"];?>"<?php if($row1["document_name"]==$row['file_name']) echo 'selected="selected"'; ?>><?php echo $row1["document_name"];?></option> 
+                                <option value="<?php echo $row1["document_name"];?>"<?php if($row1["document_name"]==$row['namaFail']) echo 'selected="selected"'; ?>><?php echo $row1["document_name"];?></option> 
                                 <?php } ?>
                             </select>
                       </div>
@@ -72,8 +73,6 @@ $records3 = mysqli_query($dbconfig,"select * from document where stud_ic='$ic'")
                             <a href="folder/workExp/<?php echo $row['fileDoc']; ?>" target="_blank"><?php echo $row['fileDoc']; ?></a>
                             <span class="help-block">*The maximum file size you can upload is 30MB</span>
                           </div>
-
-                        </div> <input type='hidden' name='stud_id' value='<?php echo  $stud_id?>'>
                         <div class="modal-footer">
                           <a href="tab_upload.php"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                           <button type="submit" name="update_new_doc" class="btn btn-primary">Update</button>
