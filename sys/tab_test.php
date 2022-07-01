@@ -521,7 +521,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                             <?php  ?>
 
                                             <div class="form-group m-b-0">
-                                                <button type="submit" name="submit_personal"
+                                                <button type="submit" name="submit_personal_rk"
                                                     class="btn btn-lg btn-primary waves-effect waves-light">
                                                     <i class="far fa-save"></i>&nbsp;&nbsp;Simpan
                                                 </button>
@@ -664,7 +664,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                             <input type='hidden' name='id' value=<?php echo  $stud_id?>>
 
                                             <div class="form-group m-b-0">
-                                                <button type="submit" name="submit_parent"
+                                                <button type="submit" name="submit_parent_rk"
                                                     class="btn btn-lg btn-primary waves-effect waves-light">
                                                     <i class="far fa-save"></i>&nbsp;&nbsp;Simpan
                                                 </button>
@@ -772,10 +772,11 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                 </div>
                                                                 <input type='hidden' name='stud_ic'
                                                                     value=<?php echo  $ic?>>
+                                                                
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-default"
                                                                         data-dismiss="modal">Close</button>
-                                                                    <button type="submit" name="submit_new_acd"
+                                                                    <button type="submit" name="submit_new_acd_rk"
                                                                         class="btn btn-primary">Save</button>
                                                                 </div>
                                                             </form>
@@ -823,7 +824,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
 
 
                                                                         <a
-                                                                            href="edit_academic.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>"><button
+                                                                            href="edit_academic_rk.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>"><button
                                                                                 name="update"
                                                                                 class="btn btn-primary btn-md">Edit</button></a>
                                                                         <a href="save_personal.php?id=<?php echo $row['id']?>&deleteacd=delete"
@@ -1095,7 +1096,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
 
                                                                         <div class="form-group">
                                                                             <label>Filename:</label>
-                                                                            <select name="filename"
+                                                                            <select name="namaFail"
                                                                                 class="form-control">
                                                                                 <option value=" " selected disabled=""
                                                                                     style="font-size:14px;">Please
@@ -1162,7 +1163,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                           ?>
                                                                     <tr>
                                                                         <td><?php echo htmlentities($cnt);?></td>
-                                                                        <td><?php echo htmlentities (ucwords($row['file_name']));?>
+                                                                        <td><?php echo htmlentities (ucwords($row['namaFail']));?>
                                                                         </td>
                                                                         <td><a href="folder/workExp/<?php echo $row["fileDoc"]; ?>"
                                                                                 target="_blank"><?php echo $row["fileDoc"]; ?>
