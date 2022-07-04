@@ -62,9 +62,6 @@
        
     ?>
     <?php     
-    $sql31 = "SELECT * FROM `spm_subject`";
-    $all_sub = mysqli_query($dbconfig,$sql31);
-    $sql32 = "SELECT * FROM `spm_grade`";  
     $records3 = mysqli_query($dbconfig,"select * from application where stud_ic='$ic'"); 
     while($data = mysqli_fetch_array($records3)) {   
 
@@ -108,11 +105,15 @@
                     <div class="form-group">
                         <label>Email</label>
                         <input type="email" class="form-control" name="email" placeholder="Enter email">
-                    </div><!-- form-group -->
-                    <!-- <div class="form-group">
-              <label>Password</label>
-              <input type="password" class="form-control" name="password" placeholder="Enter your password">
-            </div>form-group -->
+                    </div>
+                    <div class="form-group">
+                        <label for="">Mode Admission</label>
+                        <select name="modeAds" id="" class="form-control">
+                            <option value="NULL">PLEASE SELECT</option>
+                            <option value="ROPE">ROPE</option>
+                            <option value="NORMAL">NORMAL</option>
+                        </select>
+                    </div>
                     <button class="btn btn-az-primary btn-block" type="submit" name="submit_student">Create
                         Account</button>
 

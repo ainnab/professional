@@ -121,7 +121,7 @@ $i = 0;
 
 
 
-  $query = "SELECT * FROM `student`  where  agent='$agent'";
+  $query = "SELECT * FROM `student`  where  agent='$agent' AND modeAds ='NORMAL'";
 
                              $app=mysqli_query($dbconfig,$query);
 
@@ -175,21 +175,6 @@ $i++;
               </tbody>
             </table>
                       </div>
-        </div>
-      </div>
-    </div>
-</div>
-<div id="accordion" class="accordion" role="tablist" aria-multiselectable="true">
-  <div class="card">
-    <div class="card-header" role="tab" id="headingTwo">
-      <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        List of Submitted and Processed Student
-      </a>
-    </div>
-    <div id="collapseTwo" class="collapse" data-parent="#accordion" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="card-body">
-        <div class="col-6 col-md-4 col-xl-11">
-                    No result found          </div>
         </div>
       </div>
     </div>

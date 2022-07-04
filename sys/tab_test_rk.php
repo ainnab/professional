@@ -132,6 +132,8 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
    $records4 = mysqli_query($dbconfig,"select * from document where stud_ic='$stud_id'");
     ?>
 </head>
+
+
 <?php
     if(!isset($_SESSION))
     {
@@ -149,7 +151,6 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
       }
 
     ?>
-
         <head>
 
             <style>
@@ -222,18 +223,12 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                             Experience</button>
                                         <button class="tablinks" onclick="openCity(event, 'Upload')">Upload
                                             Document</button>
+                                        <button class="tablinks" onclick="openCity(event, 'Certificate')">Upload
+                                            Certificate</button>
                                         <button class="tablinks"
                                             onclick="openCity(event, 'Declaration')">Declaration</button>
 
                                     </div>
-
-
-
-
-
-
-
-
 
 
                                     <div id="Personal" class="tabcontent">
@@ -443,9 +438,9 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                         </br>
                                         <form action="save_personal.php" method="post">
                                             <?php while($data2 = mysqli_fetch_array($records2)) {
-                                  $occupationStatus = $data2['p1_occupation'];
-                                  $occupationStatus1 = $data2['p2_occupation'];
-                                  ?>
+                                            $occupationStatus = $data2['p1_occupation'];
+                                            $occupationStatus1 = $data2['p2_occupation'];
+                                            ?>
                                             <p class="mg-b-20"></p>
                                             <div class="row row-sm">
                                                 <div class="col-md-12 col-lg-12">
@@ -677,7 +672,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                 </div>
                                                                 <input type='hidden' name='stud_ic'
                                                                     value=<?php echo  $ic?>>
-                                                                
+
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-default"
                                                                         data-dismiss="modal">Close</button>
@@ -974,496 +969,625 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                     <div id="Upload" class="tabcontent">
                                         </br>
                                         <h3>Upload Document</h3>
-                                        <center>
+                                        <div class="card card-dashboard-seven">
+                                            <div class="card-body">
+                                                <button type="button" class="btn btn-rounded btn-warning"
+                                                    data-toggle="modal" data-target="#addDoc">
+                                                    <i class="fa fa-plus"></i>
+                                                    Add
+                                                </button>
+                                                <div class="modal fade" id="addDoc" tabindex="-1" role="dialog"
+                                                    aria-labelledby="myModalLabel" aria-hidden="true"
+                                                    style="display: none;">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close"><span
+                                                                        aria-hidden="true">×</span></button>
+                                                                <h4 class="modal-title" id="myModalLabel">New
+                                                                </h4>
+                                                            </div>
+                                                            <form action="save_personal.php" method="POST"
+                                                                enctype="multipart/form-data">
+                                                                <div class="modal-body">
 
-                                            <div class="card card-dashboard-seven">
-                                                <div class="card-body">
-                                                    <button type="button" class="btn btn-rounded btn-warning"
-                                                        data-toggle="modal" data-target="#addDoc">
-                                                        <i class="fa fa-plus"></i>
-                                                        Add
-                                                    </button>
-                                                    <div class="modal fade" id="addDoc" tabindex="-1" role="dialog"
-                                                        aria-labelledby="myModalLabel" aria-hidden="true"
-                                                        style="display: none;">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <button type="button" class="close"
-                                                                        data-dismiss="modal" aria-label="Close"><span
-                                                                            aria-hidden="true">×</span></button>
-                                                                    <h4 class="modal-title" id="myModalLabel">New
-                                                                    </h4>
+                                                                    <div class="form-group">
+                                                                        <label>Filename:</label>
+                                                                        <select name="namaFail" class="form-control">
+                                                                            <option value=" " selected disabled=""
+                                                                                style="font-size:14px;">Please
+                                                                                select</option>
+                                                                            <?php $sql11 = "SELECT * FROM document_type";
+                                                    $result11 = mysqli_query($dbconfig, $sql11) or die("database error:". mysqli_error($dbconfig));
+                                                    while( $row11 = mysqli_fetch_assoc($result11) ) {
+                                                        $docname=$row11['document_name'];
+                                                        ?>
+                                                                            <option value="<?php echo $docname; ?>">
+                                                                                <?php echo ucwords($docname); ?>
+                                                                            </option>
+                                                                            <?php } ?>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <input type="file" class="form-control"
+                                                                            id="fileDoc" name="fileDoc" required>
+                                                                        <span class="help-block">*The maximum
+                                                                            file size you can upload is
+                                                                            30MB</span>
+                                                                    </div>
+
                                                                 </div>
-                                                                <form action="save_personal.php" method="POST"
-                                                                    enctype="multipart/form-data">
-                                                                    <div class="modal-body">
+                                                                <input type='hidden' name='id'
+                                                                    value=<?php echo  $stud_id?>>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-default"
+                                                                        data-dismiss="modal">Close</button>
+                                                                    <button type="submit" name="submit_new_doc"
+                                                                        class="btn btn-primary">Save</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <form action="save_personal.php" method="post">
 
-                                                                        <div class="form-group">
-                                                                            <label>Filename:</label>
-                                                                            <select name="namaFail"
-                                                                                class="form-control">
-                                                                                <option value=" " selected disabled=""
-                                                                                    style="font-size:14px;">Please
-                                                                                    select</option>
-                                                                                <?php $sql11 = "SELECT * FROM document_type";
-                            $result11 = mysqli_query($dbconfig, $sql11) or die("database error:". mysqli_error($dbconfig));
-                            while( $row11 = mysqli_fetch_assoc($result11) ) {
-                                $docname=$row11['document_name'];
-                                ?>
-                                                                                <option value="<?php echo $docname; ?>">
-                                                                                    <?php echo ucwords($docname); ?>
-                                                                                </option>
-                                                                                <?php } ?>
-                                                                            </select>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <input type="file" class="form-control"
-                                                                                id="fileDoc" name="fileDoc" required>
-                                                                            <span class="help-block">*The maximum
-                                                                                file size you can upload is
-                                                                                30MB</span>
-                                                                        </div>
 
+
+                                                    <?php  ?>
+                                                </form><br>
+                                                <div class="module">
+                                                    <div class="module-body table">
+                                                        <table cellpadding="0" cellspacing="0" border="0"
+                                                            class="datatable-1 table table-bordered table-striped  display"
+                                                            width="100%">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>File Name</th>
+                                                                    <th>Document Upload</th>
+                                                                    <th>Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+
+                                                                <?php $sql3=mysqli_query($dbconfig,"SELECT * FROM document WHERE stud_ic = '$stud_id'");
+                                                        $cnt=1;
+                                                        while($row=mysqli_fetch_array($sql3)){
+                                                            $id=$row['id'];
+
+                                                        {
+                                                        ?>
+                                                                        <tr>
+                                                                    <td><?php echo htmlentities($cnt);?></td>
+                                                                    <td><?php echo htmlentities (ucwords($row['namaFail']));?>
+                                                                    </td>
+                                                                    <td><a href="folder/workExp/<?php echo $row["fileDoc"]; ?>"
+                                                                            target="_blank"><?php echo $row["fileDoc"]; ?>
+                                                                    </td>
+                                                                    <td>
+
+
+                                                                        <a
+                                                                            href="edit_upload.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>"><button
+                                                                                name="update"
+                                                                                class="btn btn-primary btn-md">Edit</button></a>
+                                                                        <a href="save_personal.php?id=<?php echo $row['id']?>&deletedoc=delete"
+                                                                            onClick="return confirm('Are you sure you want to delete?')"><button
+                                                                                type="submit" name="deletedoc"
+                                                                                id="btn-submit"
+                                                                                class="btn btn-primary btn-md">Delete</button></a>
+                                                                    </td>
+
+                                                                    <!--  <i class="icon-remove-sign"></i> -->
+                                                                </tr>
+                                                                <?php $cnt=$cnt+1;
+                                                    }
+                                                }
+                                                ?>
+
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 text-right">
+                                                    <div class="form-group m-b-0">
+                                                        <button type="submit" name="submit_workexp"
+                                                            class="btn btn-lg btn-primary waves-effect waves-light">
+                                                            <i class="far fa-save"></i>&nbsp;&nbsp;Simpan
+                                                        </button>
+
+                                                        </form>
+                                                        <br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        
+
+                                                <div id="Certificate" class="tabcontent">
+                                                    </br>
+                                                    <h3>Upload Certificate</h3>
+
+
+                                                    <div class="card card-dashboard-seven">
+                                                        <div class="card-body">
+                                                            <button type="button"
+                                                                class="btn btn-rounded btn-warning mr-0"
+                                                                data-toggle="modal" data-target="#addCert">
+                                                                <i class="fa fa-plus"></i>
+                                                                Add
+                                                            </button>
+                                                            <div class="modal fade" id="addCert" tabindex="-1"
+                                                                role="dialog" aria-labelledby="myModalLabel"
+                                                                aria-hidden="true" style="display: none;">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <button type="button" class="close"
+                                                                                data-dismiss="modal"
+                                                                                aria-label="Close"><span
+                                                                                    aria-hidden="true">×</span></button>
+                                                                            <h4 class="modal-title" id="myModalLabel">
+                                                                                New
+                                                                            </h4>
+                                                                        </div>
+                                                                        <form action="save_personal.php" method="POST"
+                                                                            enctype="multipart/form-data">
+                                                                            <div class="modal-body">
+                                                                                <div class="form-group">
+                                                                                    <input type="file"
+                                                                                        class="form-control"
+                                                                                        id="certDoc" name="certDoc"
+                                                                                        required>
+                                                                                    <span class="help-block">*The
+                                                                                        maximum
+                                                                                        file size you can upload is
+                                                                                        30MB</span>
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <input type='hidden' name='stud_ic'
+                                                                                value=<?php echo  $stud_id?>>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button"
+                                                                                    class="btn btn-default"
+                                                                                    data-dismiss="modal">Close</button>
+                                                                                <button type="submit"
+                                                                                    name="submit_new_certRK"
+                                                                                    class="btn btn-primary">Save</button>
+                                                                            </div>
+                                                                        </form>
                                                                     </div>
-                                                                    <input type='hidden' name='id'
-                                                                        value=<?php echo  $stud_id?>>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-default"
-                                                                            data-dismiss="modal">Close</button>
-                                                                        <button type="submit" name="submit_new_doc"
-                                                                            class="btn btn-primary">Save</button>
-                                                                    </div>
-                                                                </form>
+                                                                </div>
+                                                            </div>
+                                                            <form action="save_personal.php" method="post">
+
+
+
+                                                                <?php  ?>
+                                                            </form><br>
+                                                            <div class="module">
+                                                                <div class="module-body table">
+                                                                    <table cellpadding="0" cellspacing="0" border="0"
+                                                                        class="datatable-1 table table-bordered table-striped  display"
+                                                                        width="100%">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>#</th>
+                                                                                <th>Document Upload</th>
+                                                                                <th>Action</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+
+                                                                            <?php $sql3=mysqli_query($dbconfig,"SELECT * FROM certificate WHERE stud_ic = '$stud_id'");
+                                                            $cnt=1;
+                                                            while($row=mysqli_fetch_array($sql3)){
+                                                                $id=$row['id'];
+
+                                                            {
+                                                            ?>
+                                                                            <tr>
+                                                                                <td><?php echo htmlentities($cnt);?>
+                                                                                </td>
+                                                                                <td><a href="folder/workExp/<?php echo $row["certDoc"]; ?>"
+                                                                                        target="_blank"><?php echo $row["certDoc"]; ?>
+                                                                                </td>
+                                                                                <td>
+
+
+                                                                                    <a
+                                                                                        href="edit_cert_rk.php?id=<?php echo $row['id']?>"><button
+                                                                                            name="update"
+                                                                                            class="btn btn-primary btn-md">Edit</button></a>
+                                                                                    <a href="save_personal.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>&deletecertRK=delete"
+                                                                                        onClick="return confirm('Are you sure you want to delete?')"><button
+                                                                                            type="submit"
+                                                                                            name="deletecertRK"
+                                                                                            id="btn-submit"
+                                                                                            class="btn btn-primary btn-md">Delete</button></a>
+                                                                                </td>
+
+                                                                                <!--  <i class="icon-remove-sign"></i> -->
+                                                                            </tr>
+                                                                            <?php $cnt=$cnt+1;
+                                                                        }
+                                                                    }
+                                                                    ?>
+
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12 text-right">
+                                                                <div class="form-group m-b-0">
+                                                                    <button type="submit" name="submit_workexp"
+                                                                        class="btn btn-lg btn-primary waves-effect waves-light">
+                                                                        <i class="far fa-save"></i>&nbsp;&nbsp;Simpan
+                                                                    </button>
+
+                                                                    </form>
+                                                                    <br>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <form action="save_personal.php" method="post">
+                                                </div>
+
+                                            
+                                                        
+                                                                <div id="Declaration" class="tabcontent">
+                                                                    </br>
+                                                                    <div class="card card-dashboard-seven">
+                                                                        <div class="card-body">
+
+                                                                            <p><strong>Declaration</strong></p>
+                                                                            <p>Please ensure that information provided
+                                                                                is <strong>true and
+                                                                                    correct</strong>. No changes is
+                                                                                allowed once the application is
+                                                                                submitted.</p>
+                                                                            <p>The university reserves the right to
+                                                                                withdraw or amend any offer that
+                                                                                has been made, or the student's
+                                                                                enrolment will be terminated by the
+                                                                                university according to the
+                                                                                circumstances should the information
+                                                                                provided inaccurate, false or
+                                                                                misleading.</p>
 
 
-
-                                                        <?php  ?>
-                                                    </form><br>
-                                                    <div class="module">
-                                                        <div class="module-body table">
-                                                            <table cellpadding="0" cellspacing="0" border="0"
-                                                                class="datatable-1 table table-bordered table-striped  display"
-                                                                width="100%">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>#</th>
-                                                                        <th>File Name</th>
-                                                                        <th>Document Upload</th>
-                                                                        <th>Action</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-
-                                                                    <?php $sql3=mysqli_query($dbconfig,"SELECT * FROM document WHERE stud_ic = '$stud_id'");
-                          $cnt=1;
-                          while($row=mysqli_fetch_array($sql3)){
-                            $id=$row['id'];
-
-                          {
-                          ?>
-                                                                    <tr>
-                                                                        <td><?php echo htmlentities($cnt);?></td>
-                                                                        <td><?php echo htmlentities (ucwords($row['namaFail']));?>
-                                                                        </td>
-                                                                        <td><a href="folder/workExp/<?php echo $row["fileDoc"]; ?>"
-                                                                                target="_blank"><?php echo $row["fileDoc"]; ?>
-                                                                        </td>
-                                                                        <td>
+                                                                            <hr />
 
 
-                                                                            <a
-                                                                                href="edit_upload.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>"><button
-                                                                                    name="update"
-                                                                                    class="btn btn-primary btn-md">Edit</button></a>
-                                                                            <a href="save_personal.php?id=<?php echo $row['id']?>&deletedoc=delete"
-                                                                                onClick="return confirm('Are you sure you want to delete?')"><button
-                                                                                    type="submit" name="deletedoc"
-                                                                                    id="btn-submit"
-                                                                                    class="btn btn-primary btn-md">Delete</button></a>
-                                                                        </td>
-
-                                                                        <!--  <i class="icon-remove-sign"></i> -->
-                                                                    </tr>
-                                                                    <?php $cnt=$cnt+1;
-                    }
-                  }
-                   ?>
-
-                                                            </table>
+                                                                            <form action="save_personal.php"
+                                                                                method="post">
+                                                                                <div class="col-md mg-t-10 mg-md-t-0">
+                                                                                    <label class="ckbox"><input
+                                                                                            type="checkbox" name="app"
+                                                                                            value="Submitted"
+                                                                                            required><span>I hereby
+                                                                                            certify that
+                                                                                            all information given are
+                                                                                            true. </span></label></br>
+                                                                                </div>
+                                                                                <div class="col-md mg-t-10 mg-md-t-0">
+                                                                                    <input type='hidden' name='id'
+                                                                                        value=<?php echo  $stud_id?>>
+                                                                                    <button
+                                                                                        class="btn btn-az-primary btn-block"
+                                                                                        name="submit_final">Submit</button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div><!-- card-body -->
+                                                                    </div><!-- card -->
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-12 text-right">
-                                                        <div class="form-group m-b-0">
-                                                            <button type="submit" name="submit_workexp"
-                                                                class="btn btn-lg btn-primary waves-effect waves-light">
-                                                                <i class="far fa-save"></i>&nbsp;&nbsp;Simpan
-                                                            </button>
+                                                        <div>
+                                        </div>
+                                    </div>
+                                    
 
-                                                            </form>
-                                        </center>
-                                        <br>
-
+                                                    </div><!-- card-body -->
+                                                </div><!-- card -->
+                                            </div><!-- col -->
+                                            <div class="az-footer ht-40">
+                                                <div class="container-fluid pd-t-0-f ht-100p">
+                                                    <span>&copy; 2019 Azia Responsive Bootstrap 4 Dashboard
+                                                        Template</span>
+                                                </div><!-- container -->
+                                            </div><!-- az-footer -->
+                                        </div><!-- az-content -->
                                     </div>
                                 </div>
-
-                                <div id="Declaration" class="tabcontent">
-                                    </br>
-                                    <div class="card card-dashboard-seven">
-                                        <div class="card-body">
-
-                                            <p><strong>Declaration</strong></p>
-                                            <p>Please ensure that information provided is <strong>true and
-                                                    correct</strong>. No changes is allowed once the application is
-                                                submitted.</p>
-                                            <p>The university reserves the right to withdraw or amend any offer that
-                                                has been made, or the student's enrolment will be terminated by the
-                                                university according to the circumstances should the information
-                                                provided inaccurate, false or misleading.</p>
-
-
-                                            <hr />
-
-
-                                            <form action="save_personal.php" method="post">
-                                                <div class="col-md mg-t-10 mg-md-t-0">
-                                                    <label class="ckbox"><input type="checkbox" name="app"
-                                                            value="Submitted" required><span>I hereby certify that
-                                                            all information given are true. </span></label></br>
-                                                </div>
-                                                <div class="col-md mg-t-10 mg-md-t-0">
-                                                    <input type='hidden' name='id' value=<?php echo  $stud_id?>>
-                                                    <button class="btn btn-az-primary btn-block"
-                                                        name="submit_final">Submit</button>
-                                                </div>
-                                            </form>
-
-                                            <!--?php include 'talum.php';
-                        if(isset($_POST['submit'])){
-                            $app = $_POST['app'];
-                            $result2="UPDATE student SET";
-                            $result2.= " app_status ='$app'";
-                            $result2.= " WHERE stud_ic='$stud_id'";
-                            if(mysqli_query($dbconfig, $result2) == TRUE){
-                                $result2 = mysqli_query($dbconfig, $result2);
-                                echo "<script type='text/javascript'>alert('Thankyou! You have submitted the application.'); window.location.href = 'view_submission.php';</script>";
-                            } else{
-                                echo "ERROR: Hush! Sorry $result. "
-                                    . mysqli_error($dbconfig);
-                            }
-                            mysqli_close($dbconfig);
-                        } ?-->
-
-                                        </div><!-- card-body -->
-                                    </div><!-- card -->
-
-
-                                </div>
-
-
                             </div>
                         </div>
-
-                    </div><!-- card-body -->
-                </div><!-- card -->
-            </div><!-- col -->
-                <div class="az-footer ht-40">
-                    <div class="container-fluid pd-t-0-f ht-100p">
-                        <span>&copy; 2019 Azia Responsive Bootstrap 4 Dashboard Template</span>
-                    </div><!-- container -->
-                </div><!-- az-footer -->
-        </div><!-- az-content -->
-      </div>
-    </div>
-  </div>
-</div>
+                    </div>
 
 
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/ionicons/ionicons.js"></script>
-    <script src="lib/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
-    <script src="lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
+
+                        <script src="lib/jquery/jquery.min.js"></script>
+                        <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+                        <script src="lib/ionicons/ionicons.js"></script>
+                        <script src="lib/datatables.net/js/jquery.dataTables.min.js"></script>
+                        <script src="lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
+                        <script src="lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+                        <script src="lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
 
 
-    <script src="js/azia.js"></script>
-    <script>
-        function openCity(evt, cityName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(cityName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
+                        <script src="js/azia.js"></script>
+                        <script>
+                            function openCity(evt, cityName) {
+                                var i, tabcontent, tablinks;
+                                tabcontent = document.getElementsByClassName("tabcontent");
+                                for (i = 0; i < tabcontent.length; i++) {
+                                    tabcontent[i].style.display = "none";
+                                }
+                                tablinks = document.getElementsByClassName("tablinks");
+                                for (i = 0; i < tablinks.length; i++) {
+                                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                                }
+                                document.getElementById(cityName).style.display = "block";
+                                evt.currentTarget.className += " active";
+                            }
 
-        // Get the element with id="defaultOpen" and click on it
-        document.getElementById("defaultOpen").click();
+                            // Get the element with id="defaultOpen" and click on it
+                            document.getElementById("defaultOpen").click();
 
-    </script>
-    <script>
-        $(function () {
-            'use strict'
+                        </script>
+                        <script>
+                            $(function () {
+                                'use strict'
 
-            $(function () {
-                $('#aliran').change(function () {
-                    $('.A').toggle($(this).val() === 'A');
-                }).change();
-                $('#aliran').change(function () {
-                    $('.B').toggle($(this).val() === 'S');
-                }).change();
-            });
+                                $(function () {
+                                    $('#aliran').change(function () {
+                                        $('.A').toggle($(this).val() === 'A');
+                                    }).change();
+                                    $('#aliran').change(function () {
+                                        $('.B').toggle($(this).val() === 'S');
+                                    }).change();
+                                });
 
-            // Input Masks
-            $('#dateMask').mask('99/99/9999');
-            $('#phoneMask').mask('(999) 999-9999');
-            $('#phoneExtMask').mask('(999) 999-9999? ext 99999');
-            $('#ssnMask').mask('999-99-9999');
+                                // Input Masks
+                                $('#dateMask').mask('99/99/9999');
+                                $('#phoneMask').mask('(999) 999-9999');
+                                $('#phoneExtMask').mask('(999) 999-9999? ext 99999');
+                                $('#ssnMask').mask('999-99-9999');
 
-            $('.az-sidebar .with-sub').on('click', function (e) {
-                e.preventDefault();
-                $(this).parent().toggleClass('show');
-                $(this).parent().siblings().removeClass('show');
-            })
+                                $('.az-sidebar .with-sub').on('click', function (e) {
+                                    e.preventDefault();
+                                    $(this).parent().toggleClass('show');
+                                    $(this).parent().siblings().removeClass('show');
+                                })
 
-            $(document).on('click touchstart', function (e) {
-                e.stopPropagation();
+                                $(document).on('click touchstart', function (e) {
+                                    e.stopPropagation();
 
-                // closing of sidebar menu when clicking outside of it
-                if (!$(e.target).closest('.az-header-menu-icon').length) {
-                    var sidebarTarg = $(e.target).closest('.az-sidebar').length;
-                    if (!sidebarTarg) {
-                        $('body').removeClass('az-sidebar-show');
-                    }
-                }
-            });
-
-
-            $('#azSidebarToggle').on('click', function (e) {
-                e.preventDefault();
-
-                if (window.matchMedia('(min-width: 992px)').matches) {
-                    $('body').toggleClass('az-sidebar-hide');
-                } else {
-                    $('body').toggleClass('az-sidebar-show');
-                }
-            })
-
-            /* ----------------------------------- */
-            /* Dashboard content */
-
-            $('#compositeline').sparkline('html', {
-                lineColor: '#cecece',
-                lineWidth: 2,
-                spotColor: false,
-                minSpotColor: false,
-                maxSpotColor: false,
-                highlightSpotColor: null,
-                highlightLineColor: null,
-                fillColor: '#f9f9f9',
-                chartRangeMin: 0,
-                chartRangeMax: 10,
-                width: '100%',
-                height: 20,
-                disableTooltips: true
-            });
-
-            $('#compositeline2').sparkline('html', {
-                lineColor: '#cecece',
-                lineWidth: 2,
-                spotColor: false,
-                minSpotColor: false,
-                maxSpotColor: false,
-                highlightSpotColor: null,
-                highlightLineColor: null,
-                fillColor: '#f9f9f9',
-                chartRangeMin: 0,
-                chartRangeMax: 10,
-                width: '100%',
-                height: 20,
-                disableTooltips: true
-            });
-
-            $('#compositeline3').sparkline('html', {
-                lineColor: '#cecece',
-                lineWidth: 2,
-                spotColor: false,
-                minSpotColor: false,
-                maxSpotColor: false,
-                highlightSpotColor: null,
-                highlightLineColor: null,
-                fillColor: '#f9f9f9',
-                chartRangeMin: 0,
-                chartRangeMax: 10,
-                width: '100%',
-                height: 20,
-                disableTooltips: true
-            });
-
-            $('#compositeline4').sparkline('html', {
-                lineColor: '#cecece',
-                lineWidth: 2,
-                spotColor: false,
-                minSpotColor: false,
-                maxSpotColor: false,
-                highlightSpotColor: null,
-                highlightLineColor: null,
-                fillColor: '#f9f9f9',
-                chartRangeMin: 0,
-                chartRangeMax: 10,
-                width: '100%',
-                height: 20,
-                disableTooltips: true
-            });
+                                    // closing of sidebar menu when clicking outside of it
+                                    if (!$(e.target).closest('.az-header-menu-icon').length) {
+                                        var sidebarTarg = $(e.target).closest('.az-sidebar').length;
+                                        if (!sidebarTarg) {
+                                            $('body').removeClass('az-sidebar-show');
+                                        }
+                                    }
+                                });
 
 
-            var morrisData = [{
-                    y: 'Oct 01',
-                    a: 95000,
-                    b: 70000
-                },
-                {
-                    y: 'Oct 05',
-                    a: 75000,
-                    b: 55000
-                },
-                {
-                    y: 'Oct 10',
-                    a: 50000,
-                    b: 40000
-                },
-                {
-                    y: 'Oct 15',
-                    a: 75000,
-                    b: 65000
-                },
-                {
-                    y: 'Oct 20',
-                    a: 50000,
-                    b: 40000
-                },
-                {
-                    y: 'Oct 25',
-                    a: 80000,
-                    b: 90000
-                },
-                {
-                    y: 'Oct 30',
-                    a: 75000,
-                    b: 65000
-                }
-            ];
+                                $('#azSidebarToggle').on('click', function (e) {
+                                    e.preventDefault();
 
-            new Morris.Bar({
-                element: 'morrisBar1',
-                data: morrisData,
-                xkey: 'y',
-                ykeys: ['a', 'b'],
-                labels: ['Online', 'Offline'],
-                barColors: ['#560bd0', '#00cccc'],
-                preUnits: '$',
-                barSizeRatio: 0.55,
-                gridTextSize: 11,
-                gridTextColor: '#494c57',
-                gridTextWeight: 'bold',
-                gridLineColor: '#999',
-                gridStrokeWidth: 0.25,
-                hideHover: 'auto',
-                resize: true,
-                padding: 5
-            });
+                                    if (window.matchMedia('(min-width: 992px)').matches) {
+                                        $('body').toggleClass('az-sidebar-hide');
+                                    } else {
+                                        $('body').toggleClass('az-sidebar-show');
+                                    }
+                                })
 
-            $('#vmap2').vectorMap({
-                map: 'usa_en',
-                showTooltip: true,
-                backgroundColor: '#fff',
-                color: '#60adff',
-                colors: {
-                    mo: '#9fceff',
-                    fl: '#60adff',
-                    or: '#409cff',
-                    ca: '#005cbf',
-                    tx: '#005cbf',
-                    wy: '#005cbf',
-                    ny: '#007bff'
-                },
-                hoverColor: '#222',
-                enableZoom: false,
-                borderWidth: 1,
-                borderColor: '#fff',
-                hoverOpacity: .85
-            });
+                                /* ----------------------------------- */
+                                /* Dashboard content */
 
-        });
+                                $('#compositeline').sparkline('html', {
+                                    lineColor: '#cecece',
+                                    lineWidth: 2,
+                                    spotColor: false,
+                                    minSpotColor: false,
+                                    maxSpotColor: false,
+                                    highlightSpotColor: null,
+                                    highlightLineColor: null,
+                                    fillColor: '#f9f9f9',
+                                    chartRangeMin: 0,
+                                    chartRangeMax: 10,
+                                    width: '100%',
+                                    height: 20,
+                                    disableTooltips: true
+                                });
 
-    </script>
-    <script>
-        $(function () {
-            'use strict'
+                                $('#compositeline2').sparkline('html', {
+                                    lineColor: '#cecece',
+                                    lineWidth: 2,
+                                    spotColor: false,
+                                    minSpotColor: false,
+                                    maxSpotColor: false,
+                                    highlightSpotColor: null,
+                                    highlightLineColor: null,
+                                    fillColor: '#f9f9f9',
+                                    chartRangeMin: 0,
+                                    chartRangeMax: 10,
+                                    width: '100%',
+                                    height: 20,
+                                    disableTooltips: true
+                                });
 
-            $('#example1').DataTable({
-                language: {
-                    searchPlaceholder: 'Search...',
-                    sSearch: '',
-                    lengthMenu: '_MENU_ items/page',
-                }
-            });
+                                $('#compositeline3').sparkline('html', {
+                                    lineColor: '#cecece',
+                                    lineWidth: 2,
+                                    spotColor: false,
+                                    minSpotColor: false,
+                                    maxSpotColor: false,
+                                    highlightSpotColor: null,
+                                    highlightLineColor: null,
+                                    fillColor: '#f9f9f9',
+                                    chartRangeMin: 0,
+                                    chartRangeMax: 10,
+                                    width: '100%',
+                                    height: 20,
+                                    disableTooltips: true
+                                });
 
-            $('#example2').DataTable({
-                responsive: true,
-                language: {
-                    searchPlaceholder: 'Search...',
-                    sSearch: '',
-                    lengthMenu: '_MENU_ items/page',
-                }
-            });
-
-            // Select2
-            $('.dataTables_length select').select2({
-                minimumResultsForSearch: Infinity
-            });
-
-        });
-
-    </script>
-    <script>
-        //DIPLOMA IKUT RK
-        $("#seeAnotherField").change(function () {
-            if ($(this).val() == "DIP" && "DPPPD") {
-                $('#otherFieldDiv').show();
-                $('#otherP').show();
-                $('#otherP1').hide();
+                                $('#compositeline4').sparkline('html', {
+                                    lineColor: '#cecece',
+                                    lineWidth: 2,
+                                    spotColor: false,
+                                    minSpotColor: false,
+                                    maxSpotColor: false,
+                                    highlightSpotColor: null,
+                                    highlightLineColor: null,
+                                    fillColor: '#f9f9f9',
+                                    chartRangeMin: 0,
+                                    chartRangeMax: 10,
+                                    width: '100%',
+                                    height: 20,
+                                    disableTooltips: true
+                                });
 
 
-            } else if ($(this).val() == "MASTER") {
-                $('#otherFieldDiv').show();
-                $('#otherP1').show();
-                $('#otherP').hide();
+                                var morrisData = [{
+                                        y: 'Oct 01',
+                                        a: 95000,
+                                        b: 70000
+                                    },
+                                    {
+                                        y: 'Oct 05',
+                                        a: 75000,
+                                        b: 55000
+                                    },
+                                    {
+                                        y: 'Oct 10',
+                                        a: 50000,
+                                        b: 40000
+                                    },
+                                    {
+                                        y: 'Oct 15',
+                                        a: 75000,
+                                        b: 65000
+                                    },
+                                    {
+                                        y: 'Oct 20',
+                                        a: 50000,
+                                        b: 40000
+                                    },
+                                    {
+                                        y: 'Oct 25',
+                                        a: 80000,
+                                        b: 90000
+                                    },
+                                    {
+                                        y: 'Oct 30',
+                                        a: 75000,
+                                        b: 65000
+                                    }
+                                ];
 
-            } else {
+                                new Morris.Bar({
+                                    element: 'morrisBar1',
+                                    data: morrisData,
+                                    xkey: 'y',
+                                    ykeys: ['a', 'b'],
+                                    labels: ['Online', 'Offline'],
+                                    barColors: ['#560bd0', '#00cccc'],
+                                    preUnits: '$',
+                                    barSizeRatio: 0.55,
+                                    gridTextSize: 11,
+                                    gridTextColor: '#494c57',
+                                    gridTextWeight: 'bold',
+                                    gridLineColor: '#999',
+                                    gridStrokeWidth: 0.25,
+                                    hideHover: 'auto',
+                                    resize: true,
+                                    padding: 5
+                                });
 
-                $('#otherP').hide();
-                $('#otherP1').hide();
+                                $('#vmap2').vectorMap({
+                                    map: 'usa_en',
+                                    showTooltip: true,
+                                    backgroundColor: '#fff',
+                                    color: '#60adff',
+                                    colors: {
+                                        mo: '#9fceff',
+                                        fl: '#60adff',
+                                        or: '#409cff',
+                                        ca: '#005cbf',
+                                        tx: '#005cbf',
+                                        wy: '#005cbf',
+                                        ny: '#007bff'
+                                    },
+                                    hoverColor: '#222',
+                                    enableZoom: false,
+                                    borderWidth: 1,
+                                    borderColor: '#fff',
+                                    hoverOpacity: .85
+                                });
 
-            }
+                            });
 
-        });
-        $("#seeAnotherField").trigger("change");
+                        </script>
+                        <script>
+                            $(function () {
+                                'use strict'
 
-    </script>
-</body>
-<?php
+                                $('#example1').DataTable({
+                                    language: {
+                                        searchPlaceholder: 'Search...',
+                                        sSearch: '',
+                                        lengthMenu: '_MENU_ items/page',
+                                    }
+                                });
+
+                                $('#example2').DataTable({
+                                    responsive: true,
+                                    language: {
+                                        searchPlaceholder: 'Search...',
+                                        sSearch: '',
+                                        lengthMenu: '_MENU_ items/page',
+                                    }
+                                });
+
+                                // Select2
+                                $('.dataTables_length select').select2({
+                                    minimumResultsForSearch: Infinity
+                                });
+
+                            });
+
+                        </script>
+                        <script>
+                            //DIPLOMA IKUT RK
+                            $("#seeAnotherField").change(function () {
+                                if ($(this).val() == "DIP" && "DPPPD") {
+                                    $('#otherFieldDiv').show();
+                                    $('#otherP').show();
+                                    $('#otherP1').hide();
+
+
+                                } else if ($(this).val() == "MASTER") {
+                                    $('#otherFieldDiv').show();
+                                    $('#otherP1').show();
+                                    $('#otherP').hide();
+
+                                } else {
+
+                                    $('#otherP').hide();
+                                    $('#otherP1').hide();
+
+                                }
+
+                            });
+                            $("#seeAnotherField").trigger("change");
+
+                        </script>
+        </body>
+        <?php
 }}
 else {
   echo '<script>';

@@ -22,6 +22,7 @@ if (isset($_POST['submit_student'])) {
 $firstname = $_POST['name'];
 $agent = $_POST['agent'];
 $ic = $_POST['ic'];
+$modeAds = $_POST['modeAds'];
 //$phone = $_POST['phone'];
 $email = $_POST['email'];
 $intake = 'batch julai 2022';
@@ -42,45 +43,25 @@ if (mysqli_num_rows($res_u) > 0) {
     
     }else{
 
-        $sql="INSERT INTO student (stud_name,stud_ic,stud_email,password,intake,agent,date,role,app_status) VALUES ('$firstname','$ic','$email','$hashPassword','$intake','$agent','$dte','$roles','$status')";
+        $sql="INSERT INTO student (stud_name,stud_ic,stud_email,modeAds,password,intake,agent,date,role,app_status) VALUES ('$firstname','$ic','$email','$modeAds','$hashPassword','$intake','$agent','$dte','$roles','$status')";
         $result = mysqli_query($dbconfig, $sql);
 
 if($result)
     {
-$sql2 = "insert into application (stud_ic,intake) value('".$ic."','".$intake."')";
+      $sql2 = "insert into application (stud_ic,intake) value('".$ic."','".$intake."')";
       $result2 = mysqli_query($dbconfig, $sql2);
       if($result2){
 
         $sql3 = "insert into parent (stud_ic) value('".$ic."')";
-      $result3 = mysqli_query($dbconfig, $sql3);}
-      if($result3){
-
-        $sql4 = "insert into working_experience (stud_ic) value('".$ic."')";
-      $result4 = mysqli_query($dbconfig, $sql4);}
-      if($result4){ 
- 
-   $sql5 = "insert into academic (stud_ic) value('".$ic."')";
-      $result5 = mysqli_query($dbconfig, $sql5);}
-      if($result5){ 
-$sql6 = "insert into document (stud_ic) value('".$ic."')";
-      $result6 = mysqli_query($dbconfig, $sql6);
-      
-
-
-
-
-echo "<script type='text/javascript'>alert('Registration Successfully!'); window.location.href = 'dashboard_agent.php';</script>";
+        $result3 = mysqli_query($dbconfig, $sql3);
+       echo "<script type='text/javascript'>alert('Registration Successfully!'); window.location.href = 'dashboard_agent.php';</script>";
+        }
       }
       else{
-        echo "opps! something was wrong.". mysqli_error($dbconfig);;
+        echo "opps! something was wrong.". mysqli_error($dbconfig);
       }
-      
     }
-
-
-
   }
-    }
 
 
 
