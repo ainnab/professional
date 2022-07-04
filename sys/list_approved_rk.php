@@ -126,8 +126,8 @@ $i = 0;
                    <td><?php echo $i;?></td>
                    <td><?php echo $stud_name;?></td>
                    <td><?php echo $statusrk;?></td>
-                   <td></td>
-                   <td></td>
+                   <td><a href='offer_letter_rk.php' target='_blank'>Offer Letter</td>
+                   <td><a href='rk_moa.php' target='_blank'>MOA</td>
                    <td><a href="update_account.php?id=<?php echo $row1['id']?>"><button name="update" class="btn btn-primary btn-md">Update</button></a></td>
                 </tr>
                 <?php } ?>

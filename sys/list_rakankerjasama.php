@@ -142,8 +142,10 @@
                         echo "<td><input type='button' class='btn btn-warning' style='border-radius: 15px' value='In Process'></td>";
                       } elseif ($status == "Approved") {
                         echo "<td><input type='button' class='btn btn-success' style='border-radius: 15px' value='Approved'></td>";
-                      } else {
+                      } elseif ($status == "Rejected") {
                         echo "<td><input type='button' class='btn btn-danger' style='border-radius: 15px' value='Rejected'></td>";
+                      } else {
+                        echo "<td><input type='button' class='btn btn-danger' style='border-radius: 15px' value='Pending'></td>";
                 
                       }
 

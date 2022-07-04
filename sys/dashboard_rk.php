@@ -72,7 +72,10 @@
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Rakan Kerjasama</a>
             <ul class="nav-sub">
               <li class="nav-sub-item  "><a href="dashboard_rk.php" class="nav-sub-link ">Status</a></li>
+              <?php if($app_status == 'Approved'){?>
+              <li class="nav-sub-item"><a href="view_moa.php" class="nav-sub-link">View Offer Letter/MOA</a></li> 
             </ul>
+             <?php } ?>
           </li><!-- nav-item -->
         </div>
       </div>
@@ -195,8 +198,10 @@
                         echo "<td><input type='button' class='btn btn-warning' style='border-radius: 15px' value='In Process'></td>";
                       } elseif ($status == "Approved") {
                         echo "<td><input type='button' class='btn btn-success' style='border-radius: 15px' value='Approved'></td>";
-                      } else {
+                      } elseif ($status == "Rejected") {
                         echo "<td><input type='button' class='btn btn-danger' style='border-radius: 15px' value='Rejected'></td>";
+                      } else {
+                        echo "<td><input type='button' class='btn btn-danger' style='border-radius: 15px' value='Pending'></td>";
                 
                       }
 
@@ -253,6 +258,10 @@
                           <td><input type="button" class="form-control" value="Permohonan ditolak"></td>
                           <td><center><input type="button" class="btn btn-danger" style="border-radius: 15px" value="Rejected"></center></td>
                         </tr>
+                        <!-- <tr>
+                          <td><input type="button" class="form-control" value="Dalam Proses"></td>
+                          <td><center><input type="button" class="btn btn-danger" style="border-radius: 15px" value="Pending"></center></td>
+                        </tr> -->
                       </table>
       </div>
       <?php  ?>

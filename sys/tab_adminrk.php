@@ -82,16 +82,16 @@
 
                         <form action="save_rakankerjasama.php" method="post"">
                       <div class=" form-group">
-                            <label>Full Name</label>
+                            <label>Company Name</label>
                             <input type="hidden" class="form-control" name="rk" placeholder="Enter your full name"
                                 style="text-transform:uppercase" value="<?php echo $rk?>">
-                            <input type="text" class="form-control" name="name" placeholder="Enter your full name"
-                                style="text-transform:uppercase" required>
+                            <input type="text" class="form-control" name="name" placeholder="Enter company name"
+                                 required>
                     </div><!-- form-group -->
                     <div class="form-group">
-                        <label>IC Number (Example:12345678900)</label>
-                        <input type="number" class="form-control" name="ic" placeholder="Enter IC number"
-                            pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==12) return false;">
+                        <label>Password (Must Contain 12 characters)</label>
+                        <input type="text" class="form-control" name="ic" placeholder="Enter Password"
+                         onKeyPress="if(this.value.length==12) return false;">
                     </div><!-- form-group -->
                     <div class="form-group">
                         <label>Phone Number</label>
