@@ -627,17 +627,17 @@ $now_year = date('Y');
                                 </thead>
                             <tbody>
 
-                          <?php $sql3=mysqli_query($dbconfig,"SELECT * FROM document WHERE stud_ic = '$ic'");
+                          <?php $sqll4=mysqli_query($dbconfig,"SELECT * FROM document WHERE stud_ic = '$ic'");
                           $cnt=1;
-                          while($row=mysqli_fetch_array($sql3)){
-                            $id=$row['id'];
+                          while($row4=mysqli_fetch_array($sqll4)){
+                            $id=$row4['id'];
                           
                           {
                           ?>
                     <tr>
                       <td><?php echo htmlentities($cnt);?></td>
-                      <td><?php echo htmlentities (ucwords($row['file_name']));?></td>
-                      <td><a href="folder/workExp/<?php echo $row["fileDoc"]; ?>" target="_blank"><?php echo $row["fileDoc"]; ?></td>
+                      <td><?php echo htmlentities (ucwords($row4['namaFail']));?></td>
+                      <td><a href="folder/workExp/<?php echo $row4["fileDoc"]; ?>" target="_blank"><?php echo $row4["fileDoc"]; ?></td>
 
                        <!--  <i class="icon-remove-sign"></i> -->
                     </tr>

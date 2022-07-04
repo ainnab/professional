@@ -134,11 +134,7 @@ body {
         $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
         while($data2 = mysqli_fetch_array($records)) { 
             $name=$data2['stud_name'];
-            $address=$data2['address1'];
-            $address2=$data2['address2'];
-            $postcode=$data2['postcode'];
-            $city=$data2['city'];
-            $state=$data2['state'];
+            
             
         
             $sql4="SELECT matrik_no FROM matrik_no WHERE ic = '$ic' ";
@@ -170,12 +166,13 @@ body {
             $mailaddress=$row7['mailaddress'];
             $postcode=$row7['postcode'];
             $city=$row7['city'];
-            $state=$row7['state'];
+            $state=$row7['stud_state'];
 
             $sql8="SELECT * FROM state_my where state_code='$state'";
           $result8=mysqli_query($dbconfig,$sql8);
           $row8=mysqli_fetch_array($result8,MYSQLI_ASSOC);
             $state_name=$row8['state_name'];
+            
 
 
             

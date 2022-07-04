@@ -48,6 +48,7 @@
   $role = $userRow['role'];
   $agent = $userRow['agent'];
   $app_status=$userRow['app_status'];
+  $stud_name=$userRow['stud_name'];
 }
 ?>
 
@@ -132,9 +133,10 @@ if ($role == 'student' ){?>
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Dashboard</a>
             <ul class="nav-sub">
 
-              <li class="nav-sub-item"><a href="" class="nav-sub-link">Dashboard</a></li>
+              <li class="nav-sub-item"><a href="dashboard2.php" class="nav-sub-link">Dashboard</a></li>
             </ul>
-         <li class="nav-item show">
+            <?php if($app_status == 'Applied'){?>
+            <li class="nav-item show">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-clipboard"></i>Admission</a>
             <ul class="nav-sub">
               <!--  <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_application.php' ?'active' : " ");?>"><a href="tab_application.php" class="nav-sub-link">app</a></li> -->
@@ -148,7 +150,9 @@ if ($role == 'student' ){?>
               <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'declaration.php' ?'active' : " ");?>"><a href="declaration.php" class="nav-sub-link">Declaration</a></li>
             </ul>
           </li>
- <li class="nav-item show">
+          <?php }?>
+          <?php if($app_status == 'Approved' or $app_status == 'Submitted'){?>
+          <li class="nav-item show">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>View</a>
             <ul class="nav-sub">
 
@@ -157,6 +161,8 @@ if ($role == 'student' ){?>
               <li class="nav-sub-item"><a href="view_status.php" class="nav-sub-link">View status</a></li>
               <?php }?>
             </ul>
+            <?php }?>
+            <?php if($app_status == 'Submitted'){?>
             <li class="nav-item show">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Program</a>
             <ul class="nav-sub">
@@ -165,6 +171,7 @@ if ($role == 'student' ){?>
                <li class="nav-sub-item"><a href="" class="nav-sub-link">Bachelor eksekutif</a></li>
                <li class="nav-sub-item"><a href="" class="nav-sub-link">Master eksekutif</a></li>
             </ul>
+            <?php }?>
           <!-- nav-item -->
 
 
@@ -195,10 +202,10 @@ if ($role == 'student' ){?>
           </div><!-- az-header-center -->
           <div class="az-header-right">
             <div class="az-header-message">
-              <a href="app-chat.html"><i class="typcn typcn-messages"></i></a>
-            </div><!-- az-header-message -->
+              <!--<a href="app-chat.html"><i class="typcn typcn-messages"></i></a>
+            </div> az-header-message 
             <div class="dropdown az-header-notification">
-              <a href="" class="new"><i class="typcn typcn-bell"></i></a>
+              <a href="" class="new"><i class="typcn typcn-bell"></i></a>-->
               <div class="dropdown-menu">
                 <div class="az-dropdown-header mg-b-20 d-sm-none">
                   <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
@@ -248,14 +255,14 @@ if ($role == 'student' ){?>
                   <div class="az-img-user">
                     <img src="../img/faces/face1.jpg" alt="">
                   </div><!-- az-img-user -->
-                  <h6>Aziana Pechon</h6>
-                  <span>Premium Member</span>
+                  <b><p><?php echo $stud_name;?></p></b>
+                 <!-- <span>Premium Member</span>-->
                 </div><!-- az-header-profile -->
 
-                <a href="" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
+                <!--<a href="" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
                 <a href="" class="dropdown-item"><i class="typcn typcn-edit"></i> Edit Profile</a>
                 <a href="" class="dropdown-item"><i class="typcn typcn-time"></i> Activity Logs</a>
-                <a href="" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Account Settings</a>
+                <a href="" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Account Settings</a>-->
                 <a href="signout.php" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Sign Out</a>
               </div><!-- dropdown-menu -->
             </div>
