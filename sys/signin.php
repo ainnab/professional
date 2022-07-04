@@ -93,7 +93,7 @@ body {
       if ($role =='student' ){
         header("Location:dashboard2.php");
       }
-      if ($role =='inst' ){
+      if ($role =='inst' && $rkstatus == 'Active' ){
         header("Location:dashboard_agent.php");
       }
       if ($role =='inst' && $rkstatus == 'Deactive' ){

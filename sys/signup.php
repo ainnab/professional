@@ -69,8 +69,6 @@ body {
     if(isset($_POST['submit'])){
 		$name = strtoupper($_POST['name']);
 		$ic = $_POST['ic'];
-		// $password = $_POST['password'];
- /*   $phone = $_POST['phone'];*/
     $email = $_POST['email'];
     $role = 'student';
 		
