@@ -96,7 +96,7 @@
               <thead>
                 <tr>
                   <th class="wd-5p">ID</th>
-                  <th class="wd-25p">NAME</th>
+                  <th class="wd-25p">COMPANY NAME</th>
                   <th class="wd-15p">STATUS</th>
                   <th class="wd-15p">OFFER LETTER</th>
                   <th class="wd-15p">MOA</th>
