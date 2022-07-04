@@ -255,7 +255,7 @@ if ($role == 'student' ){?>
                   <div class="az-img-user">
                     <img src="../img/faces/face1.jpg" alt="">
                   </div><!-- az-img-user -->
-                  <h6><?php echo $stud_name;?></h6>
+                  <b><p><?php echo $stud_name;?></p></b>
                  <!-- <span>Premium Member</span>-->
                 </div><!-- az-header-profile -->
 

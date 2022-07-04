@@ -51,7 +51,7 @@
     while($data2 = mysqli_fetch_array($records)) { 
         $role = $data2['role'];
         $app_status = $data2['app_status'];
-   $agent=$data2['stud_name']; 
+   $stud_name=$data2['stud_name']; 
         include 'main_menu.php';
       
        }     
