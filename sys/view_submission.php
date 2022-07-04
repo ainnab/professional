@@ -104,14 +104,15 @@ $role = $data['role'];
           <div class="card-body">
             <div class="row row-sm mg-b-15 mg-sm-b-20">
             <div class="col-md-12 col-lg-12">
-          
+              
+            <?php if($app_status=='Submitted'){?>
         <div class="alert alert-info" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-            <strong>Thank you!</strong> You have submited your application. Now, you can choose program to enroll
+            <strong>Thank you!</strong> You have submitted your application. Now, you can choose program to enroll
           </div><!-- alert -->
-          
+          <?php }?>
         
         <p class="mg-b-20"></p>
             <?php } ?>
