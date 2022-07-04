@@ -3,7 +3,7 @@
 $host = 'localhost';
 $username = 'root';
 $password = '';
-$database = 'ilmuplus';
+$database = 'sms';
 /*$database2 = 'master_data';
 $database3 = 'portalumpa';
 $database4 = 'professional';*/

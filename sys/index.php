@@ -113,6 +113,9 @@ body {
       if ($role =='inst' ){
         header("Location:dashboard_agent.php");
       }
+      if ($role =='adminrk' ){
+        header("Location:tab_adminrk.php");
+      }
       
         // if ($role =='student' && $status == 'Submitted'){
         //   header("Location:view_submission.php");}
