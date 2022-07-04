@@ -106,10 +106,7 @@
               <tbody>
 
                  <?php
-$i = 0;
-
-
-
+            $i = 0;
             $query = "SELECT * FROM `student`  where  app_status='Approved' && role='inst'";
 
                          $app=mysqli_query($dbconfig,$query);

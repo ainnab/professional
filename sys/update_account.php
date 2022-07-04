@@ -34,17 +34,21 @@
                         $sql4=mysqli_query($dbconfig,"select * from student where id='$id'");
                         while($data2=mysqli_fetch_array($sql4))
                         {
+                          $rkstatus=$data2['rk_status'];
                         ?>
             <input type="text" name="id" value="<?php echo $id;?>" hidden>
             <p class="mg-b-20"></p>
             <div class="row row-sm">
               <div class="col-md-12 col-lg-12">
-
               <div class="form-group">
-                <select name="account" class="form-control" required="">
-                  <option value="">Select Type</option>
-                  <option>Active</option>
-                  <option>Deactive</option>                                                     
+                <select name="account" id="account" class="form-control" required>
+                                            <option selected disabled="" style="font-size:14px;">Please Select</option>
+                                            <option <?php if ($rkstatus == "Active") {
+                                              echo 'selected';
+                                            } ?> value="Active">Active</option>
+                                            <option <?php if ($rkstatus == "Deactive") {
+                                              echo 'selected';
+                                             } ?> value="Deactive">Deactive</option>
                 </select>
             </div>
     </div><!-- form group -->
