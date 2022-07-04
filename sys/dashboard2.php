@@ -38,7 +38,7 @@
         
         <p class="mg-b-20"></p>
             <?php } ?>
-            <!--<p><strong>INSTRUCTION</strong></p>
+            <p><strong>INSTRUCTION</strong></p>
                 <p>Application for Direct Intake to UMP <a href="http://umpadvanced.ump.edu.my/newportalumpa/diploma_must" target="_blank"><b><u>Diploma</u></b></a> / <a href="http://umpadvanced.ump.edu.my/newportalumpa/foundation" target="_blank"><b><u>Foundation in Science and Technology</u></b></a> / <a href="http://umpadvanced.ump.edu.my/newportalumpa/pre_diploma" target="_blank"><b><u>Pre Diploma</u></b></a> Programme through <a style="color:blue;"><i><b>'Masuk UMP Secara Terus' (MUST). </b></i></a></p>
                 <p>Please prepare certified scanned copies of the academic qualification documents <b>(Trial SPM/Actual SPM/O-Level/ICGSE etc.)</b> in PDF format to be uploaded during the online application process.
                 </p>
