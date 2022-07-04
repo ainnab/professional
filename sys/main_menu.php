@@ -135,7 +135,7 @@ if ($role == 'student' ){?>
 
               <li class="nav-sub-item"><a href="dashboard2.php" class="nav-sub-link">Dashboard</a></li>
             </ul>
-            <?php if($app_status == 'Applied'){?>
+            <?php if($app_status=='Applied'){?>
             <li class="nav-item show">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-clipboard"></i>Admission</a>
             <ul class="nav-sub">
@@ -151,25 +151,27 @@ if ($role == 'student' ){?>
             </ul>
           </li>
           <?php }?>
-          <?php if($app_status == 'Approved' or $app_status == 'Submitted'){?>
-          <li class="nav-item show">
+          <?php if($app_status=='Submitted' or $app_status=='Approved'){?>
+            <li class="nav-item show">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>View</a>
             <ul class="nav-sub">
-
-              <li class="nav-sub-item"><a href="view_submission.php" class="nav-sub-link">View submission</a></li>
-              <?php if($app_status == 'Approved'){?>
+            <li class="nav-sub-item"><a href="view_submission.php" class="nav-sub-link">View submission</a></li>
+              
+              <?php if($app_status=='Approved'){?>
               <li class="nav-sub-item"><a href="view_status.php" class="nav-sub-link">View status</a></li>
               <?php }?>
             </ul>
             <?php }?>
-            <?php if($app_status == 'Submitted'){?>
+            <?php if($app_status=='Submitted'){?>
             <li class="nav-item show">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Program</a>
             <ul class="nav-sub">
-
-              <li class="nav-sub-item"><a href="professional_dip_stud.php" class="nav-sub-link">Professional diploma</a></li>
-               <li class="nav-sub-item"><a href="" class="nav-sub-link">Bachelor eksekutif</a></li>
-               <li class="nav-sub-item"><a href="" class="nav-sub-link">Master eksekutif</a></li>
+            <li class="nav-sub-item"><a href="" class="nav-sub-link">Master Eksekutif</a></li>
+            <li class="nav-sub-item"><a href="" class="nav-sub-link">Bachelor Eksekutif</a></li>
+            <li class="nav-sub-item"><a href="professional_dip_stud.php" class="nav-sub-link">Professional Diploma</a></li>
+            <li class="nav-sub-item"><a href="" class="nav-sub-link">Short Courses</a></li>
+              
+               
             </ul>
             <?php }?>
           <!-- nav-item -->
