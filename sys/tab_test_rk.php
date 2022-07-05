@@ -876,12 +876,12 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                     </div>
 
                                                                 </div>
-                                                                <input type='text' name='id'
-                                                                    value=<?php echo  $stud_id?>>
+                                                                <input type='text' name='stud_ic'
+                                                                    value=<?php echo  $stud_id?> hidden>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-default"
                                                                         data-dismiss="modal">Close</button>
-                                                                    <button type="submit" name="submit_new_work"
+                                                                    <button type="submit" name="submit_new_work_rk"
                                                                         class="btn btn-primary">Save</button>
                                                                 </div>
                                                             </form>
@@ -929,7 +929,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                     <td>
 
                                                                         <a
-                                                                            href="edit_workexp.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>"><button
+                                                                            href="edit_workexp_rk.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>"><button
                                                                                 name="update_new_work"
                                                                                 class="btn btn-primary btn-md">Edit</button></a>
                                                                         <a href="save_personal.php?id=<?php echo $row['id']?>&deletewrk=delete"
@@ -949,16 +949,6 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                     </div>
                                                 </div>
 
-                                                <div class="col-lg-12 text-right">
-                                                    <div class="form-group m-b-0">
-                                                        <button type="submit" name="submit_workexp"
-                                                            class="btn btn-lg btn-primary waves-effect waves-light">
-                                                            <i class="far fa-save"></i>&nbsp;&nbsp;Simpan
-                                                        </button>
-
-
-                                                    </div>
-                                                </div><!-- card-body -->
                                                 </form>
                                                 </br>
 

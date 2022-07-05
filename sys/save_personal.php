@@ -120,7 +120,7 @@ if (isset($_POST['submit_personal_rk'])) {
     //$res2=mysqli_query($dbconfig, $result);
       if(mysqli_query($dbconfig, $result) == TRUE){
           //$result2 = mysqli_query($dbconfig, $result2);
-          echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test.php?id=".$id."';</script>";
+          echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test_rk.php?id=".$id."';</script>";
   
       } else{
           echo "ERROR: Hush! Sorry $result. " 
@@ -183,7 +183,7 @@ $id = $_REQUEST['id'];
 
     if(mysqli_query($dbconfig, $result) == TRUE){
         //$result2 = mysqli_query($dbconfig, $result2);
-        echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test.php?id=".$id."';</script>";
+        echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test_rk.php?id=".$id."';</script>";
     } else{
         echo "ERROR: Hush! Sorry $result. " 
             . mysqli_error($dbconfig);
@@ -276,7 +276,7 @@ if (isset($_POST['submit_new_acd_rk'])) {
   
   
     if(mysqli_query($dbconfig, $query) == TRUE){
-    echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test.php';</script>";
+    echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test_rk.php';</script>";
   
      } else{
          echo "ERROR: Hush! Sorry $result. " 
@@ -289,7 +289,7 @@ if (isset($_POST['submit_new_acd_rk'])) {
   
      if(mysqli_query($dbconfig, $query) == TRUE){
       move_uploaded_file($_FILES['fileA']['tmp_name'], $target_file);
-     echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test.php';</script>";
+     echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test_rk.php';</script>";
   
       } else{
           echo "ERROR: Hush! Sorry $result. " 
@@ -413,6 +413,44 @@ $target_file = $target2 . basename($newfilenameW);
             . mysqli_error($dbconfig);
     }
 }
+if (isset($_POST['submit_new_work_rk'])) {
+
+
+  $ic = $_POST['stud_ic'];
+  $type = $_POST['type'];
+  $wrkPostion = $_POST['wrkPostion'];
+  $edu_start = $_POST['edu_start'];
+  $edu_end = $_POST['edu_end'];
+  $edu_gred = $_POST['edu_gred'];
+  $edu_major = $_POST['edu_major'];
+  $wrkPostion1 = $_POST['wrkPostion1'];
+  $wrkPostion2 = $_POST['wrkPostion2'];
+  $wrkPostion3 = $_POST['wrkPostion3'];
+  $wrkPostion4 = $_POST['wrkPostion4'];
+  
+  
+  //$target2 = "folder/workExp/" .basename($_FILES['fileWork']['name']);
+  
+  $fileWork = $_FILES['fileWork']['name'];
+  $newfilenameW=$ic."_".$fileWork;
+  $target2 = "../sys/folder/workExp/";
+  $target_file = $target2 . basename($newfilenameW);
+  
+  
+       $queryW = "INSERT INTO working_experience (stud_ic,type,position,year_start,year_end,category,organization,employer_name,employer_address,job_scope,significant,fileWork) VALUES 
+       ('$ic','$type','$wrkPostion','$edu_start','$edu_end','$edu_gred','$edu_major','$wrkPostion1','$wrkPostion2',
+         '$wrkPostion3','$wrkPostion4','$newfilenameW')";
+  
+  
+     if(mysqli_query($dbconfig, $queryW) == TRUE){
+      move_uploaded_file($_FILES['fileWork']['tmp_name'], $target_file);
+       echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test_rk.php?id=$ic';</script>";
+  
+      } else{
+          echo "ERROR: Hush! Sorry $result. " 
+              . mysqli_error($dbconfig);
+      }
+  }
 if (isset($_POST['update_new_work'])) { 
 
 $id = $_REQUEST['id'];
@@ -427,18 +465,6 @@ $wrkPostion1 = $_POST['wrkPostion1'];
 $wrkPostion2 = $_POST['wrkPostion2'];
 $wrkPostion3 = $_POST['wrkPostion3'];
 $wrkPostion4 = $_POST['wrkPostion4'];
-
-
-
-// $target2 = "folder/workExp/" .basename($_FILES['fileWork']['name']);
-// $fileWork_update = $_FILES['fileE']['name'];
-
-// $fileWork = $_FILES['fileWork']['name'];
-// $newfilenameW=$stud_id."_".$fileWork;
-// $target2 = "../sys/folder/workExp/";
-// $target_file = $target2 . basename($newfilenameW);
-
-
 $fileWork_update = $_FILES['fileWork']['name'];
 //$extension=end(explode(".", $fileA));
 $newfilenameW=$studid."_".$fileWork_update;
@@ -448,12 +474,22 @@ $target_file = $target2 . basename($newfilenameW);
 
   if (empty($fileWork_update)) {
 
-  echo $sql1= "UPDATE working_experience SET type = '$type', position = '$wrkPostion', year_start = '$edu_start', year_end= '$edu_end', category = '$edu_gred', organization = '$edu_major', employer_name = '$wrkPostion1', employer_address= '$wrkPostion2', job_scope = '$wrkPostion3', significant= '$wrkPostion4', fileWork = '$newfilenameW' where id = '$id'";
+  $sql1= "UPDATE working_experience SET type = '$type', position = '$wrkPostion', year_start = '$edu_start', year_end= '$edu_end', category = '$edu_gred', organization = '$edu_major', employer_name = '$wrkPostion1', employer_address= '$wrkPostion2', job_scope = '$wrkPostion3', significant= '$wrkPostion4', fileWork = '$newfilenameW' where id = '$id'";
 
+  $query= "SELECT modeAds from student WHERE stud_ic = '$studid'";
+  $result=mysqli_query($dbconfig,$query);
+  while($row = mysqli_fetch_array($result)){
+
+    $mode = $row['modeAds'];
+  }
     if ($dbconfig->multi_query($sql1) == TRUE) {
-
+          
           echo "<script>alert('Data updated');</script>";
-          //echo "<script>window.location.assign('tab_workexp.php')</script>";
+          if ($mode == 'ROPE') {
+            echo "<script>window.location.assign('edit_workexp_rk.php?id=$id&stud_id=$studid;')</script>";
+          }else{
+            echo "<script>window.location.assign('edit_workexp.php?id=$id&stud_id=$studid;')</script>";
+          }
     }else
     {
           echo "<script>alert('Tidak dapat diproses');</script>";
@@ -466,8 +502,12 @@ $target_file = $target2 . basename($newfilenameW);
 
             move_uploaded_file($_FILES['fileWork']['tmp_name'], $target_file);
             echo "<script>alert('Data updated');</script>";
-            //echo "<script>window.location.assign('tab_workexp.php')</script>";
-      }else
+            if ($mode == 'ROPE') {
+              echo "<script>window.location.assign('edit_workexp_rk.php?id=$id&stud_id=$studid;')</script>";
+            }else{
+              echo "<script>window.location.assign('edit_workexp.php?id=$id&stud_id=$studid;')</script>";
+            }
+          }else
       {
             echo "<script>alert('Tidak dapat diproses');</script>";
       }
