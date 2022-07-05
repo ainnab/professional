@@ -27,7 +27,8 @@ $records3 = mysqli_query($dbconfig,"select * from document where stud_ic='$ic'")
 
 <div class="az-content-header d-block d-md-flex">
   <div>
-    <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">Upload Certificate</h2>
+    <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">Upload Document</h2>
+    
   </div>
   <div class="az-dashboard-header-right">
   </div><!-- az-dashboard-header-right -->
@@ -45,21 +46,37 @@ $records3 = mysqli_query($dbconfig,"select * from document where stud_ic='$ic'")
                           $id = $_GET['id'];
                       }
                       //$id = isset($_GET['id']) ? $_GET['id'] : '';
-                        $sql4=mysqli_query($dbconfig,"select * from certificate where id='$id'");
+                        $sql4=mysqli_query($dbconfig,"select * from document where id='$id'");
                         while($row=mysqli_fetch_array($sql4))
                         {
+                          $filename = $row['namaFail'];
+
                         ?>
                         <input type="text" name="id" value="<?php echo $row['id']; ?>" hidden>
-                        <input type="text" name="ic" value="<?php echo $row['stud_ic']; ?>" hidden>
+                        <input type="text" name="stud_ic" value="<?php echo $row['stud_ic']; ?>" hidden>
                         <div class="modal-body">
+
+                        <div class="form-group">
+                          <label>Filename:</label>
+                            <select name="namaFail" id="namaFail" class="form-control">
+                            <option value="namaFail" selected disabled="" style="font-size:14px;">Please select</option>
+                            <?php $sql1 = "SELECT * FROM document_type";
+                            $result1 = mysqli_query($dbconfig, $sql1) or die("database error:". mysqli_error($dbconfig));
+                            while( $row1 = mysqli_fetch_assoc($result1) ) {
+                                $docname=$row1['document_name'];
+                                ?>
+                                <option value="<?php echo $row1["document_name"];?>"<?php if($row1["document_name"]==$row['namaFail']) echo 'selected="selected"'; ?>><?php echo $row1["document_name"];?></option> 
+                                <?php } ?>
+                            </select>
+                      </div>
                           <div class="form-group">
-                            <input type="file" class="form-control" id="certDoc" name="certDoc">
-                            <a href="folder/workExp/<?php echo $row['certDoc']; ?>" target="_blank"><?php echo $row['certDoc']; ?></a>
+                            <input type="file" class="form-control" id="fileDoc" name="fileDoc">
+                            <a href="folder/workExp/<?php echo $row['fileDoc']; ?>" target="_blank"><?php echo $row['fileDoc']; ?></a>
                             <span class="help-block">*The maximum file size you can upload is 30MB</span>
                           </div>
                         <div class="modal-footer">
-                          <a href="tab_test_rk.php?id=<?php echo $row['stud_ic']; ?>"><button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
-                          <button type="submit" name="update_cert_rk" class="btn btn-primary">Update</button>
+                          <a href="tab_test.php?id=<?php echo $row['stud_ic']; ?>"><button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+                          <button type="submit" name="update_new_doc" class="btn btn-primary">Update</button>
                         </div>
                       </form>
                     </div>

@@ -230,7 +230,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                         <h3>Personal Info</h3>
                                         </br>
 
-                                        <form action="save_personal.php" method="post">
+                                        <form action="save_rk_rope.php" method="post">
                                             <div class="row row-sm">
                                                 <div class="col-md-12 col-lg-12">
                                                     <div class="form-group">
@@ -430,7 +430,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                         </br>
                                         <h3>Parent's Info</h3>
                                         </br>
-                                        <form action="save_personal.php" method="post">
+                                        <form action="save_rk_rope.php" method="post">
                                             <?php while($data2 = mysqli_fetch_array($records2)) {
                                             $occupationStatus = $data2['p1_occupation'];
                                             $occupationStatus1 = $data2['p2_occupation'];
@@ -594,7 +594,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                         aria-hidden="true">×</span></button>
                                                                 <h4 class="modal-title" id="myModalLabel">New</h4>
                                                             </div>
-                                                            <form action="save_personal.php" method="POST"
+                                                            <form action="save_rk_rope.php" method="POST"
                                                                 enctype="multipart/form-data">
                                                                 <div class="modal-body">
 
@@ -665,7 +665,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
 
                                                                 </div>
                                                                 <input type='hidden' name='stud_ic'
-                                                                    value=<?php echo  $ic?>>
+                                                                    value=<?php echo $stud_id?>>
 
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-default"
@@ -677,7 +677,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <form action="save_personal.php" method="post"
+                                                <form action="save_rk_rope.php" method="post"
                                                     enctype="multipart/form-data">
 
                                                     <?php  ?>
@@ -718,10 +718,10 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
 
 
                                                                         <a
-                                                                            href="edit_academic_rk.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>"><button
+                                                                            href="edit_academic_rk_rope.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>"><button
                                                                                 name="update"
                                                                                 class="btn btn-primary btn-md">Edit</button></a>
-                                                                        <a href="save_personal.php?id=<?php echo $row['id']?>&deleteacd=delete"
+                                                                        <a href="save_rk_rope.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>&deleteacd=delete"
                                                                             onClick="return confirm('Are you sure you want to delete?')"><button
                                                                                 type="submit" name="deleteacd"
                                                                                 id="btn-submit"
@@ -775,7 +775,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                         aria-hidden="true">×</span></button>
                                                                 <h4 class="modal-title" id="myModalLabel">New</h4>
                                                             </div>
-                                                            <form action="save_personal.php" method="POST"
+                                                            <form action="save_rk_rope.php" method="POST"
                                                                 enctype="multipart/form-data">
                                                                 <div class="modal-body">
 
@@ -882,7 +882,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <form action="save_personal.php" method="post"
+                                                <form action="save_rk_rope.php" method="post"
                                                     enctype="multipart/form-data">
 
 
@@ -923,10 +923,10 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                     <td>
 
                                                                         <a
-                                                                            href="edit_workexp_rk.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>"><button
+                                                                            href="edit_workexp_rk_rope.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>"><button
                                                                                 name="update_new_work"
                                                                                 class="btn btn-primary btn-md">Edit</button></a>
-                                                                        <a href="save_personal.php?id=<?php echo $row['id']?>&deletewrk=delete"
+                                                                        <a href="save_rk_rope.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>&deletewrk=delete"
                                                                             onClick="return confirm('Are you sure you want to delete?')"><button
                                                                                 type="submit" name="deletewrk"
                                                                                 id="btn-submit"
@@ -972,7 +972,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                 <h4 class="modal-title" id="myModalLabel">New
                                                                 </h4>
                                                             </div>
-                                                            <form action="save_personal.php" method="POST"
+                                                            <form action="save_rk_rope.php" method="POST"
                                                                 enctype="multipart/form-data">
                                                                 <div class="modal-body">
 
@@ -1000,21 +1000,20 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                             file size you can upload is
                                                                             30MB</span>
                                                                     </div>
-
                                                                 </div>
                                                                 <input type='hidden' name='id'
                                                                     value=<?php echo  $stud_id?>>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-default"
                                                                         data-dismiss="modal">Close</button>
-                                                                    <button type="submit" name="submit_new_doc"
+                                                                    <button type="submit" name="submitdoc"
                                                                         class="btn btn-primary">Save</button>
                                                                 </div>
                                                             </form>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <form action="save_personal.php" method="post">
+                                                <form action="save_rk_rope.php" method="post">
 
 
 
@@ -1053,10 +1052,10 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
 
 
                                                                         <a
-                                                                            href="edit_upload.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>"><button
+                                                                            href="edit_upload_rk_rope.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>"><button
                                                                                 name="update"
                                                                                 class="btn btn-primary btn-md">Edit</button></a>
-                                                                        <a href="save_personal.php?id=<?php echo $row['id']?>&deletedoc=delete"
+                                                                        <a href="save_rk_rope.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>&deletedoc=delete"
                                                                             onClick="return confirm('Are you sure you want to delete?')"><button
                                                                                 type="submit" name="deletedoc"
                                                                                 id="btn-submit"
@@ -1107,7 +1106,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                                 New
                                                                             </h4>
                                                                         </div>
-                                                                        <form action="save_personal.php" method="POST"
+                                                                        <form action="save_rk_rope.php" method="POST"
                                                                             enctype="multipart/form-data">
                                                                             <div class="modal-body">
                                                                                 <div class="form-group">
@@ -1136,7 +1135,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <form action="save_personal.php" method="post">
+                                                            <form action="save_rk_rope.php" method="post">
 
 
 
@@ -1173,10 +1172,10 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
 
 
                                                                                     <a
-                                                                                        href="edit_cert_rk.php?id=<?php echo $row['id']?>"><button
+                                                                                        href="edit_cert_rk.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>"><button
                                                                                             name="update"
                                                                                             class="btn btn-primary btn-md">Edit</button></a>
-                                                                                    <a href="save_personal.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>&deletecertRK=delete"
+                                                                                    <a href="save_rk_rope.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>&deletecertRK=delete"
                                                                                         onClick="return confirm('Are you sure you want to delete?')"><button
                                                                                             type="submit"
                                                                                             name="deletecertRK"
@@ -1194,17 +1193,9 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                     </table>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-lg-12 text-right">
-                                                                <div class="form-group m-b-0">
-                                                                    <button type="submit" name="submit_workexp"
-                                                                        class="btn btn-lg btn-primary waves-effect waves-light">
-                                                                        <i class="far fa-save"></i>&nbsp;&nbsp;Simpan
-                                                                    </button>
 
                                                                     </form>
                                                                     <br>
-                                                                </div>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1235,7 +1226,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                             <hr />
 
 
-                                                                            <form action="save_personal.php"
+                                                                            <form action="save_rk_rope.php"
                                                                                 method="post">
                                                                                 <div class="col-md mg-t-10 mg-md-t-0">
                                                                                     <label class="ckbox"><input
