@@ -143,15 +143,15 @@ $i++;
                 <td><?php echo $stud_ic;?></td>
                    <td><?php echo $email;?></td>
                     <td><?php echo $status;?></td>
-          <td><a href="tab_test.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md">Update</button></a></td>
+                    <td><a href="tab_test.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md">Update</button></a></td>
           <?php if ($status == 'Submitted') { ?>
-            <td><a href="professional_dip.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md mb-2">DIPLOMA</button></a>
+            <td><a href="master.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md mb-2">MASTER</button></a>
              <a href="degree.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md mb-2">DEGREE</button></a>
-            <a href="master.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md">MASTER</button></a></td>
+            <a href="professional_dip.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md"> DIPLOMA</button></a></td>
         <?php  }else{ ?>
-          <td><a href="professional_dip.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md mb-2" disabled>DIPLOMA</button></a>
+          <td><a href="master.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md mb-2" disabled>MASTER</button></a>
            <a href="degree.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md mb-2" disabled>DEGREE</button></a>
-          <a href="master.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md" disabled>MASTER</button></a></td>
+          <a href="professional_dip.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md" disabled>DIPLOMA</button></a></td>
         <?php } ?>
 
 
