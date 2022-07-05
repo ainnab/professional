@@ -15,39 +15,6 @@ $ic=$_SESSION['ic'];
   $agent = $userRow['agent'];
 
 
-
-// if (isset($_POST['submit_program'])) {
-    
-  
-//     $id = $_REQUEST['id'];
-//     $mode = $_REQUEST['seeAnotherField'];
-//     $agent = $_REQUEST['otherField'];
-//     $program = $_REQUEST['otherPO'];
-
-//     $records = mysqli_query($dbconfig,"select * from application where stud_ic='$id'");
-
-//     while($data = mysqli_fetch_array($records)) {
-
-    
-
-//     }
-
-
-//     $sql2= "UPDATE application SET first_choice = '$mode', second_choice = '$agent',third_choice = '$program' where stud_ic = '$ic'";
-
-
-//   if(mysqli_query($dbconfig, $sql2) == TRUE){
-//      //echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test.php?id=".$stud_id."';</script>";
-
-//     } else{
-//         echo "ERROR: Hush! Sorry $result. " 
-//             . mysqli_error($dbconfig);
-//     }
-// }
-
-
-
-
 if (isset($_POST['submit_personal'])) {
 
 $firstname = $_POST['firstname'];
@@ -259,7 +226,6 @@ if (empty($fileA)) {
 if (isset($_POST['submit_new_acd_rk'])) {
 
   $edu_type = $_POST['edu_type'];
-  
   $edu_school = $_POST['edu_school'];
   $startYear = $_POST['startYear'];
   $gainYear = $_POST['gainYear'];
@@ -413,44 +379,7 @@ $target_file = $target2 . basename($newfilenameW);
             . mysqli_error($dbconfig);
     }
 }
-if (isset($_POST['submit_new_work_rk'])) {
 
-
-  $ic = $_POST['stud_ic'];
-  $type = $_POST['type'];
-  $wrkPostion = $_POST['wrkPostion'];
-  $edu_start = $_POST['edu_start'];
-  $edu_end = $_POST['edu_end'];
-  $edu_gred = $_POST['edu_gred'];
-  $edu_major = $_POST['edu_major'];
-  $wrkPostion1 = $_POST['wrkPostion1'];
-  $wrkPostion2 = $_POST['wrkPostion2'];
-  $wrkPostion3 = $_POST['wrkPostion3'];
-  $wrkPostion4 = $_POST['wrkPostion4'];
-  
-  
-  //$target2 = "folder/workExp/" .basename($_FILES['fileWork']['name']);
-  
-  $fileWork = $_FILES['fileWork']['name'];
-  $newfilenameW=$ic."_".$fileWork;
-  $target2 = "../sys/folder/workExp/";
-  $target_file = $target2 . basename($newfilenameW);
-  
-  
-       $queryW = "INSERT INTO working_experience (stud_ic,type,position,year_start,year_end,category,organization,employer_name,employer_address,job_scope,significant,fileWork) VALUES 
-       ('$ic','$type','$wrkPostion','$edu_start','$edu_end','$edu_gred','$edu_major','$wrkPostion1','$wrkPostion2',
-         '$wrkPostion3','$wrkPostion4','$newfilenameW')";
-  
-  
-     if(mysqli_query($dbconfig, $queryW) == TRUE){
-      move_uploaded_file($_FILES['fileWork']['tmp_name'], $target_file);
-       echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test_rk.php?id=$ic';</script>";
-  
-      } else{
-          echo "ERROR: Hush! Sorry $result. " 
-              . mysqli_error($dbconfig);
-      }
-  }
 if (isset($_POST['update_new_work'])) { 
 
 $id = $_REQUEST['id'];

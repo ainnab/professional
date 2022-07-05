@@ -77,18 +77,12 @@ if(isset($_SESSION['ic']))
        }
 
 
-   $stud_id = $_REQUEST['id'];
+    $stud_id = $_REQUEST['id'];
 
     $records = mysqli_query($dbconfig,"select * from student where stud_ic='$stud_id'");
     while($data = mysqli_fetch_array($records)) {
 
-
-
-
-
-
-
-      $now_year = date('Y');
+  $now_year = date('Y');
   $card_year  = substr($ic,0,2);
   if ($card_year<50){
   $age = $now_year - intval("20".$card_year);

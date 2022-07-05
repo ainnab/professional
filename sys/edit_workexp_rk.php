@@ -39,7 +39,7 @@ $records3 = mysqli_query($dbconfig,"select * from working_experience where stud_
     <div class="card-body">
   
 								
-			<form action="save_personal.php" method="POST" enctype="multipart/form-data">
+			<form action="save_rk.php" method="POST" enctype="multipart/form-data">
 				 <?php
                       if (isset($_GET['id'])) {
 
@@ -52,6 +52,7 @@ $records3 = mysqli_query($dbconfig,"select * from working_experience where stud_
                           $type = $row['type'];
                         ?>
                         <input type="text" name="id" value="<?php echo $row['id']; ?>" hidden>
+                        <input type="text" name="stud_ic" value="<?php echo $row['stud_ic']; ?>" hidden>
 				<div class="modal-body">
 					<div class="form-group">
 						<label>Type</label>
@@ -122,9 +123,9 @@ $records3 = mysqli_query($dbconfig,"select * from working_experience where stud_
 						<a href="folder/permohonan/<?php echo $row['fileWork']; ?>" target="_blank"><?php echo $row['fileWork']; ?></a>
 						<span class="help-block">*The maximum file size you can upload is 30MB</span>
 					</div>
-					</div>  <input type='hidden' name='stud_id' value='<?php echo  $stud_id?>'>
+					</div>
 					<div class="modal-footer">
-						<a href="tab_workexp.php"><button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+					<a href="tab_test.php?id=<?php echo $row ['stud_ic']?>"><button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
 						<button type="submit" name="update_new_work" class="btn btn-primary">Update</button>
 					</div>
 			 </form>
