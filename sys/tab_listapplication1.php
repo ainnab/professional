@@ -27,7 +27,6 @@
                 <tr>
                   <th>ID</th>
                   <th>NAME</th>
-                  <th>Program</th>
                   <th>IC</th>
                   <th>STATUS</th>
                   <th>APPROVE</th>
@@ -39,7 +38,6 @@
                             <tr>
                             <td><?php echo $j++;  ?></td>
                             <td><?php echo $row["stud_name"]; ?></td>
-                            <td></td>
                             <td><?php echo $row["stud_ic"]; ?></td>
                             <td><?php echo $row["app_status"]; ?></td>
                             <?php if ($row['app_status'] == 'Approved' || $row['app_status'] == 'Submitted' || $row['app_status'] == 'Rejected') { ?>

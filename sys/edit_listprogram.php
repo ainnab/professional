@@ -85,6 +85,9 @@
                                             <option <?php if ($certificate == "EXECUTIVE MASTER") {
                                               echo 'selected';
                                             } ?> value="EXECUTIVE MASTER">EXECUTIVE MASTER</option>
+                                            <option <?php if ($certificate == "SHORT COURSES") {
+                                              echo 'selected';
+                                            } ?> value="SHORT COURSES">SHORT COURSES</option>
                                           </select>
                       </div>
 
@@ -96,6 +99,8 @@
                             <a href="tab_listprogramDip.php"><button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
                           <?php }elseif($mode == 'BACHELOR'){?>
 									        <a href="tab_listprogramBch.php"><button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+                          <?php }elseif($mode == 'SHORT COURSES'){?>
+                          <a href="tab_listprogramSC.php"><button type="button" class="btn btn-default" data-dismiss="modal">Back</button>  
                           <?php }else{?>
                             <a href="tab_listprogramMas.php"><button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
                         <?php  } ?>

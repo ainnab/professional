@@ -14,7 +14,7 @@
           <div class="card-body">
         
       <div class="col-6 col-md-4 col-xl-11">
-          <?php $sql3=mysqli_query($dbconfig,"SELECT * FROM program"); ?>
+          <?php $sql3=mysqli_query($dbconfig,"SELECT * FROM program_diploma"); ?>
            <?php if (mysqli_num_rows($sql3) > 0) { ?>
                           
           <div>
@@ -30,7 +30,7 @@
               <?php $i=0; $j=1; while($row = mysqli_fetch_array($sql3)) { ?>
                             <tr>
                             <td><?php echo $j++;  ?></td>
-                            <td><?php echo strtoupper($row["programName"]); ?></td>
+                            <td><?php echo strtoupper($row["pg_name"]); ?></td>
                             <td><?php echo strtoupper($row["certificate"]); ?></td>
                             </tr>
             <?php $i++;  } ?>

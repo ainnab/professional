@@ -28,6 +28,8 @@ $mode = $_POST['mode'];
       echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramDip.php';</script>";
     }elseif($mode == 'BACHELOR'){
       echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramBch.php';</script>";
+    }elseif($mode == 'SHORT COURSES'){
+      echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramSC.php';</script>";  
     }else
     echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramMas.php';</script>";
   } else{
@@ -59,6 +61,8 @@ if (isset($_POST['update_program'])) {
         echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramDip.php';</script>";
       }elseif($mode == 'BACHELOR'){
         echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramBch.php';</script>";
+      }elseif($mode == 'SHORT COURSES'){
+      echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramSC.php';</script>";    
       }else
       echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramMas.php';</script>";
     } else{
@@ -74,13 +78,13 @@ if(isset($_GET['deleteprog']))
                 {
 
                   echo "<script>alert('Successfully delete');</script>";
-                 //echo "<script>window.location.assign('tab_program.php')</script>";
+                  echo "<script>window.location.assign('tab_program.php')</script>";
                 }
 
                 else
                 {
                   echo"<script>alert('Tidak dapat diproses');</script>";
-                  //echo "<script>window.location.assign('tab_program.php')</script>";
+                  echo "<script>window.location.assign('tab_program.php')</script>";
                 }
  }
  if (isset($_POST['submit_status'])) {
@@ -169,7 +173,7 @@ if (isset($_POST['update_module'])) {
                     {
 
                       echo "<script>alert('Successfully delete');</script>";
-                      echo "<script>window.location.assign('module.php')</script>";
+                      echo "<script>window.location.assign('tab_listprogramBch.php')</script>";
                     }
 
                     else

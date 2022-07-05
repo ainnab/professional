@@ -76,11 +76,13 @@ include 'talum.php';
             </ul>
               </li><!-- nav-item -->
           <li class="nav-item show current">
-            <a href="tab_program.php" class="nav-link with-sub"><i class="typcn typcn-clipboard"></i>Program</a>
+            <a href="" class="nav-link with-sub"><i class="typcn typcn-clipboard"></i>Program</a>
             <ul class="nav-sub">
-              <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listprogramDip.php' ?'active' : " ");?>"><a href="tab_listprogramDip.php" class="nav-sub-link ">Professional Diploma</a></li>
-              <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listprogramBch.php' ?'active' : " ");?>"><a href="tab_listprogramBch.php" class="nav-sub-link ">Executive Bachelor</a></li>
+              <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_program.php' ?'active' : " ");?>"><a href="tab_program.php" class="nav-sub-link ">List of Program</a></li>
               <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listprogramMas.php' ?'active' : " ");?>"><a href="tab_listprogramMas.php" class="nav-sub-link ">Executive Master</a></li>
+              <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listprogramBch.php' ?'active' : " ");?>"><a href="tab_listprogramBch.php" class="nav-sub-link ">Executive Bachelor</a></li>
+              <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listprogramDip.php' ?'active' : " ");?>"><a href="tab_listprogramDip.php" class="nav-sub-link ">Professional Diploma</a></li>
+              <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listprogramSC.php' ?'active' : " ");?>"><a href="tab_listprogramSC.php" class="nav-sub-link ">Short Courses</a></li>
             </ul>
           </li><!-- nav-item -->
       <?php }if ($role == 'admin2') { ?>
