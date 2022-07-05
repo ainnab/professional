@@ -567,6 +567,69 @@ if(isset($_GET['deletedoc']))
                   //echo "<script>window.location.assign('tab_upload.php')</script>";
                 }
  }
+ if (isset($_POST['submit_new_certRK'])) {
+
+  $certDoc = $_FILES['certDoc']['name'];
+  $ic = $_POST['stud_ic'];
+  $newfilenameD=$ic."_".$certDoc;
+  $target = "folder/workExp/" .basename($newfilenameD);
+  
+    $query = "INSERT INTO certificate (stud_ic,certDoc) VALUES ('$ic','$certDoc')";
+  
+     if(mysqli_query($dbconfig, $query) == TRUE){
+      move_uploaded_file($_FILES['certDoc']['tmp_name'], $target);
+      echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_test_rk.php?id=$ic';</script>";
+  
+      } else{
+          echo "ERROR: Hush! Sorry $result. " 
+              . mysqli_error($dbconfig);
+      }
+  }
+
+  if (isset($_POST['update_cert_rk'])) { 
+
+    $certDoc = $_FILES['certDoc']['name'];
+    $id = $_POST['id'];
+    $newfilenameD=$ic."_".$certDoc;
+    $target = "folder/workExp/" .basename($newfilenameD);
+    
+      if (empty($certDoc)) {
+              echo "<script>alert('Nothing to be updated!');</script>";
+              echo "<script>window.location.assign('edit_cert_rk.php?id=$id')</script>";
+      }else {
+    
+         $sql2= "UPDATE certificate SET certDoc = '$certDoc' where id = '$id'";
+    
+          if ($dbconfig->multi_query($sql2) == TRUE) {
+    
+                move_uploaded_file($_FILES['certDoc']['tmp_name'], $target);
+                echo "<script>alert('Data updated');</script>";
+                echo "<script>window.location.assign('edit_cert_rk.php?id=$id')</script>";
+          }else
+          {
+                echo "<script>alert('Tidak dapat diproses');</script>";
+          }
+      }
+    }
+    if(isset($_GET['deletecertRK']))
+    {
+
+      $id = $_GET['stud_id'];
+             $sql5= "delete from certificate where id = '".$_GET['id']."'";
+            if($dbconfig->multi_query( $sql5) == TRUE)
+              {
+
+                echo "<script>alert('Successfully delete');</script>";
+               echo "<script>window.location.assign('tab_test_rk.php?id=$id')</script>";
+              }
+
+              else
+              {
+                echo"<script>alert('Tidak dapat diproses');</script>";
+                echo "<script>window.location.assign('tab_test_rk.php?id=$id')</script>";
+              }
+}
+
 if (isset($_POST['enrol'])) {
 
     $namaProgram = $_REQUEST['namaProgram'];
@@ -581,38 +644,8 @@ if (isset($_POST['enrol'])) {
  } else{
         echo "ERROR: Hush! Sorry $result. " 
             . mysqli_error($dbconfig);
-    }
- 
+    } 
 }
-// if (isset($_POST['submit_program'])) {
-    
-  
-//     $id = $_REQUEST['id'];
-//     $mode = $_REQUEST['seeAnotherField'];
-//     $agent = $_REQUEST['otherField'];
-//     $program = $_REQUEST['otherPO'];
-
-//     $records = mysqli_query($dbconfig,"select * from application where stud_ic='$id'");
-
-//     while($data = mysqli_fetch_array($records)) {
-
-    
-
-//     }
-
-
-//     $sql2= "UPDATE application SET first_choice = '$mode', second_choice = '$agent',third_choice = '$program' where stud_ic = '$id'";
-
-
-//   if(mysqli_query($dbconfig, $sql2) == TRUE){
-//      //echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'display.php';</script>";
-
-//     } else{
-//         echo "ERROR: Hush! Sorry $result. " 
-//             . mysqli_error($dbconfig);
-//     }
-// }
-
 
 
  if (isset($_POST['submit_final'])) {
