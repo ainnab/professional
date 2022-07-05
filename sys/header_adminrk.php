@@ -48,6 +48,7 @@
   $role = $userRow['role'];
   /*$adminrk = $userRow['adminrk'];*/
   $app_status=$userRow['app_status'];
+  $name=$userRow['stud_name'];
 }
 ?>
 
@@ -94,7 +95,7 @@
           </div><!-- az-header-center -->
           <div class="az-header-right">
             <div class="az-header-message">
-              <a href="app-chat.html"><i class="typcn typcn-messages"></i></a>
+              <a href=""><i class="typcn typcn-messages"></i></a>
             </div><!-- az-header-message -->
             <div class="dropdown az-header-notification">
               <a href="" class="new"><i class="typcn typcn-bell"></i></a>
@@ -143,21 +144,24 @@
                 <div class="az-dropdown-header d-sm-none">
                   <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
                 </div>
+                 <?php
+                    $sql_select = "SELECT * FROM student where stud_ic = '$ic'";
+                    $query_select = mysqli_query($dbconfig,$sql_select);
+                    $row_select = mysqli_fetch_array($query_select);
+
+                    $name = $row_select['stud_name'];
+                ?>
+
                 <div class="az-header-profile">
                   <div class="az-img-user">
                     <img src="../img/faces/face1.jpg" alt="">
                   </div><!-- az-img-user -->
-                  <h6>Aziana Pechon</h6>
-                  <span>Premium Member</span>
+                  <h6><?php echo $name ?></h6>
                 </div><!-- az-header-profile -->
-
-                <a href="" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
-                <a href="" class="dropdown-item"><i class="typcn typcn-edit"></i> Edit Profile</a>
-                <a href="" class="dropdown-item"><i class="typcn typcn-time"></i> Activity Logs</a>
-                <a href="" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Account Settings</a>
                 <a href="signout.php" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Sign Out</a>
               </div><!-- dropdown-menu -->
             </div>
+            <?php ?>
           </div><!-- az-header-right -->
         </div><!-- container -->
       </div><!-- az-header -->
