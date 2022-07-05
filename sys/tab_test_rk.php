@@ -1073,17 +1073,8 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                         </table>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-12 text-right">
-                                                    <div class="form-group m-b-0">
-                                                        <button type="submit" name="submit_workexp"
-                                                            class="btn btn-lg btn-primary waves-effect waves-light">
-                                                            <i class="far fa-save"></i>&nbsp;&nbsp;Simpan
-                                                        </button>
-
                                                         </form>
                                                         <br>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
