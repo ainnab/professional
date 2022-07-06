@@ -48,8 +48,12 @@
     $ic=$_SESSION['ic'];       
     $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
     while($data2 = mysqli_fetch_array($records)) { 
+<<<<<<< Updated upstream
        $role = $data2['role'];
        $app_status = $data2['app_status'];
+=======
+      
+>>>>>>> Stashed changes
         include 'main_menu.php';
      
        }     

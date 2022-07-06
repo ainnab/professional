@@ -90,6 +90,7 @@ include 'talum.php';
         <a href="dashboard5.php" class="nav-link"><i class="typcn typcn-clipboard"></i>Dashboard</a>
          <ul class="nav-sub">
         <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listapplication.php' ?'active' : " ");?>"><a href="tab_listapplication.php" class="nav-sub-link ">List of Application</a></li>
+        <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listapplicationVer.php' ?'active' : " ");?>"><a href="tab_listapplicationVer.php" class="nav-sub-link ">List of Status Application</a></li>
       </ul>
         </li><!-- nav-item -->
       <?php }if ($role == 'admin3') { ?>
@@ -97,6 +98,7 @@ include 'talum.php';
         <a href="dashboard6.php" class="nav-link"><i class="typcn typcn-clipboard"></i>Dashboard</a>
          <ul class="nav-sub">
         <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listapplication3.php' ?'active' : " ");?>"><a href="tab_listapplication3.php" class="nav-sub-link ">List of Application</a></li>
+        <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listapplicationApp.php' ?'active' : " ");?>"><a href="tab_listapplicationApp.php" class="nav-sub-link ">List of Status Application</a></li>
       </ul>
         </li><!-- nav-item -->
       <?php } ?>
@@ -172,10 +174,10 @@ include 'talum.php';
                   <span>Premium Member</span>
                 </div><!-- az-header-profile -->
 
-                <a href="" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
+               <!--  <a href="" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
                 <a href="" class="dropdown-item"><i class="typcn typcn-edit"></i> Edit Profile</a>
                 <a href="" class="dropdown-item"><i class="typcn typcn-time"></i> Activity Logs</a>
-                <a href="" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Account Settings</a>
+                <a href="" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Account Settings</a> -->
                 <a href="signout.php" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Sign Out</a>
               </div><!-- dropdown-menu -->
             </div>

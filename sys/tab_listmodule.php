@@ -23,19 +23,19 @@
       Add
     </button>
     <div class="modal fade" id="addEdu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-								  <div class="modal-dialog">
-								    <div class="modal-content">
-								      <div class="modal-header">
-								        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-								        <h4 class="modal-title" id="myModalLabel">New</h4>
-								      </div>
-								      <form action="save.php" method="POST" enctype="multipart/form-data">
-									      <div class="modal-body">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="myModalLabel">New</h4>
+                      </div>
+                      <form action="save.php" method="POST" enctype="multipart/form-data">
+                        <div class="modal-body">
 
-									      	<div class="form-group">
-									      		<label>Program Name</label>
-									      		<input type="text" class="form-control" id="progName" name="progName" required="">
-									      	</div>
+                          <div class="form-group">
+                            <label>Program Name</label>
+                            <input type="text" class="form-control" id="progName" name="progName" required="">
+                          </div>
                           <div class="form-group">
                             <label>Program Code</label>
                             <input type="text" class="form-control" id="progCode" name="progCode" required="">
@@ -65,9 +65,13 @@
                             <input type="date" class="form-control" name="date_start" id="date_start" placeholder="MM-YYYY" required="">
                           </div>
                           <div class="form-group">
-									      		<label>Admission Name</label>
-									      		<input type="text" class="form-control" id="adsName" name="adsName" required="">
-									      	</div>
+                            <label>Admission Name</label>
+                            <input type="text" class="form-control" id="adsName" name="adsName" required="">
+                          </div>
+                          <!-- <div class="form-group">
+                            <label>Mode of Admission</label>
+                            <input type="text" class="form-control" id="modeAds" name="modeAds" required="">
+                          </div> -->
                           <div class="form-group">
                             <label>Upload Picture</label>
                             <input type="file" class="form-control" id="picDip" name="picDip">
@@ -75,18 +79,18 @@
                           </div>
                            <div class="form-group">
                             <label>Certificate Category</label>
-                            <input type="text" class="form-control" id="certificate" name="certificate" value="EXECUTIVE MASTER" readonly>
-                            <input type="hidden" class="form-control" id="mode" name="mode" value="MASTER" readonly>
+                            <input type="text" class="form-control" id="certificate" name="certificate" value="EXECUTIVE BACHELOR" readonly>
+                            <input type="hidden" class="form-control" id="mode" name="mode" value="BACHELOR" readonly>
                           </div>
-									      </div>
-									      <div class="modal-footer">
-									        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-									        <button type="submit" name="submit_program" class="btn btn-primary">Save</button>
-									      </div>
-								      </form>
-								    </div>
-								  </div>
-								</div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="submit" name="submit_program" class="btn btn-primary">Save</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
    <form action="save.php" method="post">
   
             
@@ -102,7 +106,6 @@
                                     <th>Program Name</th>
                                     <th>Date Created</th>
                                     <th>Admission Name</th>
-                                    <!-- <th>Mode of Admission</th> -->
                                     <th>Certificate Category</th>
                                     <th>Action</th>
                                   </tr>
@@ -112,7 +115,7 @@
                           <?php 
 
 
-                          $sql3=mysqli_query($dbconfig,"SELECT * FROM program_diploma WHERE mode='MASTER'");
+                          $sql3=mysqli_query($dbconfig,"SELECT * FROM program_module WHERE mode='BACHELOR'");
                           $cnt=1;
                           while($row=mysqli_fetch_array($sql3)){
                              $id=$row['pg_id'];
@@ -124,13 +127,12 @@
                       <td><?php echo htmlentities (ucwords($row['pg_name']));?></td>
                       <td><?php echo htmlentities (ucwords($row['keyin_date']));?></td>
                       <td><?php echo htmlentities (ucwords($row['adsName']));?></td>
-                      <!-- <td><?php echo htmlentities (ucwords($row['mode']));?></td> -->
                       <td><?php echo htmlentities (ucwords($row['certificate']));?></td>
-                      <td>
+                      <td> 
                        
 
-                     <a href="edit_listprogram.php?id=<?php echo $row['pg_id']?>" ><button name="update" class="btn btn-primary"><i class="fa fa-edit"></i></button></a>
-                      <a href="save.php?id=<?php echo $row['pg_id']?>&deleteprog=delete" onClick="return confirm('Are you sure you want to delete?')"><button type="submit" name="deleteprog" id="btn-submit" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
+                     <a href="edit_listprogram.php?id=<?php echo $row['pg_id']?>" ><button name="update" class="btn btn-primary btn-md">Edit</button></a>
+                      <a href="save.php?id=<?php echo $row['pg_id']?>&deleteprog=delete" onClick="return confirm('Are you sure you want to delete?')"><button type="submit" name="deleteprog" id="btn-submit" class="btn btn-primary btn-md">Delete</button></a>
 
                        <!--  <i class="icon-remove-sign"></i> -->
                     </tr>

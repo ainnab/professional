@@ -19,7 +19,7 @@
 
 <?php while($data = mysqli_fetch_array($records)) { ?>
       <div class="col-6 col-md-4 col-xl-12">
-         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student'"); ?>
+         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND app_status='Verified'"); ?>
             <?php if (mysqli_num_rows($result) > 0) { ?>
           <div>
             <table id="example1" class="table">

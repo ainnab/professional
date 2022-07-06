@@ -430,9 +430,9 @@ $target_file = $target2 . basename($newfilenameW);
             move_uploaded_file($_FILES['fileWork']['tmp_name'], $target_file);
             echo "<script>alert('Data updated');</script>";
             if ($mode == 'ROPE') {
-              echo "<script>window.location.assign('edit_workexp_rk.php?id=$id&stud_id=$studid;')</script>";
+              echo "<script>window.location.assign('edit_workexp_rk.php?id=$id&stud_id=$studid')</script>";
             }else{
-              echo "<script>window.location.assign('edit_workexp.php?id=$id&stud_id=$studid;')</script>";
+              echo "<script>window.location.assign('edit_workexp.php?id=$id&stud_id=$studid')</script>";
             }
           }else
       {
@@ -448,13 +448,13 @@ if(isset($_GET['deletewrk']))
                 {
 
                   echo "<script>alert('Successfully delete');</script>";
-                // echo "<script>window.location.assign('tab_workexp.php')</script>";
+                  echo "<script>window.location.assign('tab_workexp.php')</script>";
                 }
 
                 else
                 {
                   echo"<script>alert('Tidak dapat diproses');</script>";
-                  //echo "<script>window.location.assign('tab_workexp.php')</script>";
+                  echo "<script>window.location.assign('tab_workexp.php')</script>";
                 }
  }
 
