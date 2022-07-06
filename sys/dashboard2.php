@@ -38,6 +38,63 @@
         
         <p class="mg-b-20"></p>
             <?php } ?>
+            <!--<p><strong>INSTRUCTION</strong></p>
+                <p>Application for Direct Intake to UMP <a href="http://umpadvanced.ump.edu.my/newportalumpa/diploma_must" target="_blank"><b><u>Diploma</u></b></a> / <a href="http://umpadvanced.ump.edu.my/newportalumpa/foundation" target="_blank"><b><u>Foundation in Science and Technology</u></b></a> / <a href="http://umpadvanced.ump.edu.my/newportalumpa/pre_diploma" target="_blank"><b><u>Pre Diploma</u></b></a> Programme through <a style="color:blue;"><i><b>'Masuk UMP Secara Terus' (MUST). </b></i></a></p>
+                <p>Please prepare certified scanned copies of the academic qualification documents <b>(Trial SPM/Actual SPM/O-Level/ICGSE etc.)</b> in PDF format to be uploaded during the online application process.
+                </p>
+            
+                <hr/>
+                <p><b>IMPORTANT:</b></p>
+                    <ul><b><a style="color:blue;">Application for Diploma in Engineering Programmes (Study Duration: Less than Three (3) years)</a></b></ul> 
+                        <ul><b>General requirements:</b></ul>
+                        <ul>&nbsp;&nbsp;i. SPM/O-Level/Equivalent with minimum THREE (3) credits</ul>
+                        <ul>&nbsp;&nbsp;ii. Credits in Bahasa Melayu and passed in History subject</ul> 
+                        <p><ul><b>Specific requirement: </b></ul>
+                        <ul>&nbsp;&nbsp;i. Minimum C grade in the following subjects</ul>
+                        <ul> &nbsp;&nbsp;&nbsp;&nbsp;a) Mathematics</ul>
+                        <ul>&nbsp;&nbsp;&nbsp;&nbsp;b) Science/Technical/Vokasional</ul>
+                        <ul>&nbsp;&nbsp;&nbsp;&nbsp;c) Passed in English language subject</ul></ul><br></p>
+					
+                    <ul><b><a style="color:blue;">Application for Diploma in Computer Science (Study Duration: Less than Three (3) years)</a></b></ul> 
+                    <ul><b>General requirements:</b></ul>
+                        <ul>&nbsp;&nbsp;i. SPM/O-Level/Equivalent with minimum THREE (3) credits</ul>
+                        <ul>&nbsp;&nbsp;ii. Credits in Bahasa Melayu and passed in History subject</ul> 
+                        <p><ul><b>Specific requirement: </b></ul>
+                        <ul>&nbsp;&nbsp;i. Minimum C grade in the following subjects</ul>
+                        <ul>&nbsp;&nbsp;&nbsp;&nbsp;a) Mathematics,and </ul>
+                        <ul>&nbsp;&nbsp;&nbsp;&nbsp;b) Any subjects</ul>
+                        <ul>&nbsp;&nbsp;&nbsp;&nbsp;c) Passed in English language subject</ul></ul><br></p>
+
+                    <ul><b><a style="color:blue;">Application for Diploma in Occupational, Safety & Health (Study Duration: Less than Three (3) years)</a></b></ul>
+                    <ul><b>General requirements:</b></ul>
+                        <ul>&nbsp;&nbsp;i. SPM/O-Level/Equivalent with minimum THREE (3) credits</ul>
+                        <ul>&nbsp;&nbsp;ii. Credits in Bahasa Melayu and passed in History subject</ul> 
+                        <p><ul><b>Specific requirement: </b></ul>
+                        <ul>&nbsp;&nbsp;i. Minimum C grade in the following subjects</ul>
+                        <ul>&nbsp;&nbsp;&nbsp;&nbsp; a) Mathematics/ ONE (1) of science subjects(Physics/Biology/Chemistry/General Science),</ul> 
+                        <ul>&nbsp;&nbsp;&nbsp;&nbsp;b) Passed in any TWO (2) subjects</ul></ul><br></p>
+
+                        <hr/>
+
+                    <ul><b><a style="color:blue;">Application for Foundation in Science and Technology (Study Duration: One (1) year)</a></b></ul>
+                    <ul>Program specifically designed for dual degree programmes, UMP collaboration with German/China Universities, or for local programmes</ul>    
+                    <ul><b>General requirements:</b></ul>
+                        <ul>&nbsp;&nbsp;i. SPM/O-Level/Equivalent with minimum FIVE (5) credits</ul>
+                        <ul>&nbsp;&nbsp;ii. Credits in Bahasa Melayu and passed in History subject</ul> 
+                        <p><ul><b>Specific requirement: </b></ul>
+                        <ul>&nbsp;&nbsp;i. Minimum C grade in the following subjects</ul>
+                        <ul>&nbsp;&nbsp;&nbsp;&nbsp;a) Mathematics</ul>
+                        <ul>&nbsp;&nbsp;&nbsp;&nbsp;b) Any TWO (2) of science subjects(Physics/Biology/Chemistry/General Science or equivalent),</ul> 
+                        <ul>&nbsp;&nbsp;&nbsp;&nbsp;b) Credit in any other subject</ul><br></p>
+
+                       
+
+                        <hr/>
+
+                        
+                        <p>For further assistance, please <a href="http://umpadvanced.ump.edu.my/contact" target="_blank"><b><u>contact us</u></b></a></p>
+            </div>
+       
             </div><!-- card-body -->
         </div><!-- card -->
     </div><!-- col -->

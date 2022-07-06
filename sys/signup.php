@@ -83,7 +83,7 @@ body {
   	
   	}else{
 		
-		$sql = "insert into student (stud_name, stud_ic, password, stud_email, role, app_status, intake, date, app_option) value('".$name."', '".$ic."','".$hashPassword."','".$email."','".$role."','Register','sem1 22/23','".$dte."','0')";
+		$sql = "insert into student (stud_name, stud_ic, password, stud_email, role, app_status, intake, date, app_option) value('".$name."', '".$ic."','".$hashPassword."','".$email."','".$role."','Applied','sem1 22/23','".$dte."','0')";
 		$result = mysqli_query($dbconfig, $sql);
 		if($result)
 		{
@@ -102,7 +102,7 @@ body {
               $sql6 = "insert into contact (stud_ic, email) value('".$ic."', '".$email."')";
               $result6 = mysqli_query($dbconfig, $sql6);
           
-        echo "<script type='text/javascript'>alert('Registration Successfully!'); window.location.href = 'index.php';</script>";
+        echo "<script type='text/javascript'>alert('Registration Successfully!'); window.location.href = 'signin.php';</script>";
       }
       else{
         echo "opps! something was wrong.". mysqli_error($dbconfig);;
@@ -156,7 +156,7 @@ body {
           </form>
         </div><!-- az-signup-header -->
         <div class="az-signup-footer">
-          <p>Already have an account? <a href="index.php">Sign In</a></p>
+          <p>Already have an account? <a href="signin.php">Sign In</a></p>
         </div><!-- az-signin-footer -->
       </div><!-- az-column-signup -->
     </div><!-- az-signup-wrapper -->

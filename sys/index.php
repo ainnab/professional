@@ -123,11 +123,11 @@ body {
       
     }
     else{
-      echo "<script type='text/javascript'>alert('Wrong Password! Please try again!'); window.location.href = 'index.php';</script>";
+      echo "<script type='text/javascript'>alert('Wrong Password! Please try again!'); window.location.href = 'signin.php';</script>";
     }}
   
   else{
-    echo "<script type='text/javascript'>alert('No User found!'); window.location.href = 'index.php';</script>";
+    echo "<script type='text/javascript'>alert('No User found!'); window.location.href = 'signin.php';</script>";
   }
     }
 ?>
