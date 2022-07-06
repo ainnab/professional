@@ -50,7 +50,7 @@
     $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
     while($data2 = mysqli_fetch_array($records)) { 
       $role = $data2['role'];
-      $agent=$data2['stud_name']; 
+      $stud_name=$data2['stud_name']; 
       $app_status = $data2['app_status'];
         include 'main_menu.php';
       
@@ -90,7 +90,7 @@ $records3 = mysqli_query($dbconfig,"select * from document where stud_ic='$ic'")
                         <div class="modal-body">
 
                         <div class="form-group">
-                          <input type="text" name="stud_ic" value="<?php echo $ic;?>">
+                          <input type="hidden" name="stud_ic" value="<?php echo $ic;?>">
                           <label>Filename:</label>
                             <select name="filename" class="form-control">
                             <option value=" " selected disabled="" style="font-size:14px;">Please select</option>

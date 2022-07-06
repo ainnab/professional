@@ -146,6 +146,7 @@ $records3 = mysqli_query($dbconfig,"select * from academic where stud_ic='$ic'")
 									      </div>
 									      <div class="modal-footer">
 									        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <input type="hidden" class="form-control" id="ic" name="stud_ic" value="<?php echo $ic;?>">
 									        <button type="submit" name="submit_new_acd" class="btn btn-primary">Save</button>
 									      </div>
 								      </form>

@@ -86,6 +86,7 @@ img {
                     while($row = mysqli_fetch_array($result))
                           {
                                $program = $row['pg_name'];
+                               $adsName = $row['adsName'];
                                // $date =$row['dateCreated'];
                                // $admission = $row['adsName'];
                                // $mode = $row ['mode'];
@@ -317,11 +318,12 @@ $courseN = explode(',', $course);
          <form action="save_personal.php" method="POST" enctype="multipart/form-data">
           <input type='hidden' name='code' value='<?php echo $id;?>' />
 <input type='hidden' name='stud_id' value='<?php echo $stud_id;?>' />
+<input type='hidden' name='adsName' value='<?php echo $adsName;?>' />
         <input class="form-control"  name="namaProgram" value="<?php echo strtoupper($program); ?>" hidden>
         <b><div><?php echo strtoupper($program); ?></div></b><br>
         <b><div class="bold text-uppercase margin-top-35">Created:</b>
         <span class="font-size-13"> </span></div><br>
-        <b><div class="bold text-uppercase margin-top-35">Admission Name:</b>
+        <b><div class="bold text-uppercase margin-top-35">Admission Name: <?php echo $adsName;?></b>
         <span class="font-size-13"></span></div><br>
         <b><div class="bold text-uppercase margin-top-35">Mode Of Admission:</b>
         <span class="font-size-13"></span></div><br>

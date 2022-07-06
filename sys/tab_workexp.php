@@ -245,7 +245,7 @@ $records3 = mysqli_query($dbconfig,"select * from academic where stud_ic='$ic'")
                                                                     <td>
 
                                                                         <a
-                                                                            href="edit_workexp.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>"><button
+                                                                            href="edit_workexp.php?id=<?php echo $row['id']?>&stud_id=<?php echo $ic;?>"><button
                                                                                 name="update_new_work"
                                                                                 class="btn btn-primary btn-md">Edit</button></a>
                                                                         <a href="save_personal.php?id=<?php echo $row['id']?>&deletewrk=delete"
