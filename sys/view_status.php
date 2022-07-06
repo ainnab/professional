@@ -60,7 +60,7 @@
 $records3 = mysqli_query($dbconfig,"select * from programselection where stud_ic='$ic'"); 
 while($data3=mysqli_fetch_array($records3)){
     $pg_name=$data3['pg_name'];
-    $status=$data3['status'];
+    $status=ucwords($data3['status']);
 }
 date_default_timezone_set("Asia/Bangkok");
 $date='Y';

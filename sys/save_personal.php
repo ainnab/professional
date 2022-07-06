@@ -152,7 +152,7 @@ $household = $_POST['household'];
 
     if(mysqli_query($dbconfig, $result) == TRUE){
         //$result2 = mysqli_query($dbconfig, $result2);
-        echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_parent.php';</script>";
+        echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_workexp.php';</script>";
     } else{
         echo "ERROR: Hush! Sorry $result. " 
             . mysqli_error($dbconfig);
@@ -217,7 +217,6 @@ if (isset($_POST['submit_contact'])) {
 if (isset($_POST['submit_new_acd'])) {
 
 $edu_type = $_POST['edu_type'];
-
 $edu_school = $_POST['edu_school'];
 $startYear = $_POST['startYear'];
 $gainYear = $_POST['gainYear'];
@@ -227,14 +226,14 @@ $ic = $_POST['stud_ic'];
 $fileA = $_FILES['fileA']['name'];
 $newfilename=$ic."_".$fileA;
 $target2 = "../sys/folder/academic/";
-$target_file = $target2 . basename($newfilename);
+$target_file = $target2.basename($newfilename);
 
 if (empty($fileA)) {
   $query = "INSERT INTO academic (stud_ic,edu_type,edu_school,edu_start,edu_end,edu_gred,edu_major) VALUES ('$ic','$edu_type','$edu_school','$startYear','$gainYear','$level','$major')";
 
 
   if(mysqli_query($dbconfig, $query) == TRUE){
-  echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_workexp.php';</script>";
+  echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_academic.php';</script>";
 
    } else{
        echo "ERROR: Hush! Sorry $result. " 
@@ -247,7 +246,7 @@ if (empty($fileA)) {
 
    if(mysqli_query($dbconfig, $query) == TRUE){
     move_uploaded_file($_FILES['fileA']['tmp_name'], $target_file);
-   echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_workexp.php';</script>";
+   echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_academic.php';</script>";
 
     } else{
         echo "ERROR: Hush! Sorry $result. " 
@@ -325,11 +324,11 @@ $target_file = $target2 . basename($newfilename);
 
       if ($dbconfig->multi_query($sql1) == TRUE) {
 
-            echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'edit_academic.php?id=$id';</script>";
-      }else
-      {
-            echo "<script>alert('Tidak dapat diproses');</script>";
-      }
+          echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_academic.php';</script>";
+    }else
+    {
+          echo "<script>alert('Tidak dapat diproses');</script>";
+    }
   }else {
 
      $sql2= "UPDATE academic SET edu_type = '$edu_type', edu_school = '$edu_school', edu_start = '$startYear', edu_end= '$gainYear', edu_gred = '$level', edu_major = '$major', fileA = '$newfilename' where id = '$id'";
@@ -399,8 +398,7 @@ $target2 = "../sys/folder/workExp/";
 $target_file = $target2 . basename($newfilenameW);
 
 
-     $queryW = "INSERT INTO working_experience (stud_ic,type,position,year_start,year_end,category,organization,employer_name,employer_address,job_scope,significant,fileWork) VALUES 
-     ('$ic','$type','$wrkPostion','$edu_start','$edu_end','$edu_gred','$edu_major','$wrkPostion1','$wrkPostion2',
+     $queryW = "INSERT INTO working_experience (stud_ic,type,position,year_start,year_end,category,organization,employer_name,employer_address,job_scope,significant,fileWork) VALUES ('$ic','$type','$wrkPostion','$edu_start','$edu_end','$edu_gred','$edu_major','$wrkPostion1','$wrkPostion2',
        '$wrkPostion3','$wrkPostion4','$newfilenameW')";
 
 
@@ -497,8 +495,11 @@ if (isset($_POST['submit_new_doc'])) {
 
 $filename = $_POST['filename'];
 $fileDoc = $_FILES['fileDoc']['name'];
-$target = "folder/workExp/" .basename($_FILES['fileDoc']['name']);
-$ic = $_POST['stud_ic'];
+$newfilenameD=$ic."_".$fileDoc;
+$target2 = "../sys/folder/upload/";
+$target_file = $target2 . basename($newfilenameD);
+
+     $query = "INSERT INTO document (stud_ic,file_name,fileDoc) VALUES ('$ic','$filename','$fileDoc')";
 
   $query = "INSERT INTO document (stud_ic,namaFail,fileDoc) VALUES ('$ic','$filename','$fileDoc')";
 
@@ -571,13 +572,16 @@ if (isset($_POST['enrol'])) {
 
     $namaProgram = $_REQUEST['namaProgram'];
     $code = $_REQUEST['code'];
+    date_default_timezone_set("Asia/Kuala_Lumpur");
+    $now = date("Y-m-d H:i:s");
     $stud_id = $_REQUEST['stud_id'];
-    $sql_u = "UPDATE programselection SET pg_code = '$code', pg_name='$namaProgram',status='pending' where stud_ic ='$stud_id'";
-    $res_u = mysqli_query($dbconfig, $sql_u);
+    $adsName = $_REQUEST['adsName'];
+    $sql_u = "INSERT INTO programselection(pg_code,pg_name,keyin_date,stud_ic,batch) VALUES ('$code','$namaProgram','$now','$ic','$adsName')";
+    //$res_u = mysqli_query($dbconfig, $sql_u); 
 
 
   if(mysqli_query($dbconfig, $sql_u) == TRUE){
-    //  echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'status_inst.php';</script>";
+      echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'view_submission.php';</script>";
  } else{
         echo "ERROR: Hush! Sorry $result. " 
             . mysqli_error($dbconfig);

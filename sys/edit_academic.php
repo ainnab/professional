@@ -11,9 +11,10 @@
     $ic=$_SESSION['ic'];       
     $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
     while($data2 = mysqli_fetch_array($records)) { 
+       //$stud_id = $_REQUEST['ic'];
           $role = $data2['role'];
-          $agent=$data2['stud_name']; 
-          $app_status = $data2['app_status'];
+   $agent=$data2['stud_name']; 
+   $app_status=$data2['app_status'];
         include 'main_menu.php';
       
        }     

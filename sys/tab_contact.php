@@ -1,4 +1,41 @@
-<?php 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90680653-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-90680653-2');
+    </script>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/jpg" href="img/favicon.png"/>
+
+    
+
+    <!-- Meta -->
+    <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
+    <meta name="author" content="BootstrapDash">
+
+    <title>Admission</title>
+
+    <!-- vendor css -->
+    <link href="lib/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="lib/typicons.font/typicons.css" rel="stylesheet">
+    <link href="lib/morris.js/morris.css" rel="stylesheet">
+    <link href="lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+    <link href="lib/jqvmap/jqvmap.min.css" rel="stylesheet">
+    <link href="lib/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet">
+
+    <!-- azia CSS -->
+    <link rel="stylesheet" href="css/azia.css"><?php 
     include 'talum.php';
    
     ?>
@@ -11,21 +48,22 @@
     $ic=$_SESSION['ic'];       
     $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
     while($data2 = mysqli_fetch_array($records)) { 
-      
-        include 'header_diploma.php';
+       $role = $data2['role'];
+       $app_status = $data2['app_status'];
+        include 'main_menu.php';
      
        }     
     ?>
 
   <?php 
   $records = mysqli_query($dbconfig,"select * from contact where stud_ic='$ic'"); 
-  $now_year = date('Y');
+  /*$now_year = date('Y');
   $card_year  = substr($ic,0,2);
   if ($card_year<50){
   $age = $now_year - intval("20".$card_year);
   }else{
   $age = $now_year - intval("19".$card_year);
-  }
+  }*/
 
 
   $sql1 = "SELECT * FROM `nationality`";
@@ -47,6 +85,8 @@
   ?>
 
 <?php while($data = mysqli_fetch_array($records)) { ?>
+</head>
+  <body class="az-body az-body-sidebar">
       <div class="az-content-header d-block d-md-flex">
         <div>
           <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">Contact Information</h2>
@@ -61,7 +101,7 @@
         <div class="card card-dashboard-seven">
           <div class="card-body">
             <p class="mg-b-20"></p>
-            <form action="save_personal.php" method="post">
+            <form action="save_personal.php" method="post" enctype="multipart/form-data">
             <div class="row row-sm">
             <div class="col-md-12 col-lg-12">
               <input type="text" name="stud_ic" value="<?php echo $data['stud_ic']?>" hidden>
@@ -141,6 +181,7 @@
             </div><!-- card-body -->
         </div><!-- card -->
     </div><!-- col -->
+    
   </div><!-- row -->
       <div class="az-footer ht-40">
         <div class="container-fluid pd-t-0-f ht-100p">

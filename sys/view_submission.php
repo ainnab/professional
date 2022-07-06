@@ -104,7 +104,7 @@ $role = $data['role'];
           <div class="card-body">
             <div class="row row-sm mg-b-15 mg-sm-b-20">
             <div class="col-md-12 col-lg-12">
-              
+
             <?php if($app_status=='Submitted'){?>
         <div class="alert alert-info" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -675,7 +675,7 @@ $now_year = date('Y');
                     <tr>
                       <td><?php echo htmlentities($cnt);?></td>
                       <td><?php echo htmlentities (ucwords($row['pg_name']));?></td>
-                      <td></td>
+                      <td><?php echo htmlentities(ucwords($row['batch']));?></td>
 
                        <!--  <i class="icon-remove-sign"></i> -->
                     </tr>
