@@ -136,7 +136,7 @@ if ($role == 'student' ){?>
 
               <li class="nav-sub-item"><a href="dashboard2.php" class="nav-sub-link">Dashboard</a></li>
             </ul>
-            <?php if($app_status=='Applied'){?>
+            <?php if($app_status=='Register'){?>
             <li class="nav-item show">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-clipboard"></i>Admission</a>
             <ul class="nav-sub">
@@ -163,7 +163,7 @@ if ($role == 'student' ){?>
               <?php }?>
             </ul>
             <?php }?>
-            <?php if($app_status=='Submitted'){?>
+            <?php if($app_status=='Submitted' or $app_status=='Applied'){?>
             <li class="nav-item show">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Program</a>
             <ul class="nav-sub">
