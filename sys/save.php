@@ -244,6 +244,27 @@ if (isset($_GET['verify1'])) {
      echo"<script>alert('Cannot be processed');</script>";
    }
 }
+if (isset($_POST['enrol'])) {
+
+  $namaProgram = $_REQUEST['namaProgram'];
+  $code = $_REQUEST['code'];
+  date_default_timezone_set("Asia/Kuala_Lumpur");
+  $now = date("Y-m-d H:i:s");
+  $stud_id = $_REQUEST['stud_id'];
+  $adsName = $_REQUEST['adsName'];
+  $sql_u = "INSERT INTO programselection(pg_code,pg_name,keyin_date,stud_ic,batch,status) VALUES ('$code','$namaProgram','$now','$stud_id','$adsName','Applied')";
+  //$res_u = mysqli_query($dbconfig, $sql_u); 
+
+
+if(mysqli_query($dbconfig, $sql_u) == TRUE){
+  $sql_p = "UPDATE student SET app_status='Applied'";
+    echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'view_submission.php';</script>";
+} else{
+      echo "ERROR: Hush! Sorry $result. " 
+          . mysqli_error($dbconfig);
+  } 
+}
+
 
 
  ?>
