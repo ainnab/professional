@@ -314,8 +314,7 @@ $courseN = explode(',', $course);
        <div class="card card-dashboardseven">
        <!--  <img src="img/BUTTON-DEGREE.png" > -->
             <div class="card-body div4">
-
-         <form action="save_personal.php" method="POST" enctype="multipart/form-data">
+        <form action="save_personal.php" method="POST" enctype="multipart/form-data">
           <input type='hidden' name='code' value='<?php echo $id;?>' />
 <input type='hidden' name='stud_id' value='<?php echo $stud_id;?>' />
 <input type='hidden' name='adsName' value='<?php echo $adsName;?>' />
