@@ -166,8 +166,8 @@ if(mysqli_num_rows($result3) > 0)
           <div class="col-lg-12 text-right">
             <div class="form-group m-b-0">
 
-        <button class="btn btn-outline-indigo ">  <a href="master.php?page=<?=$page-1?>&stud_id=<?php echo $stud_id;?>">Previous</a></button>
-<button class="btn btn-outline-indigo"><a href="master.php?page=<?=$page+1?>&stud_id=<?php echo $stud_id;?>">Next</a></button>
+        <button class="btn btn-outline-indigo ">  <a href="master.php?page=<?=$page-1?>&id=<?php echo $stud_id;?>">Previous</a></button>
+<button class="btn btn-outline-indigo"><a href="master.php?page=<?=$page+1?>&id=<?php echo $stud_id;?>">Next</a></button>
 </div>
 </div>
 
