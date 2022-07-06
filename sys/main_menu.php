@@ -130,9 +130,9 @@ if ($role == 'student' ){?>
             <li class="nav-item show">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Program</a>
             <ul class="nav-sub">
-            <li class="nav-sub-item"><a href="" class="nav-sub-link">Master Eksekutif</a></li>
-            <li class="nav-sub-item"><a href="" class="nav-sub-link">Bachelor Eksekutif</a></li>
-            <li class="nav-sub-item"><a href="professional_dip_stud.php" class="nav-sub-link">Professional Diploma</a></li>
+            <li class="nav-sub-item"><a href="master_exec_stud.php?id=<?php echo $ic;?>" class="nav-sub-link">Master Eksekutif</a></li>
+            <li class="nav-sub-item"><a href="bach_exec_stud.php?id=<?php echo $ic;?>" class="nav-sub-link">Bachelor Eksekutif</a></li>
+            <li class="nav-sub-item"><a href="professional_dip_stud.php?id=<?php echo $ic;?>" class="nav-sub-link">Professional Diploma</a></li>
             <li class="nav-sub-item"><a href="" class="nav-sub-link">Short Courses</a></li>
               
                
