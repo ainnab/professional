@@ -4,6 +4,6 @@
     // Destroy session
     if(session_destroy()) {
         // Redirecting To Home Page
-        header("Location:signin.php");
+        header("Location:index.php");
     }
 ?>
