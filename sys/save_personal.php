@@ -552,6 +552,7 @@ if (isset($_POST['enrol'])) {
 
   if(mysqli_query($dbconfig, $sql_u) == TRUE){
     $sql_p = "UPDATE student SET app_status='Applied'";
+    
       echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'view_submission.php';</script>";
  } else{
         echo "ERROR: Hush! Sorry $result. " 
