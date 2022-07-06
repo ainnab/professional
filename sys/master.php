@@ -31,9 +31,11 @@
 
  $recordA = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
     while($dataA = mysqli_fetch_array($recordA)) { 
-        $role = $dataA['role'];
-   $agent=$dataA['stud_name']; 
-   
+      $role = $dataA['role'];
+      $agent=$dataA['stud_name']; 
+      $stud_id = $_GET['id'];
+
+
    ?>
    <body class="sub_page">
       <div class="hero_area">
@@ -125,7 +127,7 @@ if(mysqli_num_rows($result3) > 0)
                   <div class="box">
                      <div class="option_container">
                         <div class="options">
-                           <a href="diploma_stud.php?id=<?php echo $id;?>" class="option1">
+                           <a href="diploma_stud.php?id=<?php echo $id;?>&stud_id=<?php echo $stud_id;?>" class="option1">
                            Enroll Now
                            </a>
 
@@ -164,8 +166,8 @@ if(mysqli_num_rows($result3) > 0)
           <div class="col-lg-12 text-right">
             <div class="form-group m-b-0">
 
-        <button class="btn btn-outline-indigo ">  <a href="master.php?page=<?=$page-1?>">Previous</a></button>
-<button class="btn btn-outline-indigo"><a href="master.php?page=<?=$page+1?>">Next</a></button>
+        <button class="btn btn-outline-indigo ">  <a href="master.php?page=<?=$page-1?>&stud_id=<?php echo $stud_id;?>">Previous</a></button>
+<button class="btn btn-outline-indigo"><a href="master.php?page=<?=$page+1?>&stud_id=<?php echo $stud_id;?>">Next</a></button>
 </div>
 </div>
 

@@ -546,7 +546,7 @@ if (isset($_POST['enrol'])) {
     $now = date("Y-m-d H:i:s");
     $stud_id = $_REQUEST['stud_id'];
     $adsName = $_REQUEST['adsName'];
-    $sql_u = "INSERT INTO programselection(pg_code,pg_name,keyin_date,stud_ic,batch,status) VALUES ('$code','$namaProgram','$now','$ic','$adsName','Applied')";
+    echo $sql_u = "INSERT INTO programselection(pg_code,pg_name,keyin_date,stud_ic,batch,status) VALUES ('$code','$namaProgram','$now','$stud_id','$adsName','Applied')";
     //$res_u = mysqli_query($dbconfig, $sql_u); 
 
 

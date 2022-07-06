@@ -1098,22 +1098,6 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                 </div>
                                             </form>
 
-                                            <!--?php include 'talum.php';
-                        if(isset($_POST['submit'])){
-                            $app = $_POST['app'];
-                            $result2="UPDATE student SET";
-                            $result2.= " app_status ='$app'";
-                            $result2.= " WHERE stud_ic='$stud_id'";
-                            if(mysqli_query($dbconfig, $result2) == TRUE){
-                                $result2 = mysqli_query($dbconfig, $result2);
-                                echo "<script type='text/javascript'>alert('Thankyou! You have submitted the application.'); window.location.href = 'view_submission.php';</script>";
-                            } else{
-                                echo "ERROR: Hush! Sorry $result. "
-                                    . mysqli_error($dbconfig);
-                            }
-                            mysqli_close($dbconfig);
-                        } ?-->
-
                                         </div><!-- card-body -->
                                     </div><!-- card -->
 

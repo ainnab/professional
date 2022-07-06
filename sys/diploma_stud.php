@@ -19,7 +19,7 @@ if(isset($_POST['id'])){
 
 
   $id=$_REQUEST['id'];
-  //$stud_id=$_REQUEST['stud_id'];
+  $stud_id=$_REQUEST['stud_id'];
 
  $recordA = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
     while($dataA = mysqli_fetch_array($recordA)) { 
@@ -316,9 +316,9 @@ $courseN = explode(',', $course);
             <div class="card-body div4">
 
          <form action="save_personal.php" method="POST" enctype="multipart/form-data">
-          <input type='hidden' name='code' value='<?php echo $id;?>' />
-<input type='hidden' name='stud_id' value='<?php echo $stud_id;?>' />
-<input type='hidden' name='adsName' value='<?php echo $adsName;?>' />
+        <input type='hidden' name='code' value='<?php echo $id;?>' />
+        <input type='hidden' name='stud_id' value='<?php echo $stud_id;?>' />
+        <input type='hidden' name='adsName' value='<?php echo $adsName;?>' />
         <input class="form-control"  name="namaProgram" value="<?php echo strtoupper($program); ?>" hidden>
         <b><div><?php echo strtoupper($program); ?></div></b><br>
         <b><div class="bold text-uppercase margin-top-35">Created:</b>

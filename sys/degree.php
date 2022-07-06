@@ -32,7 +32,9 @@
  $recordA = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
     while($dataA = mysqli_fetch_array($recordA)) { 
         $role = $dataA['role'];
-   $agent=$dataA['stud_name']; 
+      $agent=$dataA['stud_name']; 
+      $stud_id = $_REQUEST['id'];
+
    
    ?>
    <body class="sub_page">
@@ -125,7 +127,7 @@ if(mysqli_num_rows($result3) > 0)
                   <div class="box">
                      <div class="option_container">
                         <div class="options">
-                           <a href="diploma_stud.php?id=<?php echo $id;?>" class="option1">
+                           <a href="diploma_stud.php?id=<?php echo $id;?>&stud_id=<?php echo $stud_id;?>" class="option1">
                            Enroll Now
                            </a>
 
