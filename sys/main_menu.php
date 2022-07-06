@@ -72,43 +72,6 @@
      <?php
       if ($role == 'inst'){
 ?>
-       <!--  <ul class="nav">
-          <li class="nav-label">Main Menu</li>
-           <li class="nav-item ">
-            <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Dashboard</a>
-            <ul class="nav-sub">
-
-              <li class="nav-sub-item"><a href="dashboard_agent.php" class="nav-sub-link">Dashboard</a></li>
-            </ul>
-          </li>
-           <li class="nav-item ">
-            <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Create New Student</a>
-            <ul class="nav-sub">
-
-              <li class="nav-sub-item"><a href="tab_personal_agent.php" class="nav-sub-link">Create New Student</a></li> -->
-            </ul>
-          </li><!-- nav-item -->
-         <!--li class="nav-item">
-            <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Student Application</a>
-            <ul class="nav-sub">
-              <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_application.php' ?'active' : " ");?>"><a href="tab_application.php" class="nav-sub-link">app</a></li>
-              <li class="nav-sub-item "><a href="tab_personal.php" class="nav-sub-link">Personal Information</a></li>
-              <!--li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_contact.php' ?'active' : " ");?>"><a href="tab_contact.php" class="nav-sub-link">Contact</a></li-->
-              <!--li class="nav-sub-item "><a href="tab_parent.php" class="nav-sub-link">Family Background</a></li>
-              <li class="nav-sub-item "><a href="tab_workexp.php" class="nav-sub-link">Work Experience</a></li>
-              <li class="nav-sub-item"><a href="tab_academic.php" class="nav-sub-link">Academic Background</a></li>
-              <li class="nav-sub-item "><a href="tab_upload.php" class="nav-sub-link">Video CV/Attachment</a></li>
-              <!-- <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_security.php' ?'active' : " ");?>"><a href="tab_security.php" class="nav-sub-link">Security</a></li> -->
-              <!--li class="nav-sub-item "><a href="declaration.php" class="nav-sub-link">Declaration</a></li>
-            </ul>
-          </li><!-- nav-item -->
-<!--  <li class="nav-item ">
-            <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>List Student</a>
-            <ul class="nav-sub">
-
-              <li class="nav-sub-item"><a href="status_inst.php" class="nav-sub-link">List Student</a></li>
-            </ul>
- -->
 
         <ul class="nav">
         <li class="nav-label">Main Menu</li>
@@ -136,7 +99,8 @@ if ($role == 'student' ){?>
 
               <li class="nav-sub-item"><a href="dashboard2.php" class="nav-sub-link">Dashboard</a></li>
             </ul>
-            <?php if($app_status=='Applied'){?>
+            
+            <?php if($app_status=='Register'){?>
             <li class="nav-item show">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-clipboard"></i>Admission</a>
             <ul class="nav-sub">
@@ -147,8 +111,7 @@ if ($role == 'student' ){?>
               <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_workexp.php' ?'active' : " ");?>"><a href="tab_workexp.php" class="nav-sub-link">Work Experience</a></li>
               <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_academic.php' ?'active' : " ");?>"><a href="tab_academic.php" class="nav-sub-link">Academic Background</a></li>
               <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_upload.php' ?'active' : " ");?>"><a href="tab_upload.php" class="nav-sub-link">Video CV/Attachment</a></li>
-
-              <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'declaration.php' ?'active' : " ");?>"><a href="declaration.php" class="nav-sub-link">Declaration</a></li>
+              <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_declaration.php' ?'active' : " ");?>"><a href="tab_declaration.php" class="nav-sub-link">Declaration</a></li>
             </ul>
           </li>
           <?php }?>
@@ -163,7 +126,7 @@ if ($role == 'student' ){?>
               <?php }?>
             </ul>
             <?php }?>
-            <?php if($app_status=='Submitted'){?>
+            <?php if($app_status=='Submitted' or $app_status=='Applied'){?>
             <li class="nav-item show">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Program</a>
             <ul class="nav-sub">

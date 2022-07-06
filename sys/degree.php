@@ -79,7 +79,7 @@
           
             <div class="heading_container heading_center">
                <h2>
-                  Master <span>Eksekutif</span>
+                  Bachelor <span>Eksekutif</span>
                </h2>
             </div>
             <div class="row">
