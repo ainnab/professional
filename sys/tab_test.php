@@ -21,24 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" type="image/jpg" href="img/favicon.png" />
 
-    <!-- Twitter -->
-    <!-- <meta name="twitter:site" content="@bootstrapdash">
-    <meta name="twitter:creator" content="@bootstrapdash">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Azia">
-    <meta name="twitter:description" content="Responsive Bootstrap 4 Dashboard Template">
-    <meta name="twitter:image" content="https://www.bootstrapdash.com/azia/img/azia-social.png"> -->
-
-    <!-- Facebook -->
-    <!-- <meta property="og:url" content="https://www.bootstrapdash.com/azia">
-    <meta property="og:title" content="Azia">
-    <meta property="og:description" content="Responsive Bootstrap 4 Dashboard Template">
-
-    <meta property="og:image" content="https://www.bootstrapdash.com/azia/img/azia-social.png">
-    <meta property="og:image:secure_url" content="https://www.bootstrapdash.com/azia/img/azia-social.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="600"> -->
+   
 
     <!-- Meta -->
     <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
@@ -81,12 +64,6 @@ if(isset($_SESSION['ic']))
 
     $records = mysqli_query($dbconfig,"select * from student where stud_ic='$stud_id'");
     while($data = mysqli_fetch_array($records)) {
-
-
-
-
-
-
 
       $now_year = date('Y');
   $card_year  = substr($ic,0,2);
@@ -132,118 +109,23 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
    $records4 = mysqli_query($dbconfig,"select * from document where stud_ic='$stud_id'");
     ?>
 </head>
+<?php
+    if(!isset($_SESSION))
+    {
+        session_start();
+    }
+    $ic=$_SESSION['ic'];
+    $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'");
+    while($data2 = mysqli_fetch_array($records)) {
 
 
-<body class="az-body az-body-sidebar">
-    <div class="az-sidebar">
-        <div class="az-sidebar-header">
-            <h2 style="color:blue;">Admission</h2>
-        </div><!-- az-sidebar-header -->
-        <div class="az-sidebar-loggedin">
-            <!--  <div class="az-img-user online"><img src="img/faces/face1_1.jpg" alt=""></div> -->
-            <div class="media-body">
-                <h6></h6>
-                <span></span>
-            </div><!-- media-body -->
-        </div><!-- az-sidebar-loggedin -->
-        <div class="az-sidebar-body">
-            <ul class="nav">
-                <li class="nav-label">Main Menu</li>
-                <li class="nav-item show  ">
-                    <a href="dashboard_agent.php" class="nav-link"><i class="typcn typcn-document"></i>Dashboard</a>
-                </li><!-- nav-item -->
-                <li class="nav-item show current">
-                    <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Admission</a>
-                    <ul class="nav-sub">
-                        <li class="nav-sub-item  "><a href="tab_personal_agent.php" class="nav-sub-link ">Create New
-                                Student</a></li>
-                        <li class="nav-sub-item  "><a href="status_inst.php" class="nav-sub-link ">List Student</a></li>
-                        <!--  <li class="nav-sub-item  "><a href="professional_dip.php" class="nav-sub-link ">List Module</a></li> -->
+  $role = $data2['role'];
+   $agent=$data2['stud_name'];
 
-                    </ul>
-                </li><!-- nav-item -->
-        </div><!-- az-sidebar-body -->
-    </div><!-- az-sidebar -->
+        include 'main_menu.php';
+      }
 
-    <div class="az-content az-content-dashboard-two">
-      <div class="az-header">
-        <div class="container-fluid">
-          <div class="az-header-left">
-            <a href="" id="azSidebarToggle" class="az-header-menu-icon"><span></span></a>
-          </div><!-- az-header-left -->
-          <div class="az-header-center">
-            <input type="search" class="form-control" placeholder="Search for anything...">
-            <button class="btn"><i class="fas fa-search"></i></button>
-          </div><!-- az-header-center -->
-          <div class="az-header-right">
-            <div class="az-header-message">
-              <a href="app-chat.html"><i class="typcn typcn-messages"></i></a>
-            </div><!-- az-header-message -->
-            <div class="dropdown az-header-notification">
-              <a href="" class="new"><i class="typcn typcn-bell"></i></a>
-              <div class="dropdown-menu">
-                <div class="az-dropdown-header mg-b-20 d-sm-none">
-                  <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
-                </div>
-                <h6 class="az-notification-title">Notifications</h6>
-                <p class="az-notification-text">You have 2 unread notification</p>
-                <div class="az-notification-list">
-                  <div class="media new">
-                    <div class="az-img-user"><img src="../img/faces/face2.jpg" alt=""></div>
-                    <div class="media-body">
-                      <p>Congratulate <strong>Socrates Itumay</strong> for work anniversaries</p>
-                      <span>Mar 15 12:32pm</span>
-                    </div><!-- media-body -->
-                  </div><!-- media -->
-                  <div class="media new">
-                    <div class="az-img-user online"><img src="../img/faces/face3.jpg" alt=""></div>
-                    <div class="media-body">
-                      <p><strong>Joyce Chua</strong> just created a new blog post</p>
-                      <span>Mar 13 04:16am</span>
-                    </div><!-- media-body -->
-                  </div><!-- media -->
-                  <div class="media">
-                    <div class="az-img-user"><img src="../img/faces/face4.jpg" alt=""></div>
-                    <div class="media-body">
-                      <p><strong>Althea Cabardo</strong> just created a new blog post</p>
-                      <span>Mar 13 02:56am</span>
-                    </div><!-- media-body -->
-                  </div><!-- media -->
-                  <div class="media">
-                    <div class="az-img-user"><img src="../img/faces/face5.jpg" alt=""></div>
-                    <div class="media-body">
-                      <p><strong>Adrian Monino</strong> added new comment on your photo</p>
-                      <span>Mar 12 10:40pm</span>
-                    </div><!-- media-body -->
-                  </div><!-- media -->
-                </div><!-- az-notification-list -->
-                <div class="dropdown-footer"><a href="">View All Notifications</a></div>
-              </div><!-- dropdown-menu -->
-            </div><!-- az-header-notification -->
-            <div class="dropdown az-profile-menu">
-              <a href="" class="az-img-user"><img src="../img/faces/face1.jpg" alt=""></a>
-              <div class="dropdown-menu">
-                <div class="az-dropdown-header d-sm-none">
-                  <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
-                </div>
-                <div class="az-header-profile">
-                  <div class="az-img-user">
-                    <img src="../img/faces/face1.jpg" alt="">
-                  </div><!-- az-img-user -->
-                  <h6>Aziana Pechon</h6>
-                  <span>Premium Member</span>
-                </div><!-- az-header-profile -->
-
-                <a href="" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
-                <a href="" class="dropdown-item"><i class="typcn typcn-edit"></i> Edit Profile</a>
-                <a href="" class="dropdown-item"><i class="typcn typcn-time"></i> Activity Logs</a>
-                <a href="" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Account Settings</a>
-                <a href="signout.php" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Sign Out</a>
-              </div><!-- dropdown-menu -->
-            </div>
-          </div><!-- az-header-right -->
-        </div><!-- container -->
-      </div><!-- az-header -->
+    ?>
 
         <head>
 
@@ -336,7 +218,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                         <h3>Personal Info</h3>
                                         </br>
 
-                                        <form action="save_personal.php" method="post">
+                                        <form action="save_rk.php" method="post">
                                             <div class="row row-sm">
                                                 <div class="col-md-12 col-lg-12">
                                                     <div class="form-group">
@@ -536,7 +418,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                         </br>
                                         <h3>Parent's Info</h3>
                                         </br>
-                                        <form action="save_personal.php" method="post">
+                                        <form action="save_rk.php" method="post">
                                             <?php while($data2 = mysqli_fetch_array($records2)) {
                                   $occupationStatus = $data2['p1_occupation'];
                                   $occupationStatus1 = $data2['p2_occupation'];
@@ -700,7 +582,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                         aria-hidden="true">×</span></button>
                                                                 <h4 class="modal-title" id="myModalLabel">New</h4>
                                                             </div>
-                                                            <form action="save_personal.php" method="POST"
+                                                            <form action="save_rk.php" method="POST"
                                                                 enctype="multipart/form-data">
                                                                 <div class="modal-body">
 
@@ -771,7 +653,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
 
                                                                 </div>
                                                                 <input type='hidden' name='stud_ic'
-                                                                    value=<?php echo  $ic?>>
+                                                                    value=<?php echo  $stud_id?>>
                                                                 
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-default"
@@ -783,7 +665,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <form action="save_personal.php" method="post"
+                                                <form action="save_rk.php" method="post"
                                                     enctype="multipart/form-data">
 
                                                     <?php  ?>
@@ -827,7 +709,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                             href="edit_academic_rk.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>"><button
                                                                                 name="update"
                                                                                 class="btn btn-primary btn-md">Edit</button></a>
-                                                                        <a href="save_personal.php?id=<?php echo $row['id']?>&deleteacd=delete"
+                                                                        <a href="save_rk.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>&deleteacd=delete"
                                                                             onClick="return confirm('Are you sure you want to delete?')"><button
                                                                                 type="submit" name="deleteacd"
                                                                                 id="btn-submit"
@@ -881,7 +763,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                         aria-hidden="true">×</span></button>
                                                                 <h4 class="modal-title" id="myModalLabel">New</h4>
                                                             </div>
-                                                            <form action="save_personal.php" method="POST"
+                                                            <form action="save_rk.php" method="POST"
                                                                 enctype="multipart/form-data">
                                                                 <div class="modal-body">
 
@@ -976,19 +858,19 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                     </div>
 
                                                                 </div>
-                                                                <input type='text' name='id'
-                                                                    value=<?php echo  $stud_id?>>
+                                                                <input type='text' name='stud_ic'
+                                                                    value=<?php echo  $stud_id?> hidden>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-default"
                                                                         data-dismiss="modal">Close</button>
-                                                                    <button type="submit" name="submit_new_work"
+                                                                    <button type="submit" name="submit_new_work_rk"
                                                                         class="btn btn-primary">Save</button>
                                                                 </div>
                                                             </form>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <form action="save_personal.php" method="post"
+                                                <form action="save_rk.php" method="post"
                                                     enctype="multipart/form-data">
 
 
@@ -1029,10 +911,10 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                     <td>
 
                                                                         <a
-                                                                            href="edit_workexp.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>"><button
+                                                                            href="edit_workexp_rk.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id?>"><button
                                                                                 name="update_new_work"
                                                                                 class="btn btn-primary btn-md">Edit</button></a>
-                                                                        <a href="save_personal.php?id=<?php echo $row['id']?>&deletewrk=delete"
+                                                                        <a href="save_rk.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id?>&deletewrk=delete"
                                                                             onClick="return confirm('Are you sure you want to delete?')"><button
                                                                                 type="submit" name="deletewrk"
                                                                                 id="btn-submit"
@@ -1048,17 +930,6 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                         </table>
                                                     </div>
                                                 </div>
-
-                                                <div class="col-lg-12 text-right">
-                                                    <div class="form-group m-b-0">
-                                                        <button type="submit" name="submit_workexp"
-                                                            class="btn btn-lg btn-primary waves-effect waves-light">
-                                                            <i class="far fa-save"></i>&nbsp;&nbsp;Simpan
-                                                        </button>
-
-
-                                                    </div>
-                                                </div><!-- card-body -->
                                                 </form>
                                                 </br>
 
@@ -1069,15 +940,13 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                     <div id="Upload" class="tabcontent">
                                         </br>
                                         <h3>Upload Document</h3>
-                                        <center>
-
                                             <div class="card card-dashboard-seven">
                                                 <div class="card-body">
                                                     <button type="button" class="btn btn-rounded btn-warning"
-                                                        data-toggle="modal" data-target="#addDoc">
-                                                        <i class="fa fa-plus"></i>
-                                                        Add
-                                                    </button>
+                                                    data-toggle="modal" data-target="#addDoc">
+                                                    <i class="fa fa-plus"></i>
+                                                    Add
+                                                </button>
                                                     <div class="modal fade" id="addDoc" tabindex="-1" role="dialog"
                                                         aria-labelledby="myModalLabel" aria-hidden="true"
                                                         style="display: none;">
@@ -1090,7 +959,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                     <h4 class="modal-title" id="myModalLabel">New
                                                                     </h4>
                                                                 </div>
-                                                                <form action="save_personal.php" method="POST"
+                                                                <form action="save_rk.php" method="POST"
                                                                     enctype="multipart/form-data">
                                                                     <div class="modal-body">
 
@@ -1121,19 +990,19 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                         </div>
 
                                                                     </div>
-                                                                    <input type='hidden' name='id'
+                                                                    <input type='hidden' name='stud_ic'
                                                                         value=<?php echo  $stud_id?>>
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-default"
                                                                             data-dismiss="modal">Close</button>
-                                                                        <button type="submit" name="submit_new_doc"
+                                                                        <button type="submit" name="submitdoc"
                                                                             class="btn btn-primary">Save</button>
                                                                     </div>
                                                                 </form>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <form action="save_personal.php" method="post">
+                                                    <form action="save_rk.php" method="post">
 
 
 
@@ -1172,10 +1041,10 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
 
 
                                                                             <a
-                                                                                href="edit_upload.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>"><button
+                                                                                href="edit_upload_rk.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>"><button
                                                                                     name="update"
                                                                                     class="btn btn-primary btn-md">Edit</button></a>
-                                                                            <a href="save_personal.php?id=<?php echo $row['id']?>&deletedoc=delete"
+                                                                            <a href="save_rk.php?id=<?php echo $row['id']?>&stud_id=<?php echo $stud_id;?>&deletedoc=delete"
                                                                                 onClick="return confirm('Are you sure you want to delete?')"><button
                                                                                     type="submit" name="deletedoc"
                                                                                     id="btn-submit"
@@ -1192,19 +1061,10 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                             </table>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-12 text-right">
-                                                        <div class="form-group m-b-0">
-                                                            <button type="submit" name="submit_workexp"
-                                                                class="btn btn-lg btn-primary waves-effect waves-light">
-                                                                <i class="far fa-save"></i>&nbsp;&nbsp;Simpan
-                                                            </button>
-
-                                                            </form>
-                                        </center>
-                                        <br>
-
+                                        </form>
                                     </div>
                                 </div>
+                            </div>
 
                                 <div id="Declaration" class="tabcontent">
                                     </br>
@@ -1224,12 +1084,13 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                             <hr />
 
 
-                                            <form action="save_personal.php" method="post">
+                                            <form action="save_rk.php" method="post">
                                                 <div class="col-md mg-t-10 mg-md-t-0">
                                                     <label class="ckbox"><input type="checkbox" name="app"
                                                             value="Submitted" required><span>I hereby certify that
                                                             all information given are true. </span></label></br>
                                                 </div>
+                                               <input type='hidden' name='stud_ic' value=<?php echo  $stud_id?>>
                                                 <div class="col-md mg-t-10 mg-md-t-0">
                                                     <input type='hidden' name='id' value=<?php echo  $stud_id?>>
                                                     <button class="btn btn-az-primary btn-block"

@@ -119,9 +119,8 @@
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Admission</a>
             <ul class="nav-sub">
               <li class="nav-sub-item  "><a href="tab_personal_agent.php" class="nav-sub-link ">Create New Student</a></li>
-              <li class="nav-sub-item  "><a href="status_inst.php" class="nav-sub-link ">List Student</a></li>
-               <!--  <li class="nav-sub-item  "><a href="professional_dip.php" class="nav-sub-link ">List Module</a></li> -->
-
+              <li class="nav-sub-item  "><a href="status_inst_rope.php" class="nav-sub-link ">List Student(ROPE)</a></li>
+              <li class="nav-sub-item  "><a href="status_inst.php" class="nav-sub-link ">List Student(Normal)</a></li>
             </ul>
           </li><!-- nav-item -->
 <?php

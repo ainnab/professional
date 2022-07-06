@@ -49,7 +49,7 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                      <ul class="navbar-nav">
                         <li class="nav-item">
-                           <a class="nav-link" href="status_inst.php">Home <span class="sr-only">(current)</span></a>
+                           <a class="nav-link" href="dashboard_agent.php">Home <span class="sr-only">(current)</span></a>
                         </li>
                        
                      </ul>

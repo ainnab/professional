@@ -36,7 +36,7 @@ $records3 = mysqli_query($dbconfig,"select * from academic where stud_ic='$ic'")
 <div class="col-md-12 col-lg-12 col-xl-10">
   <div class="card card-dashboard-seven">
     <div class="card-body">
-		<form action="save_personal.php" method="POST" enctype="multipart/form-data">
+		<form action="save_rk.php" method="POST" enctype="multipart/form-data">
 			<?php
                       if (isset($_GET['id'])) {
 
@@ -49,6 +49,7 @@ $records3 = mysqli_query($dbconfig,"select * from academic where stud_ic='$ic'")
                           $edu_type = $row['edu_type'];
                         ?>
                         <input type="text" name="id" value="<?php echo $row['id']; ?>" hidden>
+                        <input type="text" name="stud_ic" value="<?php echo $row['stud_ic']; ?>" hidden>
 			<div class="modal-body">
 				<div class="form-group">
 					<label for="edu_type">Type</label>
@@ -117,13 +118,13 @@ $records3 = mysqli_query($dbconfig,"select * from academic where stud_ic='$ic'")
 				</div>
 				</div>
 				<div class="modal-footer">
-					<a href="tab_test.php"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<a href="tab_test.php?id=<?php echo $row ['stud_ic']?>"><button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
 					<button type="submit" name="update_new_acd" class="btn btn-primary">Update</button>
 				</div>
 			</form>
 			</div>
 				 </div>
 					</div>
-     <form action="save_personal.php" method="post">
+     <form action="save_rk.php" method="post">
    
 <?php } ?>

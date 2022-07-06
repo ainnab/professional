@@ -193,15 +193,15 @@
                   
       
                       if ($status == "Accepted") {
-                        echo "<td><input type='button' class='btn btn-secondary' style='border-radius: 15px' value='Accepted'></td>";
+                        echo "<td><input type='button' class='btn btn-success' style='border-radius: 15px' value='Accepted'></td>";
                       } elseif ($status == "In Process") {
-                        echo "<td><input type='button' class='btn btn-warning' style='border-radius: 15px' value='In Process'></td>";
+                        echo "<td><input type='button' class='btn btn-primary' style='border-radius: 15px' value='In Process'></td>";
                       } elseif ($status == "Approved") {
-                        echo "<td><input type='button' class='btn btn-success' style='border-radius: 15px' value='Approved'></td>";
+                        echo "<td><input type='button' class='btn btn-warning' style='border-radius: 15px' value='Approved'></td>";
                       } elseif ($status == "Rejected") {
                         echo "<td><input type='button' class='btn btn-danger' style='border-radius: 15px' value='Rejected'></td>";
                       } else {
-                        echo "<td><input type='button' class='btn btn-danger' style='border-radius: 15px' value='Pending'></td>";
+                        echo "<td><input type='button' class='btn btn-secondary' style='border-radius: 15px' value='Pending'></td>";
                 
                       }
 

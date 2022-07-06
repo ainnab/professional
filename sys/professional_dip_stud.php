@@ -49,7 +49,7 @@
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                      <ul class="navbar-nav">
                         <li class="nav-item">
-                           <a class="nav-link" href="status_inst.php">Home <span class="sr-only">(current)</span></a>
+                           <a class="nav-link" href="dashboard2.php">Home <span class="sr-only">(current)</span></a>
                         </li>
                        
                      </ul>
@@ -84,9 +84,17 @@
             </div>
             <div class="row">
 <?php
+if (isset($_GET['page']))
+    $page = $_GET['page'];
+else
+    $page = 1;
 
 
-$sql3 = "SELECT * FROM program_diploma where mode='DIP'  ";
+$entriesPerPage = 10;
+$limitFrom = $page - 1;
+$limitTill = $limitFrom + $entriesPerPage;
+
+$sql3 = "SELECT * FROM program_diploma where mode='DIP' LIMIT $limitFrom, $limitTill ";
 
 $result3 = mysqli_query($dbconfig, $sql3);
 
@@ -104,6 +112,8 @@ if(mysqli_num_rows($result3) > 0)
 
                                     $ids = explode(',', $id);
                                       $codes = explode(',', $code);
+
+
 
                                       foreach($ids as $indx => $value){
 
@@ -145,10 +155,20 @@ if(mysqli_num_rows($result3) > 0)
                                ?>
               
              
-             
+            
              
            
          </div>
+ <hr class="mg-y-30">
+
+          <div class="col-lg-12 text-right">
+            <div class="form-group m-b-0">
+
+        <button class="btn btn-outline-indigo ">  <a href="professional_dip_stud.php?page=<?=$page-1?>">Previous</a></button>
+<button class="btn btn-outline-indigo"><a href="professional_dip_stud.php?page=<?=$page+1?>">Next</a></button>
+</div>
+</div>
+
        </div>
       </section>
       <!-- end product section -->

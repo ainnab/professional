@@ -42,19 +42,19 @@
                           </div>
                           <div class="form-group">
                             <label>Duration (Year & Months)</label>
-                            <input type="text" class="form-control" id="duration" name="duration" value="<?php echo $row['duration']; ?>">
+                            <input type="text" class="form-control" id="duration" name="duration" required="">
                           </div>
                           <div class="form-group">
                             <label>Registration Date </label>
-                            <input type="date" class="form-control" name="regDate" id="regDate" value="<?php echo $regDate?>">
+                            <input type="date" class="form-control" name="regDate" id="regDate" required="">
                           </div>
                           <div class="form-group">
                             <label>Learning Centre</label>
-                            <input type="text" class="form-control" id="learningCentre" name="learningCentre" value="<?php echo $row['learningCentre']; ?>">
+                            <input type="text" class="form-control" id="learningCentre" name="learningCentre" required="">
                           </div>
                           <div class="form-group">
                             <label>Specialization</label>
-                            <input type="text" class="form-control" id="Specialization" name="Specialization" value="<?php echo $row['Specialization']; ?>">
+                            <input type="text" class="form-control" id="Specialization" name="Specialization" required="">
                           </div>
                            <div class="form-group">
                             <label>Institution Name</label>

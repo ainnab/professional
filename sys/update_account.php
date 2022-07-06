@@ -23,7 +23,6 @@
               <div class="card-header">
                 <h6 class="card-title tx-14 mg-b-5">Kemaskini Status</h6>
             </div>
-
           <form role="form" action="save_rakankerjasama.php" method="post" enctype="multipart/form-data">
             <?php
                       if (isset($_GET['id'])) {
@@ -42,18 +41,17 @@
               <div class="col-md-12 col-lg-12">
               <div class="form-group">
                 <select name="account" id="account" class="form-control" required>
-                                            <option selected disabled="" style="font-size:14px;">Please Select</option>
-                                            <option <?php if ($rkstatus == "Active") {
-                                              echo 'selected';
-                                            } ?> value="Active">Active</option>
-                                            <option <?php if ($rkstatus == "Deactive") {
-                                              echo 'selected';
-                                             } ?> value="Deactive">Deactive</option>
+                  <option selected disabled="" style="font-size:14px;">Please Select</option>
+                      <option <?php if ($rkstatus == "Active") {
+                        echo 'selected';
+                        } ?> value="Active">Active</option>
+                      <option <?php if ($rkstatus == "Deactive") {
+                        echo 'selected';
+                        } ?> value="Deactive">Deactive</option>
                 </select>
             </div>
-    </div><!-- form group -->
-  </div><!-- col -->
- 
+            </div><!-- form group -->
+          </div><!-- col -->
   <?php } ?>
 <div class="center">
     <button type="submit" name="update_account" id="btn-submit" class="btn btn-primary btn-md">Update</button>
