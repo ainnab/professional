@@ -19,7 +19,7 @@
 
 <?php while($data = mysqli_fetch_array($records)) { ?>
       <div class="col-6 col-md-4 col-xl-12">
-         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student'"); ?>
+         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND app_status='Verified'"); ?>
             <?php if (mysqli_num_rows($result) > 0) { ?>
           <div>
             <table id="example1" class="table">
@@ -44,11 +44,11 @@
                             <td><?php echo $row["app_status"]; ?></td>
                             <?php if ($row['app_status'] == 'Rejected' || $row['app_status'] == 'Submitted') { ?>
                               <td><a href="save.php?id=<?php echo $row['id']?>&approve=approve" onClick="return confirm('Are you sure you want to approve this student?')" ><button name="approve"
-                                class="btn btn-primary btn-md" disabled>Approve</button></a></td>
+                                class='btn btn-success' disabled>Approve</button></a></td>
                             <?php }else { ?>
                               <div class="row row-sm">
                                 <td><a href="save.php?id=<?php echo $row['id']?>&approve=approve" onClick="return confirm('Are you sure you want to approve this student?')" ><button name="approve"
-                                  class="btn btn-primary btn-md">Approve</button>
+                                  class='btn btn-success'>Approve</button>
                               </div>
                             <?php } ?>
 

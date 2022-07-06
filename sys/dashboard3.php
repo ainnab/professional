@@ -13,15 +13,15 @@
           <div class="card-body">
           <?php
           include 'talum.php';
-          $records = mysqli_query($dbconfig,"select COUNT(app_status) AS verify from student where app_status = 'Verified'");
+          $records = mysqli_query($dbconfig,"select COUNT(app_status) AS verify from student where role='student' and app_status = 'Verified'");
           $row=mysqli_fetch_array($records);
           $verified = $row['verify'];
 
-          $record1 = mysqli_query($dbconfig,"select COUNT(app_status) AS submit from student where app_status = 'Submitted'");
+          $record1 = mysqli_query($dbconfig,"select COUNT(app_status) AS submit from student where role='student' and app_status = 'Submitted'");
           $row1=mysqli_fetch_array($record1);
           $submitted = $row1['submit'];
 
-          $record2 = mysqli_query($dbconfig,"select COUNT(app_status) AS reject from student where app_status = 'Rejected'");
+          $record2 = mysqli_query($dbconfig,"select COUNT(app_status) AS reject from student where role='student' and app_status = 'Rejected'");
           $row2=mysqli_fetch_array($record2);
           $rejected = $row2['reject'];
          ?>

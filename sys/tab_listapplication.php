@@ -20,7 +20,7 @@
 
 <?php while($data = mysqli_fetch_array($records)) { ?>
       <div class="col-6 col-md-4 col-xl-12">
-         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student'"); ?>
+         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND app_status='Applied'"); ?>
             <?php if (mysqli_num_rows($result) > 0) { ?>
           <div>
             <table id="example1" class="table">
@@ -43,20 +43,12 @@
                             <td></td>
                             <td><?php echo $row["stud_ic"]; ?></td>
                             <td><?php echo $row["app_status"]; ?></td>
-                            <?php if ($row['app_status'] == 'Approved' || $row['app_status'] == 'Submitted') { ?>
-                              <td><a href="save.php?id=<?php echo $row['id']?>&verify1=verify1" onClick="return confirm('Are you sure you want to approve this student?')" ><button name="approve"
-                                  class="btn btn-primary btn-md" disabled>Verify</button>
-                                </a><a href="save.php?id=<?php echo $row['id']?>&reject=reject" onClick="return confirm('Are you sure you want to reject this application?')" ><button name="approve"
-                                    class="btn btn-danger btn-md" disabled>Reject</button></a></td>
-                            <?php }else { ?>
-                              <div class="row row-sm">
-                                <td><a href="save.php?id=<?php echo $row['id']?>&verify1=verify1" onClick="return confirm('Are you sure you want to approve this student?')" ><button name="approve"
+                            <td><a href="save.php?id=<?php echo $row['id']?>&verify1=verify1" onClick="return confirm('Are you sure you want to approve this student?')" ><button name="approve"
                                   class="btn btn-primary btn-md">Verify</button>
                                 </a><a href="save.php?id=<?php echo $row['id']?>&reject=reject" onClick="return confirm('Are you sure you want to reject this application?')" ><button name="approve"
                                     class="btn btn-danger btn-md">Reject</button></a></td>
                               </div>
-                            <?php } ?>
-
+  
                             <td><a href="view.php?id=<?php echo $row["stud_ic"]; ?>">View</a></td>
                             </tr>
             <?php $i++;  } ?>

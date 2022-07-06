@@ -156,7 +156,7 @@ body {
           </form>
         </div><!-- az-signup-header -->
         <div class="az-signup-footer">
-          <p>Already have an account? <a href="signin.php">Sign In</a></p>
+          <p>Already have an account? <a href="index.php">Sign In</a></p>
         </div><!-- az-signin-footer -->
       </div><!-- az-column-signup -->
     </div><!-- az-signup-wrapper -->

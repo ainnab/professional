@@ -252,7 +252,7 @@
                     <button type="submit" name="submit_personal"  class="btn btn-lg btn-primary waves-effect waves-light">
                         <i class="far fa-save"></i>&nbsp;&nbsp;Simpan
                     </button>
-                    <button type="button" onclick="window.location.href = 'tab_contact.php'" class="btn btn-lg btn-secondary waves-effect waves-light">
+                    <button type="button" onclick="window.location.href = 'tab_parent.php'" class="btn btn-lg btn-secondary waves-effect waves-light">
                         Seterusnya&nbsp;&nbsp;<i class="far fa-arrow-alt-circle-right"></i>
                     </button>
                 </div>

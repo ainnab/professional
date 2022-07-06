@@ -1,77 +1,86 @@
-<?php 
+
+<?php include 'header_admin.php' ?>
+      <div class="az-content-header d-block d-md-flex">
+        <div>
+          <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">List of Status Application</h2>
+        </div>
+        <div class="az-dashboard-header-right">
+        </div><!-- az-dashboard-header-right -->
+      </div><!-- az-content-header -->
+      <div class="az-content-body">
+      <div class="row row-sm">
+      <div class="col-md-12 col-lg-12 col-xl-12">
+        <div class="card card-dashboard-seven">
+          <div class="card-body">
+          <?php
     include 'talum.php';
-   
-    ?>
+    $ic=$_SESSION['ic'];
+    $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'");
+   ?>
 
-    <?php
-    if(!isset($_SESSION)) 
-    { 
-        session_start(); 
-    } 
-    $ic=$_SESSION['ic'];       
-    $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
-    while($data2 = mysqli_fetch_array($records)) { 
-      
-        include 'header_diploma.php';
-      
-       }     
-    ?>
-<?php 
-$records3 = mysqli_query($dbconfig,"select * from academic where stud_ic='$ic'"); 
-?>
+<div id="accordion" class="accordion" role="tablist" aria-multiselectable="true">
+  <div class="card">
 
+    <div class="card-header" role="tab" id="headingOne">
+      <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        List of Approved Application
+      </a>
+    </div>
+    <?php while($data = mysqli_fetch_array($records)) { ?>
+         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND app_status='Approved'"); ?>
+            <?php if (mysqli_num_rows($result) > 0) { ?>
+    <div id="collapseOne" data-parent="#accordion" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+      <div class="card-body">
+        <div class="col-6 col-md-4 col-xl-12">
+            <div>
+            <table id="example1" class="table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>NAME</th>
+                  <th>IC</th>
+                  <th>STATUS</th>
+                  <th>OFFER LETTER</th>
+                </tr>
+              </thead>
+              <tbody>
+              <?php $i=0; $j=1; while($row = mysqli_fetch_array($result)) { ?>
+                            <tr>
+                            <td><?php echo $j++;  ?></td>
+                            <td><?php echo $row["stud_name"]; ?></td>
+                            <td><?php echo $row["stud_ic"]; ?></td>
+                            <td><?php echo $row["app_status"]; ?></td>
+                            <td><a href="offer_letter.php?id=<?php echo $row["stud_ic"]; ?>">Offer Letter</a></td>
+                              </div>
+                            </tr>
+            <?php $i++;  } ?>
+              </tbody>
+            </table>
+            <?php } else{  echo "No result found"; } ?>
+            <?php } ?>
+         </div><!-- card-body -->
+        </div><!-- card -->
+    </div><!-- col -->
+  </div><br>
 
-<div class="az-content-header d-block d-md-flex">
-  <div>
-    <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">Declaration</h2>
-    <!-- <p class="mg-b-0">Press button below to add academic background.</p> -->
-  </div>
-  <div class="az-dashboard-header-right">
-  </div><!-- az-dashboard-header-right -->
-</div><!-- az-content-header -->
-<div class="az-content-body">
-<div class="row row-sm">
-<div class="col-md-12 col-lg-12 col-xl-10">
-  <div class="card card-dashboard-seven">
-    <div class="card-body">
-				 <!-- <div class="modal-dialog"> -->
-								<form action="save_personal.php" method="POST" enctype="multipart/form-data">
-                   <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                   <strong>PERHATIAN! </strong> KLIK BUTTON SUBMIT DIBAWAH JIKA ANDA INGIN MENGHANTAR PERMOHONAN INI.SEBARANG PERUBAHAN TIDAK BOLEH DILAKUKAN SETELAH MENGHANTAR PERMOHONAN INI, SEBARANG PERUBAHAN SETELAH PERMOHONAN INI DIHANTAR ADALAH TANGGUNGJAWAB RAKAN KERJASAMA. SILA SEMAK SEGALA DOKUMEN YANG DIMUAT NAIK DAN PASTIKAN MAKLUMAT YANG DIHANTAR TELAH LENGKAP
-                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                   </button>
-                   </div>
-                   <div class="custom-control custom-checkbox mt-4">
-                    <input type="checkbox" class="custom-control-input" id="customCheck1" name="customCheck1" required>
-                    <label class="custom-control-label" for="customCheck1">I have read and agreed to the terms of services and privacy policy</label>
-                </div><br><br>
-									  <button type="submit" name="submit_final" class="btn btn-primary">Submit</button>
-            </form>
-            </div><!-- card-body -->
-      
-  </div><!-- row -->
       <div class="az-footer ht-40">
         <div class="container-fluid pd-t-0-f ht-100p">
-          <span>&copy; 2019 Azia Responsive Bootstrap 4 Dashboard Template</span>
+          <span>&copy; 2022 UMP Advanced, Malaysia· All rights reserved.</span>
         </div><!-- container -->
       </div><!-- az-footer -->
-    </div><!-- az-content -->
-  </div>
-</div>
 
 
-    <script src="../lib/jquery/jquery.min.js"></script>
-    <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../lib/ionicons/ionicons.js"></script>
-    <script src="../lib/jquery-sparkline/jquery.sparkline.min.js"></script>
-    <script src="../lib/raphael/raphael.min.js"></script>
-    <script src="../lib/morris.js/morris.min.js"></script>
-    <script src="../lib/jqvmap/jquery.vmap.min.js"></script>
-    <script src="../lib/jqvmap/maps/jquery.vmap.usa.js"></script>
 
-    <script src="../js/azia.js"></script>
-    <script>
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/ionicons/ionicons.js"></script>
+    <script src="lib/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
+    <script src="lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
+
+
+    <script src="js/azia.js"></script>
     <script>
       $(function(){
         'use strict'
@@ -222,6 +231,32 @@ $records3 = mysqli_query($dbconfig,"select * from academic where stud_ic='$ic'")
           borderColor: '#fff',
           hoverOpacity: .85
         });
+
+      });
+    </script>
+    <script>
+      $(function(){
+        'use strict'
+
+        $('#example1').DataTable({
+          language: {
+            searchPlaceholder: 'Search...',
+            sSearch: '',
+            lengthMenu: '_MENU_ items/page',
+          }
+        });
+
+        $('#example2').DataTable({
+          responsive: true,
+          language: {
+            searchPlaceholder: 'Search...',
+            sSearch: '',
+            lengthMenu: '_MENU_ items/page',
+          }
+        });
+
+        // Select2
+        $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
 
       });
     </script>

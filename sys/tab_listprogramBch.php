@@ -106,7 +106,6 @@
                                     <th>Program Name</th>
                                     <th>Date Created</th>
                                     <th>Admission Name</th>
-                                    <!-- <th>Mode of Admission</th> -->
                                     <th>Certificate Category</th>
                                     <th>Action</th>
                                   </tr>
@@ -128,15 +127,12 @@
                       <td><?php echo htmlentities (ucwords($row['pg_name']));?></td>
                       <td><?php echo htmlentities (ucwords($row['keyin_date']));?></td>
                       <td><?php echo htmlentities (ucwords($row['adsName']));?></td>
-                      <!-- <td><?php echo htmlentities (ucwords($row['mode']));?></td> -->
                       <td><?php echo htmlentities (ucwords($row['certificate']));?></td>
-                      <td>
+                      <td> 
                        
 
-                     <a href="edit_listprogram.php?id=<?php echo $row['pg_id']?>" ><button name="update" class="btn btn-primary btn-md">Edit</button></a>
-                      <a href="save.php?id=<?php echo $row['pg_id']?>&deleteprog=delete" onClick="return confirm('Are you sure you want to delete?')"><button type="submit" name="deleteprog" id="btn-submit" class="btn btn-primary btn-md">Delete</button></a>
-
-                       <!--  <i class="icon-remove-sign"></i> -->
+                     <a href="edit_listprogram.php?id=<?php echo $row['pg_id']?>" ><button name="update" class="btn btn-primary"><i class="fa fa-edit"></i></button></a>
+                      <a href="save.php?id=<?php echo $row['pg_id']?>&deleteprog=delete" onClick="return confirm('Are you sure you want to delete?')"></i><button type="submit" name="deleteprog" id="btn-submit" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
                     </tr>
                     <?php $cnt=$cnt+1; 
                     }
