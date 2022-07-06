@@ -136,7 +136,7 @@ if ($role == 'student' ){?>
 
               <li class="nav-sub-item"><a href="dashboard2.php" class="nav-sub-link">Dashboard</a></li>
             </ul>
-            <?php if($app_status=='Applied'){?>
+            
             <li class="nav-item show">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-clipboard"></i>Admission</a>
             <ul class="nav-sub">
@@ -147,8 +147,8 @@ if ($role == 'student' ){?>
               <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_workexp.php' ?'active' : " ");?>"><a href="tab_workexp.php" class="nav-sub-link">Work Experience</a></li>
               <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_academic.php' ?'active' : " ");?>"><a href="tab_academic.php" class="nav-sub-link">Academic Background</a></li>
               <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_upload.php' ?'active' : " ");?>"><a href="tab_upload.php" class="nav-sub-link">Video CV/Attachment</a></li>
-
-              <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'declaration.php' ?'active' : " ");?>"><a href="declaration.php" class="nav-sub-link">Declaration</a></li>
+              <?php if($app_status=='Register'){?>
+              <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_declaration.php' ?'active' : " ");?>"><a href="tab_declaration.php" class="nav-sub-link">Declaration</a></li>
             </ul>
           </li>
           <?php }?>
