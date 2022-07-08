@@ -109,8 +109,8 @@
                   <th class="wd-25p">NAME</th>
                   <th class="wd-15p">IC</th>
                   <th class="wd-20p">EMAIL</th>
-
                   <th class="wd-15p">STATUS</th>
+                  <th class="wd-15p">OFFER LETTER</th>
                   <th class="wd-20p">ACTION</th>
                   <th class="wd-20p">PROGRAM</th>
                 </tr>
@@ -132,18 +132,20 @@ $i = 0;
 
 $i++;
 
-                      $stud_name = $row1['stud_name'];
-                       $stud_ic = $row1['stud_ic'];
-                    $email = $row1['stud_email'];
-           $status = $row1['app_status'];
+          $stud_name = $row1['stud_name'];
+          $stud_ic = $row1['stud_ic'];
+          $email = $row1['stud_email'];
+          $status = $row1['app_status'];
 
                     ?>
                           <tr>
                    <td><?php echo $i;?></td>
-                <td><?php echo $stud_name;?></td>
-                <td><?php echo $stud_ic;?></td>
+                  <td><?php echo $stud_name;?></td>
+                  <td><?php echo $stud_ic;?></td>
                    <td><?php echo $email;?></td>
                     <td><?php echo $status;?></td>
+                    <?php  ?>
+                    <td><a href="offer_letter.php?id=<?php echo $stud_ic; ?>">Offer Letter</a></td>
                     <td><a href="tab_test.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md">Update</button></a></td>
           <?php if ($status == 'Submitted') { ?>
             <td><a href="master.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md mb-2">MASTER</button></a>

@@ -48,7 +48,7 @@
   $role = $userRow['role'];
   $agent = $userRow['agent'];
   $app_status=$userRow['app_status'];
-  $stud_name=$userRow['stud_name'];
+  $stud_name =$userRow['stud_name'];
 
   
 }
@@ -146,14 +146,6 @@ if ($role == 'student' ){?>
 
  <?php } ?>
 
-
-
-
-
-
-
-
-
       </div><!-- az-sidebar-body -->
     </div><!-- az-sidebar -->
 
@@ -170,10 +162,6 @@ if ($role == 'student' ){?>
           </div><!-- az-header-center -->
           <div class="az-header-right">
             <div class="az-header-message">
-              <!--<a href="app-chat.html"><i class="typcn typcn-messages"></i></a>
-            </div> az-header-message 
-            <div class="dropdown az-header-notification">
-              <a href="" class="new"><i class="typcn typcn-bell"></i></a>-->
               <div class="dropdown-menu">
                 <div class="az-dropdown-header mg-b-20 d-sm-none">
                   <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
@@ -226,11 +214,6 @@ if ($role == 'student' ){?>
                   <b><p><?php echo $stud_name;?></p></b>
                  <!-- <span>Premium Member</span>-->
                 </div><!-- az-header-profile -->
-
-                <!--<a href="" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
-                <a href="" class="dropdown-item"><i class="typcn typcn-edit"></i> Edit Profile</a>
-                <a href="" class="dropdown-item"><i class="typcn typcn-time"></i> Activity Logs</a>
-                <a href="" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Account Settings</a>-->
                 <a href="signout.php" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Sign Out</a>
               </div><!-- dropdown-menu -->
             </div>
