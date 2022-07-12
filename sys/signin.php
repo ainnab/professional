@@ -100,13 +100,13 @@ body {
         header("Location:dashboard_rk.php");
       }
       if ($role =='adminrk' ){
-        header("Location:tab_adminrk.php");
+        header("Location:dashboard1.php");
       }
       
-        // if ($role =='student' && $status == 'Submitted'){
-        //   header("Location:view_submission.php");}
+      if ($role =='finance' ){
+        header("Location:dashboard_finance.php");
+      }
 
-      
     }
     else{
       echo "<script type='text/javascript'>alert('Wrong Password! Please try again!'); window.location.href = 'index.php';</script>";

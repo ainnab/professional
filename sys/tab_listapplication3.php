@@ -1,7 +1,7 @@
 <?php include 'header_admin.php' ?>
       <div class="az-content-header d-block d-md-flex">
         <div>
-          <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">List of Application.</h2>
+          <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">List of Normal Application</h2>
         </div>
         <div class="az-dashboard-header-right">
         </div><!-- az-dashboard-header-right -->
@@ -19,7 +19,7 @@
 
 <?php while($data = mysqli_fetch_array($records)) { ?>
       <div class="col-6 col-md-4 col-xl-12">
-         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND app_status='Verified'"); ?>
+         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND (modeAds='NORMAL' AND app_status='Verified');"); ?>
             <?php if (mysqli_num_rows($result) > 0) { ?>
           <div>
             <table id="example1" class="table">
@@ -27,7 +27,6 @@
                 <tr>
                   <th>ID</th>
                   <th>NAME</th>
-                  <th>Program</th>
                   <th>IC</th>
                   <th>STATUS</th>
                   <th>APPROVE</th>
@@ -39,7 +38,6 @@
                             <tr>
                             <td><?php echo $j++;  ?></td>
                             <td><?php echo $row["stud_name"]; ?></td>
-                            <td></td>
                             <td><?php echo $row["stud_ic"]; ?></td>
                             <td><?php echo $row["app_status"]; ?></td>
                             <?php if ($row['app_status'] == 'Rejected' || $row['app_status'] == 'Submitted') { ?>
@@ -62,7 +60,7 @@
               </div>
 
 
-         </div></div>
+         </div>
          </div><!-- card-body -->
         </div><!-- card -->
     </div><!-- col --></div>

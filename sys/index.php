@@ -114,11 +114,12 @@ body {
         header("Location:dashboard_agent.php");
       }
       if ($role =='adminrk' ){
-        header("Location:tab_adminrk.php");
+        header("Location:dashboard1.php");
       }
       
-        // if ($role =='student' && $status == 'Submitted'){
-        //   header("Location:view_submission.php");}
+      if ($role =='finance' ){
+        header("Location:dashboard_finance.php");
+      }
 
       
     }

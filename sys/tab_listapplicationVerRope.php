@@ -27,7 +27,7 @@
       </a>
     </div>
     <?php while($data = mysqli_fetch_array($records)) { ?>
-         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND (modeAds='NORMAL' AND app_status='Rejected');"); ?>
+         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND (modeAds='ROPE' AND app_status='Rejected');"); ?>
             <?php if (mysqli_num_rows($result) > 0) { ?>
     <div id="collapseOne" data-parent="#accordion" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
       <div class="card-body">
@@ -70,7 +70,7 @@
       </a>
     </div><!-- card-header -->
     <?php while($data = mysqli_fetch_array($records)) { ?>
-         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND (modeAds='NORMAL' AND app_status='Verified');"); ?>
+         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND (modeAds='ROPE' AND app_status='Verified');"); ?>
             <?php if (mysqli_num_rows($result) > 0) { ?>
     <div id="collapse2" data-parent="#accordion" class="collapse show" role="tabpanel" aria-labelledby="heading2">
       <div class="card-body">

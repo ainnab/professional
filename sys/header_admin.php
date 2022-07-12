@@ -73,6 +73,7 @@ include 'talum.php';
               <a href="dashboard3.php" class="nav-link"><i class="typcn typcn-clipboard"></i>Dashboard</a>
                <ul class="nav-sub">
               <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listapplication1.php' ?'active' : " ");?>"><a href="tab_listapplication1.php" class="nav-sub-link ">List of Application</a></li>
+              <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listapplication1Ver.php' ?'active' : " ");?>"><a href="tab_listapplication1Ver.php" class="nav-sub-link ">List of Verified Application</a></li>
             </ul>
               </li><!-- nav-item -->
           <li class="nav-item show current">
@@ -90,15 +91,24 @@ include 'talum.php';
         <a href="dashboard5.php" class="nav-link"><i class="typcn typcn-clipboard"></i>Dashboard</a>
          <ul class="nav-sub">
         <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listapplication.php' ?'active' : " ");?>"><a href="tab_listapplication.php" class="nav-sub-link ">List of Application</a></li>
-        <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listapplicationVer.php' ?'active' : " ");?>"><a href="tab_listapplicationVer.php" class="nav-sub-link ">List of Status Application</a></li>
+        <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listapplicationVer.php' ?'active' : " ");?>"><a href="tab_listapplicationVer.php" class="nav-sub-link ">List of Status Application (Normal)</a></li><br>
+        <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listapplicationVerRope.php' ?'active' : " ");?>"><a href="tab_listapplicationVerRope.php" class="nav-sub-link ">List of Status Application (ROPE)</a></li>
       </ul>
         </li><!-- nav-item -->
       <?php }if ($role == 'admin3') { ?>
         <li class="nav-item show <?php echo (basename($_SERVER['PHP_SELF']) == 'dashboard6.php' ?'active' : " ");?>">
         <a href="dashboard6.php" class="nav-link"><i class="typcn typcn-clipboard"></i>Dashboard</a>
          <ul class="nav-sub">
-        <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listapplication3.php' ?'active' : " ");?>"><a href="tab_listapplication3.php" class="nav-sub-link ">List of Application</a></li>
+        <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listapplication3.php' ?'active' : " ");?>"><a href="tab_listapplication3.php" class="nav-sub-link ">List of Normal Application</a></li>
+        <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listapplication3Rope.php' ?'active' : " ");?>"><a href="tab_listapplication3Rope.php" class="nav-sub-link ">List of ROPE Application</a></li>
         <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listapplicationApp.php' ?'active' : " ");?>"><a href="tab_listapplicationApp.php" class="nav-sub-link ">List of Status Application</a></li>
+      </ul>
+    <?php }if ($role == 'finance') { ?>
+        <li class="nav-item show <?php echo (basename($_SERVER['PHP_SELF']) == 'dashboard_finance.php' ?'active' : " ");?>">
+        <a href="dashboard_finance.php" class="nav-link"><i class="typcn typcn-clipboard"></i>Dashboard</a>
+         <ul class="nav-sub">
+        <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listapplicationFinance.php' ?'active' : " ");?>"><a href="tab_listapplicationFinance.php" class="nav-sub-link ">List of Application</a></li>
+        <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_listapplicationFinanceVer.php' ?'active' : " ");?>"><a href="tab_listapplicationFinanceVer.php" class="nav-sub-link ">List of Verified Application</a></li>
       </ul>
         </li><!-- nav-item -->
       <?php } ?>

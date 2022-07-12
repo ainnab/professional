@@ -224,7 +224,7 @@ if (isset($_GET['verify'])) {
    if ($dbconfig ->multi_query($sql) == TRUE) {
 
      echo "<script>alert('Student has been verified');</script>";
-     echo "<script>window.location.assign('tab_listapplication.php')</script>";
+     echo "<script>window.location.assign('tab_listapplication1.php')</script>";
    }else {
      echo"<script>alert('Cannot be processed');</script>";
    }
@@ -243,6 +243,41 @@ if (isset($_GET['verify1'])) {
    }else {
      echo"<script>alert('Cannot be processed');</script>";
    }
+}
+
+if (isset($_GET['finance'])) {
+
+   $id = $_GET['id'];
+
+   $sql = "UPDATE student SET app_status = 'Finance' WHERE id = '$id'";
+
+   if ($dbconfig ->multi_query($sql) == TRUE) {
+
+     echo "<script>alert('Receipt has been verified');</script>";
+     echo "<script>window.location.assign('tab_listapplicationFinance.php')</script>";
+   }else {
+     echo"<script>alert('Cannot be processed');</script>";
+   }
+}
+
+
+if (isset($_POST['submit_progModule'])) {
+    $modName = $_POST['modName'];
+    $modCode = $_POST['modCode'];
+    $modDuration = $_POST['modDuration'];
+    
+
+   echo $query = "INSERT INTO program_diploma (common_module,modCode,modDuration) VALUES ('$modName','$modCode','$modDuration')";
+
+
+   /*if(mysqli_query($dbconfig, $query) == TRUE){
+     echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listmodule.php?id=$id;'</script>";
+     ?>
+     <?php
+    } else{
+        echo "ERROR: Hush! Sorry $query "
+            . mysqli_error($dbconfig);
+    }*/
 }
 
 

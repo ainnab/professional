@@ -23,11 +23,11 @@
 
     <div class="card-header" role="tab" id="headingOne">
       <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        List of Rejected Application
+        List of Verified Normal Application
       </a>
     </div>
     <?php while($data = mysqli_fetch_array($records)) { ?>
-         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND (modeAds='NORMAL' AND app_status='Rejected');"); ?>
+         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND app_status='Verified'"); ?>
             <?php if (mysqli_num_rows($result) > 0) { ?>
     <div id="collapseOne" data-parent="#accordion" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
       <div class="card-body">
@@ -49,7 +49,6 @@
                             <td><?php echo $row["stud_name"]; ?></td>
                             <td><?php echo $row["stud_ic"]; ?></td>
                             <td><?php echo $row["app_status"]; ?></td>
-                              </div>
                             </tr>
             <?php $i++;  } ?>
               </tbody>
@@ -66,22 +65,23 @@
    ?>
     <div class="card-header" role="tab" id="heading2">
       <a data-toggle="collapse" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
-        List of Verified Application
+        List of Verified ROPE Application
       </a>
     </div><!-- card-header -->
     <?php while($data = mysqli_fetch_array($records)) { ?>
-         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND (modeAds='NORMAL' AND app_status='Verified');"); ?>
+         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND (app_status='Verified' AND modeAds='ROPE');"); ?>
             <?php if (mysqli_num_rows($result) > 0) { ?>
     <div id="collapse2" data-parent="#accordion" class="collapse show" role="tabpanel" aria-labelledby="heading2">
       <div class="card-body">
         <div class="col-6 col-md-4 col-xl-12">
             <div>
-            <table id="example2" class="table">
+           <table id="example2" class="table">
               <thead>
                 <tr>
                   <th>ID</th>
                   <th>NAME</th>
                   <th>IC</th>
+                  <th>RK</th>
                   <th>STATUS</th>
                 </tr>
               </thead>
@@ -91,8 +91,8 @@
                             <td><?php echo $j++;  ?></td>
                             <td><?php echo $row["stud_name"]; ?></td>
                             <td><?php echo $row["stud_ic"]; ?></td>
+                            <td><?php echo $row["agent"]; ?></td>
                             <td><?php echo $row["app_status"]; ?></td>
-                              </div>
                             </tr>
             <?php $i++;  } ?>
               </tbody>

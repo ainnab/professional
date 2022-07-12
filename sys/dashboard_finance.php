@@ -1,8 +1,7 @@
-
 <?php include 'header_admin.php' ?>
       <div class="az-content-header d-block d-md-flex">
         <div>
-          <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">List of Status Application</h2>
+          <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">Finance Dashboard</h2>
         </div>
         <div class="az-dashboard-header-right">
         </div><!-- az-dashboard-header-right -->
@@ -13,116 +12,55 @@
         <div class="card card-dashboard-seven">
           <div class="card-body">
           <?php
-    include 'talum.php';
-    $ic=$_SESSION['ic'];
-    $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'");
-   ?>
+          include 'talum.php';
+          $records = mysqli_query($dbconfig,"select COUNT(app_status) AS register from student where role='student' and (modeAds='ROPE' AND app_status = 'Registered');");
+          $row=mysqli_fetch_array($records);
+          $registered = $row['register'];
 
-<div id="accordion" class="accordion" role="tablist" aria-multiselectable="true">
-  <div class="card">
+          $record1 = mysqli_query($dbconfig,"select COUNT(app_status) AS finance from student where role='student' and app_status = 'Finance'");
+          $row1=mysqli_fetch_array($record1);
+          $finance = $row1['finance'];
 
-    <div class="card-header" role="tab" id="headingOne">
-      <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        List of Rejected Application
-      </a>
-    </div>
-    <?php while($data = mysqli_fetch_array($records)) { ?>
-         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND (modeAds='NORMAL' AND app_status='Rejected');"); ?>
-            <?php if (mysqli_num_rows($result) > 0) { ?>
-    <div id="collapseOne" data-parent="#accordion" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-      <div class="card-body">
-        <div class="col-6 col-md-4 col-xl-12">
-            <div>
-            <table id="example1" class="table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>NAME</th>
-                  <th>IC</th>
-                  <th>STATUS</th>
-                </tr>
-              </thead>
-              <tbody>
-              <?php $i=0; $j=1; while($row = mysqli_fetch_array($result)) { ?>
-                            <tr>
-                            <td><?php echo $j++;  ?></td>
-                            <td><?php echo $row["stud_name"]; ?></td>
-                            <td><?php echo $row["stud_ic"]; ?></td>
-                            <td><?php echo $row["app_status"]; ?></td>
-                              </div>
-                            </tr>
-            <?php $i++;  } ?>
-              </tbody>
-            </table>
-            <?php } else{  echo "No result found"; } ?>
-            <?php } ?>
+         ?>
+         <div class="col-lg-12 mg-t-14">
+           <div class="row row-sm">
+             <div class="col-sm-4 col-lg-4">
+               <div class="card card-body">
+                 <h6 class="card-title tx-purple tx-20">ROPE Registered Students</h6>
+                 <h2><?php echo $registered; ?></h2>
+               </div>
+             </div><!-- col -->
+             <div class="col-sm-3 col-lg-4 mg-t-20 mg-sm-t-0">
+               <div class="card card-body">
+                 <h6 class="card-title tx-orange tx-20">Verified Students</h6>
+                 <h2><?php echo $finance; ?></h2>
+               </div>
+             </div>
+           </div>
+         </div>
+
+         </div>
          </div><!-- card-body -->
         </div><!-- card -->
-    </div><!-- col -->
-  </div><br>
-
-   <?php
-    $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'");
-   ?>
-    <div class="card-header" role="tab" id="heading2">
-      <a data-toggle="collapse" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
-        List of Verified Application
-      </a>
-    </div><!-- card-header -->
-    <?php while($data = mysqli_fetch_array($records)) { ?>
-         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND (modeAds='NORMAL' AND app_status='Verified');"); ?>
-            <?php if (mysqli_num_rows($result) > 0) { ?>
-    <div id="collapse2" data-parent="#accordion" class="collapse show" role="tabpanel" aria-labelledby="heading2">
-      <div class="card-body">
-        <div class="col-6 col-md-4 col-xl-12">
-            <div>
-            <table id="example2" class="table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>NAME</th>
-                  <th>IC</th>
-                  <th>STATUS</th>
-                </tr>
-              </thead>
-              <tbody>
-              <?php $i=0; $j=1; while($row = mysqli_fetch_array($result)) { ?>
-                            <tr>
-                            <td><?php echo $j++;  ?></td>
-                            <td><?php echo $row["stud_name"]; ?></td>
-                            <td><?php echo $row["stud_ic"]; ?></td>
-                            <td><?php echo $row["app_status"]; ?></td>
-                              </div>
-                            </tr>
-            <?php $i++;  } ?>
-              </tbody>
-            </table>
-            <?php } else{  echo "No result found"; } ?>
-            <?php } ?>
-         </div><!-- card-body -->
-        </div><!-- card -->
-    </div><!-- col -->
-  </div>
-</div>
-
+    </div><!-- col --></div>
       <div class="az-footer ht-40">
         <div class="container-fluid pd-t-0-f ht-100p">
-          <span>&copy; 2022 UMP Advanced, Malaysia· All rights reserved.</span>
+          <span>&copy; 2019 Azia Responsive Bootstrap 4 Dashboard Template</span>
         </div><!-- container -->
       </div><!-- az-footer -->
+    </div><!-- az-content -->
 
 
+    <script src="../lib/jquery/jquery.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../lib/ionicons/ionicons.js"></script>
+    <script src="../lib/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
+    <script src="../lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
 
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/ionicons/ionicons.js"></script>
-    <script src="lib/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
-    <script src="lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
 
-
-    <script src="js/azia.js"></script>
+    <script src="../js/azia.js"></script>
     <script>
       $(function(){
         'use strict'

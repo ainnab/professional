@@ -7,8 +7,8 @@
 
 <div class="az-content-header d-block d-md-flex">
   <div>
-    <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">Program</h2>
-    <p class="mg-b-0">Press button below to add program.</p>
+    <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">Module</h2>
+    <p class="mg-b-0">Press button below to add module.</p>
   </div>
   <div class="az-dashboard-header-right">
   </div><!-- az-dashboard-header-right -->
@@ -18,132 +18,29 @@
 <div class="col-md-12 col-lg-12 col-xl-12">
   <div class="card card-dashboard-seven">
     <div class="card-body">
-    <button type="button" class="btn btn-rounded btn-warning" data-toggle="modal" data-target="#addEdu">
-      <i class="fa fa-plus"></i> 
-      Add
-    </button>
-    <div class="modal fade" id="addEdu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        <h4 class="modal-title" id="myModalLabel">New</h4>
-                      </div>
-                      <form action="save.php" method="POST" enctype="multipart/form-data">
-                        <div class="modal-body">
+    <body>
+  <br />
+  <div class="col-lg-12">
+    <form action="save.php" id="insert_form" method="POST" enctype="multipart/form-data">
+    <div class="table-repsonsive">
+     <span id="error"></span>
+     <table class="table table-bordered" id="item_table">
+      <tr>
+       <th>Module Name</th>
+       <th>Module Code</th>
+       <th>Duration</th>
+       <th><button type="button" name="add" class="btn btn-success btn-sm add"><span class="fa fa-plus"></span></button></th>
+      </tr>
+     </table>
+     <div align="center">
+      <input type="submit" name="submit_progModule" class="btn btn-info" value="Insert">
+     </div>
+    </div>
+   </form>
+  </div>
+ </body>
+</html>
 
-                          <div class="form-group">
-                            <label>Program Name</label>
-                            <input type="text" class="form-control" id="progName" name="progName" required="">
-                          </div>
-                          <div class="form-group">
-                            <label>Program Code</label>
-                            <input type="text" class="form-control" id="progCode" name="progCode" required="">
-                          </div>
-                          <div class="form-group">
-                            <label>Duration (Year & Months)</label>
-                            <input type="text" class="form-control" id="duration" name="duration" required="">
-                          </div>
-                          <div class="form-group">
-                            <label>Registration Date </label>
-                            <input type="date" class="form-control" name="regDate" id="regDate" required="">
-                          </div>
-                          <div class="form-group">
-                            <label>Learning Centre</label>
-                            <input type="text" class="form-control" id="learningCentre" name="learningCentre" required="">
-                          </div>
-                          <div class="form-group">
-                            <label>Specialization</label>
-                            <input type="text" class="form-control" id="Specialization" name="Specialization" required="">
-                          </div>
-                           <div class="form-group">
-                            <label>Institution Name</label>
-                            <input type="text" class="form-control" id="instName" name="instName" required="">
-                          </div>
-                          <div class="form-group">
-                            <label>Date Created </label>
-                            <input type="date" class="form-control" name="date_start" id="date_start" placeholder="MM-YYYY" required="">
-                          </div>
-                          <div class="form-group">
-                            <label>Admission Name</label>
-                            <input type="text" class="form-control" id="adsName" name="adsName" required="">
-                          </div>
-                          <!-- <div class="form-group">
-                            <label>Mode of Admission</label>
-                            <input type="text" class="form-control" id="modeAds" name="modeAds" required="">
-                          </div> -->
-                          <div class="form-group">
-                            <label>Upload Picture</label>
-                            <input type="file" class="form-control" id="picDip" name="picDip">
-                            <span class="help-block">*The maximum file size you can upload is 30MB</span>
-                          </div>
-                           <div class="form-group">
-                            <label>Certificate Category</label>
-                            <input type="text" class="form-control" id="certificate" name="certificate" value="EXECUTIVE BACHELOR" readonly>
-                            <input type="hidden" class="form-control" id="mode" name="mode" value="BACHELOR" readonly>
-                          </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="submit" name="submit_program" class="btn btn-primary">Save</button>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-   <form action="save.php" method="post">
-  
-            
-         
-<?php  ?>
-            </form><br>
-            <div class="module">
-                            <div class="module-body table">
-                               <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped  display" width="100%">
-                                <thead>
-                                   <tr>
-                                    <th>#</th>
-                                    <th>Program Name</th>
-                                    <th>Date Created</th>
-                                    <th>Admission Name</th>
-                                    <th>Certificate Category</th>
-                                    <th>Action</th>
-                                  </tr>
-                                </thead>
-                            <tbody>
-
-                          <?php 
-
-
-                          $sql3=mysqli_query($dbconfig,"SELECT * FROM program_module WHERE mode='BACHELOR'");
-                          $cnt=1;
-                          while($row=mysqli_fetch_array($sql3)){
-                             $id=$row['pg_id'];
-                          
-                          {
-                          ?>
-                    <tr>
-                      <td><?php echo htmlentities($cnt);?></td>
-                      <td><?php echo htmlentities (ucwords($row['pg_name']));?></td>
-                      <td><?php echo htmlentities (ucwords($row['keyin_date']));?></td>
-                      <td><?php echo htmlentities (ucwords($row['adsName']));?></td>
-                      <td><?php echo htmlentities (ucwords($row['certificate']));?></td>
-                      <td> 
-                       
-
-                     <a href="edit_listprogram.php?id=<?php echo $row['pg_id']?>" ><button name="update" class="btn btn-primary btn-md">Edit</button></a>
-                      <a href="save.php?id=<?php echo $row['pg_id']?>&deleteprog=delete" onClick="return confirm('Are you sure you want to delete?')"><button type="submit" name="deleteprog" id="btn-submit" class="btn btn-primary btn-md">Delete</button></a>
-
-                       <!--  <i class="icon-remove-sign"></i> -->
-                    </tr>
-                    <?php $cnt=$cnt+1; 
-                    }
-                  }
-                   ?>
-
-                </table>
-              </div>
-            </div>
        
             </div><!-- card-body -->
         </div><!-- card -->
@@ -167,7 +64,6 @@
     <script src="../lib/jqvmap/maps/jquery.vmap.usa.js"></script>
 
     <script src="../js/azia.js"></script>
-    <script>
     <script>
       $(function(){
         'use strict'
@@ -320,6 +216,82 @@
         });
 
       });
-    </script>
+</script>
+<script>
+   
+$(document).ready(function(){
+ 
+ $(document).on('click', '.add', function(){
+  var html = '';
+  html += '<tr>';
+  html += '<td><input type="text" name="modName[]" class="form-control modName" /></td>';
+  html += '<td><input type="text" name="modCode[]" class="form-control modCode" /></td>';
+  html += '<td><input type="text" name="modDuration[]" class="form-control modDuration" /></td>';
+  html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="fa fa-minus"></span></button></td></tr>';
+  $('#item_table').append(html);
+ });
+ 
+ $(document).on('click', '.remove', function(){
+  $(this).closest('tr').remove();
+ });
+ 
+ $('#insert_form').on('submit_progModule', function(event){
+  event.preventDefault();
+  var error = '';
+  $('.modName').each(function(){
+   var count = 1;
+   if($(this).val() == '')
+   {
+    error += "<p>Enter Module Name "+count+" Row</p>";
+    return false;
+   }
+   count = count + 1;
+  });
+  
+  $('.modCode').each(function(){
+   var count = 1;
+   if($(this).val() == '')
+   {
+    error += "<p>Enter Code Module "+count+" Row</p>";
+    return false;
+   }
+   count = count + 1;
+  });
+  
+  $('.modDuration').each(function(){
+   var count = 1;
+   if($(this).val() == '')
+   {
+    error += "<p>Enter Duration "+count+" Row</p>";
+    return false;
+   }
+   count = count + 1;
+  });
+  var form_data = $(this).serialize();
+  if(error == '')
+  {
+   $.ajax({
+    url:"save.php",
+    method:"POST",
+    data:form_data,
+    success:function(data)
+    {
+     if(data == 'ok')
+     {
+      $('#item_table').find("tr:gt(0)").remove();
+      $('#error').html('<div class="alert alert-success">Item Details Saved</div>');
+     }
+    }
+   });
+  }
+  else
+  {
+   $('#error').html('<div class="alert alert-danger">'+error+'</div>');
+  }
+ });
+ 
+});
+</script>
+
   </body>
 </html>

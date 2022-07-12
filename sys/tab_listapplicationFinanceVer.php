@@ -1,8 +1,7 @@
-
 <?php include 'header_admin.php' ?>
       <div class="az-content-header d-block d-md-flex">
         <div>
-          <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">List of Status Application</h2>
+          <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">List of Verified Application</h2>
         </div>
         <div class="az-dashboard-header-right">
         </div><!-- az-dashboard-header-right -->
@@ -18,27 +17,19 @@
     $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'");
    ?>
 
-<div id="accordion" class="accordion" role="tablist" aria-multiselectable="true">
-  <div class="card">
-
-    <div class="card-header" role="tab" id="headingOne">
-      <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        List of Rejected Application
-      </a>
-    </div>
-    <?php while($data = mysqli_fetch_array($records)) { ?>
-         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND (modeAds='NORMAL' AND app_status='Rejected');"); ?>
+<?php while($data = mysqli_fetch_array($records)) { ?>
+      <div class="col-6 col-md-4 col-xl-12">
+         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND (modeAds='ROPE' AND app_status='Finance');");
+         ?>
             <?php if (mysqli_num_rows($result) > 0) { ?>
-    <div id="collapseOne" data-parent="#accordion" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-      <div class="card-body">
-        <div class="col-6 col-md-4 col-xl-12">
-            <div>
+          <div>
             <table id="example1" class="table">
               <thead>
                 <tr>
                   <th>ID</th>
                   <th>NAME</th>
                   <th>IC</th>
+                  <th>EMAIL</th>
                   <th>STATUS</th>
                 </tr>
               </thead>
@@ -48,81 +39,45 @@
                             <td><?php echo $j++;  ?></td>
                             <td><?php echo $row["stud_name"]; ?></td>
                             <td><?php echo $row["stud_ic"]; ?></td>
-                            <td><?php echo $row["app_status"]; ?></td>
-                              </div>
+                            <td><?php echo $row["stud_email"]; ?></td>
+                            <?php 
+                             $status = $row["app_status"];
+                             if ($status == 'Finance') {
+                              echo "<td><input type='button' class='btn btn-success' ' style='border-radius: 15px' value='Verified'></td>";
+                            }
+                             ?> 
+                            </td>
                             </tr>
             <?php $i++;  } ?>
               </tbody>
             </table>
-            <?php } else{  echo "No result found"; } ?>
+            <?php } else {  echo "No result found"; } ?>
             <?php } ?>
+              </div>
+
+
+         </div>
          </div><!-- card-body -->
         </div><!-- card -->
-    </div><!-- col -->
-  </div><br>
-
-   <?php
-    $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'");
-   ?>
-    <div class="card-header" role="tab" id="heading2">
-      <a data-toggle="collapse" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
-        List of Verified Application
-      </a>
-    </div><!-- card-header -->
-    <?php while($data = mysqli_fetch_array($records)) { ?>
-         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND (modeAds='NORMAL' AND app_status='Verified');"); ?>
-            <?php if (mysqli_num_rows($result) > 0) { ?>
-    <div id="collapse2" data-parent="#accordion" class="collapse show" role="tabpanel" aria-labelledby="heading2">
-      <div class="card-body">
-        <div class="col-6 col-md-4 col-xl-12">
-            <div>
-            <table id="example2" class="table">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>NAME</th>
-                  <th>IC</th>
-                  <th>STATUS</th>
-                </tr>
-              </thead>
-              <tbody>
-              <?php $i=0; $j=1; while($row = mysqli_fetch_array($result)) { ?>
-                            <tr>
-                            <td><?php echo $j++;  ?></td>
-                            <td><?php echo $row["stud_name"]; ?></td>
-                            <td><?php echo $row["stud_ic"]; ?></td>
-                            <td><?php echo $row["app_status"]; ?></td>
-                              </div>
-                            </tr>
-            <?php $i++;  } ?>
-              </tbody>
-            </table>
-            <?php } else{  echo "No result found"; } ?>
-            <?php } ?>
-         </div><!-- card-body -->
-        </div><!-- card -->
-    </div><!-- col -->
-  </div>
-</div>
-
+    </div><!-- col --></div>
       <div class="az-footer ht-40">
         <div class="container-fluid pd-t-0-f ht-100p">
-          <span>&copy; 2022 UMP Advanced, Malaysia· All rights reserved.</span>
+          <span>&copy; 2019 Azia Responsive Bootstrap 4 Dashboard Template</span>
         </div><!-- container -->
       </div><!-- az-footer -->
+    </div><!-- az-content -->
 
 
+    <script src="../lib/jquery/jquery.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../lib/ionicons/ionicons.js"></script>
+    <script src="../lib/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
+    <script src="../lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
 
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/ionicons/ionicons.js"></script>
-    <script src="lib/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
-    <script src="lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script>
 
-
-    <script src="js/azia.js"></script>
+    <script src="../js/azia.js"></script>
     <script>
       $(function(){
         'use strict'

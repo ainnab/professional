@@ -71,7 +71,7 @@
         <ul class="nav">
         <li class="nav-label">Main Menu</li>
           <li class="nav-item show current">
-            <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>MID</a>
+            <a href="dashboard1.php" class="nav-link with-sub"><i class="typcn typcn-document"></i>MID</a>
             <ul class="nav-sub">
               <li class="nav-sub-item  "><a href="tab_adminrk.php" class="nav-sub-link ">Add Rakan Kerjasama</a></li>
               <li class="nav-sub-item  "><a href="list_rakankerjasama.php" class="nav-sub-link ">List of Rakan Kerjasama</a></li>
@@ -80,8 +80,6 @@
           </li><!-- nav-item -->
         </div>
       </div>
-
-
 
     <div class="az-content az-content-dashboard-two">
       <div class="az-header">

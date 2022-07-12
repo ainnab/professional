@@ -105,6 +105,7 @@
                                     <!-- <th>Mode of Admission</th> -->
                                     <th>Certificate Category</th>
                                     <th>Action</th>
+                                    <th>Module</th>
                                   </tr>
                                 </thead>
                             <tbody>
@@ -131,6 +132,7 @@
 
                      <a href="edit_listprogram.php?id=<?php echo $row['pg_id']?>" ><button name="update" class="btn btn-primary"><i class="fa fa-edit"></i></button></a>
                       <a href="save.php?id=<?php echo $row['pg_id']?>&deleteprog=delete" onClick="return confirm('Are you sure you want to delete?')"><button type="submit" name="deleteprog" id="btn-submit" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
+                      <td><a href="tab_listmodule.php?id=<?php echo $row['pg_id']?>" ><button name="add" class="btn btn-secondary">Add</button></a></td>
 
                        <!--  <i class="icon-remove-sign"></i> -->
                     </tr>
