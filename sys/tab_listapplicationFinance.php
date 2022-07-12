@@ -19,7 +19,7 @@
 
 <?php while($data = mysqli_fetch_array($records)) { ?>
       <div class="col-6 col-md-4 col-xl-12">
-         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND (modeAds='ROPE' AND app_status='Registered');"); ?>
+         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND (modeAds='ROPE' AND app_status='Register');"); ?>
             <?php if (mysqli_num_rows($result) > 0) { ?>
           <div>
             <table id="example1" class="table">
@@ -41,7 +41,7 @@
                             <td><?php echo $row["stud_ic"]; ?></td>
                             <td><?php echo $row["stud_email"]; ?></td>
                             <td><a href=".php?id=<?php echo $row["stud_ic"]; ?>">RECEIPT</a></td>
-                            <?php if ($row['app_status'] == 'Registered') {  ?>
+                            <?php if ($row['app_status'] == 'Register') {  ?>
                               <td><a href="save.php?id=<?php echo $row['id']?>&finance=finance" onClick="return confirm('Are you sure you want to verify this student?')" ><button name="finance"
                                 class="btn btn-primary btn-md">Verify</button></a></td>
                             <?php } ?>

@@ -13,7 +13,7 @@
           <div class="card-body">
           <?php
           include 'talum.php';
-          $records = mysqli_query($dbconfig,"select COUNT(app_status) AS register from student where role='student' and (modeAds='ROPE' AND app_status = 'Registered');");
+          $records = mysqli_query($dbconfig,"select COUNT(app_status) AS register from student where role='student' and (modeAds='ROPE' AND app_status = 'Register');");
           $row=mysqli_fetch_array($records);
           $registered = $row['register'];
 
