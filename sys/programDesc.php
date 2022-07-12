@@ -102,7 +102,7 @@ img {
 
     <div class="az-header">
       <div class="container">
-        <div class="az-header-left"><?php 
+        <div class="az-header-left">
           <a href="" class="az-logo"><span></span>Admission</a>
           <a href="" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span></a>
         </div><!-- az-header-left -->
