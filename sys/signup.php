@@ -64,7 +64,7 @@ body {
   	
   	}else{
 		
-		$sql = "insert into student (stud_name, stud_ic, password, stud_email, role, app_status, intake, date, app_option) value('".$name."', '".$ic."','".$hashPassword."','".$email."','".$role."','Register','sem1 22/23','".$dte."','0')";
+		$sql = "insert into student (stud_name, stud_ic, password, stud_email, modeAds, role, app_status, intake, date, app_option) value('".$name."', '".$ic."','".$hashPassword."','".$email."','NORMAL',".$role."','Register','sem1 22/23','".$dte."','0')";
 		$result = mysqli_query($dbconfig, $sql);
 		if($result)
 		{
