@@ -78,6 +78,16 @@
                             <input type="text" class="form-control" id="certificate" name="certificate" value="EXECUTIVE MASTER" readonly>
                             <input type="hidden" class="form-control" id="mode" name="mode" value="MASTER" readonly>
                           </div>
+                          <div class="form-group">
+                            <label>List Of Module (Common Module)</label>
+                            <input type="text" class="form-control" id="commonModule" name="commonModule" placeholder="Module1,Module2" >
+                           
+                          </div>
+                           <div class="form-group">
+                            <label>List Of Module (Core Module)</label>
+                            <input type="text" class="form-control" id="coreModule" name="coreModule" placeholder="Module1,Module2" >
+                           
+                          </div>
 									      </div>
 									      <div class="modal-footer">
 									        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -105,7 +115,8 @@
                                     <!-- <th>Mode of Admission</th> -->
                                     <th>Certificate Category</th>
                                     <th>Action</th>
-                                    <th>Module</th>
+                                    <th>Common Module</th>
+                                    <th>Core Module</th>
                                   </tr>
                                 </thead>
                             <tbody>
@@ -132,9 +143,10 @@
 
                      <a href="edit_listprogram.php?id=<?php echo $row['pg_id']?>" ><button name="update" class="btn btn-primary"><i class="fa fa-edit"></i></button></a>
                       <a href="save.php?id=<?php echo $row['pg_id']?>&deleteprog=delete" onClick="return confirm('Are you sure you want to delete?')"><button type="submit" name="deleteprog" id="btn-submit" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
-                      <td><a href="tab_listmodule.php?id=<?php echo $row['pg_id']?>" ><button name="add" class="btn btn-secondary">Add</button></a></td>
 
                        <!--  <i class="icon-remove-sign"></i> -->
+                       <td><?php echo htmlentities (ucwords($row['common_module']));?></td>
+                        <td><?php echo htmlentities (ucwords($row['core_module']));?></td>
                     </tr>
                     <?php $cnt=$cnt+1; 
                     }

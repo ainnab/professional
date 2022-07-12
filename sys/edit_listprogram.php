@@ -72,9 +72,20 @@
 									      		<label>Admission Name</label>
 									      		<input type="text" class="form-control" id="adsName" name="adsName" value="<?php echo $row['adsName']; ?>">
 									      	</div>
+
+                          <div class="form-group">
+                            <label>List Of Module (Common Module)</label>
+                            <input type="text" class="form-control" id="commonModule" name="commonModule" placeholder="Module1,Module2" value="<?php echo $row['common_module']; ?>">
+                           
+                          </div>
+                          <div class="form-group">
+                            <label>List Of Module (Core Module)</label>
+                            <input type="text" class="form-control" id="coreModule" name="coreModule" placeholder="Module1,Module2" value="<?php echo $row['core_module']; ?>">
+                           
+                          </div>
                           <div class="form-group">
                           <label>Certificate Category</label>
-                          <select name="certificate" id="certificate" class="form-control" required="">
+                          <select name="certificate" id="certificate" class="form-control" required="" readonly>
                           <option selected disabled="" style="font-size:14px;">Select Type</option>
                           <option <?php if ($certificate == "PROFESSIONAL DIPLOMA") {
                                               echo 'selected';

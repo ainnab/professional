@@ -4,72 +4,79 @@ session_start();
 
 if (isset($_POST['submit_program'])) {
 
-$progName = strtoupper($_POST['progName']);
-$progCode = strtoupper($_POST['progCode']);
-$duration = strtoupper($_POST['duration']);
-$regDate = $_POST['regDate'];
-$learningCentre = strtoupper($_POST['learningCentre']);
-$Specialization = strtoupper($_POST['Specialization']);
-$date_start = $_POST['date_start'];
-$inst_name = strtoupper($_POST['instName']);
-$adsName = strtoupper($_POST['adsName']);
-// $modeAds = $_POST['modeAds'];
-$target2 = "images/" .basename($_FILES['picDip']['name']);
-$picDip = $_FILES['picDip']['name'];
-$certificate = $_POST['certificate'];
-$mode = $_POST['mode'];
-
-   $query = "INSERT INTO program_diploma (pg_name,pg_code,duration,regDate,learningCentre,Specialization,inst_name,keyin_date,adsName,mode,picDip,certificate) VALUES ('$progName','$progCode','$duration','$regDate','$learningCentre','$Specialization','$inst_name','$date_start','$adsName','$mode','$picDip','$certificate')";
-
-
-   if(mysqli_query($dbconfig, $query) == TRUE){
-     move_uploaded_file($_FILES['picDip']['tmp_name'], $target2);
-     if($mode == 'DIP'){
-      echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramDip.php';</script>";
-    }elseif($mode == 'BACHELOR'){
-      echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramBch.php';</script>";
-    }elseif($mode == 'SHORT COURSES'){
-      echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramSC.php';</script>";  
-    }else
-    echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramMas.php';</script>";
-  } else{
-      echo "ERROR: Hush! Sorry $result. "
-          . mysqli_error($dbconfig);
-  }
-}
-if (isset($_POST['update_program'])) {
-
-    $id = $_REQUEST['id'];
-    $progName = strtoupper($_POST['progName']);
-    $progCode = strtoupper($_POST['progCode']);
-    $duration = strtoupper($_POST['duration']);
-    $regDate = $_POST['regDate'];
-    $learningCentre = strtoupper($_POST['learningCentre']);
-    $Specialization = strtoupper($_POST['Specialization']);
-    $inst_name = strtoupper($_POST['instName']);
-    $date_start = $_POST['date_start'];
-    $adsName =strtoupper($_POST['adsName']);
-    // $$mode = $_POST['mode'];
-    $certificate = $_POST['certificate'];
-    $mode = $_POST['mode'];
-
-
-    $sql2= "UPDATE program_diploma SET pg_name = '$progName', keyin_date= '$date_start', pg_code='$progCode',duration='$duration',regDate='$regDate',learningCentre='$learningCentre',Specialization='$Specialization',inst_name='$inst_name',adsName = '$adsName', certificate = '$certificate' where pg_id = '$id'";
-
-  if(mysqli_query($dbconfig, $sql2) == TRUE){
-      if($mode == 'DIP'){
+  $progName = strtoupper($_POST['progName']);
+  $progCode = strtoupper($_POST['progCode']);
+  $duration = strtoupper($_POST['duration']);
+  $regDate = $_POST['regDate'];
+  $learningCentre = strtoupper($_POST['learningCentre']);
+  $Specialization = strtoupper($_POST['Specialization']);
+  $date_start = $_POST['date_start'];
+  $inst_name = strtoupper($_POST['instName']);
+  $adsName = strtoupper($_POST['adsName']);
+  // $modeAds = $_POST['modeAds'];
+  $target2 = "images/" .basename($_FILES['picDip']['name']);
+  $picDip = $_FILES['picDip']['name'];
+  $certificate = $_POST['certificate'];
+  $mode = $_POST['mode'];
+  
+  $commonModule = $_POST['commonModule'];
+  $coreModule = $_POST['coreModule'];
+  
+  
+     $query = "INSERT INTO program_diploma (pg_name,pg_code,duration,regDate,learningCentre,Specialization,inst_name,keyin_date,adsName,mode,picDip,certificate,common_module,core_module) VALUES ('$progName','$progCode','$duration','$regDate','$learningCentre','$Specialization','$inst_name','$date_start','$adsName','$mode','$picDip','$certificate','$commonModule','$coreModule')";
+  
+  
+     if(mysqli_query($dbconfig, $query) == TRUE){
+       move_uploaded_file($_FILES['picDip']['tmp_name'], $target2);
+       if($mode == 'DIP'){
         echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramDip.php';</script>";
       }elseif($mode == 'BACHELOR'){
         echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramBch.php';</script>";
       }elseif($mode == 'SHORT COURSES'){
-      echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramSC.php';</script>";    
+        echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramSC.php';</script>";  
       }else
       echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramMas.php';</script>";
     } else{
         echo "ERROR: Hush! Sorry $result. "
             . mysqli_error($dbconfig);
     }
-}
+  }
+  if (isset($_POST['update_program'])) {
+  
+      $id = $_REQUEST['id'];
+      $progName = strtoupper($_POST['progName']);
+      $progCode = strtoupper($_POST['progCode']);
+      $duration = strtoupper($_POST['duration']);
+      $regDate = $_POST['regDate'];
+      $learningCentre = strtoupper($_POST['learningCentre']);
+      $Specialization = strtoupper($_POST['Specialization']);
+      $inst_name = strtoupper($_POST['instName']);
+      $date_start = $_POST['date_start'];
+      $adsName =strtoupper($_POST['adsName']);
+      // $$mode = $_POST['mode'];
+      $certificate = $_POST['certificate'];
+      $mode = $_POST['mode'];
+      $commonModule = $_POST['commonModule'];
+      $coreModule = $_POST['coreModule'];
+  
+  
+  
+      $sql2= "UPDATE program_diploma SET pg_name = '$progName', keyin_date= '$date_start', pg_code='$progCode',duration='$duration',regDate='$regDate',learningCentre='$learningCentre',Specialization='$Specialization',inst_name='$inst_name',adsName = '$adsName', certificate = '$certificate',common_module='$commonModule' ,core_module='$coreModule'where pg_id = '$id'";
+  
+    if(mysqli_query($dbconfig, $sql2) == TRUE){
+        if($mode == 'DIP'){
+          echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramDip.php';</script>";
+        }elseif($mode == 'BACHELOR'){
+          echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramBch.php';</script>";
+        }elseif($mode == 'SHORT COURSES'){
+        echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramSC.php';</script>";    
+        }else
+        echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'tab_listprogramMas.php';</script>";
+      } else{
+          echo "ERROR: Hush! Sorry $result. "
+              . mysqli_error($dbconfig);
+      }
+  }
 if(isset($_GET['deleteprog']))
       {
 

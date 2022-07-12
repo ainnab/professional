@@ -82,15 +82,16 @@
                             <input type="text" class="form-control" id="certificate" name="certificate" value="PROFESSIONAL DIPLOMA" readonly>
                             <input type="hidden" class="form-control" id="mode" name="mode" value="DIP" readonly>
                           </div>
-                          <!-- <div class="form-group">
-                          <label>Certificate Category</label>
-                          <select name="certificate" id="certificate" class="form-control" required="PROFESSIONAL DIPLOMA" readonly>
-                          <option selected disabled="" style="font-size:14px;">Select Type</option>
-                          <option>PROFESSIONAL DIPLOMA</option>
-                          <option>EXECUTIVE BACHELOR</option>
-                          <option>EXECUTIVE MASTER</option>
-                        </select>
-                      </div> -->
+                          <div class="form-group">
+                            <label>List Of Module (Common Module)</label>
+                            <input type="text" class="form-control" id="commonModule" name="commonModule" placeholder="Module1,Module2" >
+                           
+                          </div>
+                           <div class="form-group">
+                            <label>List Of Module (Core Module)</label>
+                            <input type="text" class="form-control" id="coreModule" name="coreModule" placeholder="Module1,Module2" >
+                           
+                          </div>
 
 									      </div>
 									      <div class="modal-footer">
@@ -119,6 +120,8 @@
                                     <!-- <th>Mode of Admission</th> -->
                                     <th>Certificate Category</th>
                                     <th>Action</th>
+                                    <th>Common Module</th>
+                                    <th>Core Module</th>
                                   </tr>
                                 </thead>
                             <tbody>
@@ -146,7 +149,8 @@
                      <a href="edit_listprogram.php?id=<?php echo $row['pg_id']?>" ><button name="update" class="btn btn-primary"><i class="fa fa-edit"></i></button></a>
                       <a href="save.php?id=<?php echo $row['pg_id']?>&deleteprog=delete" onClick="return confirm('Are you sure you want to delete?')"><button type="submit" name="deleteprog" id="btn-submit" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
 
-                       <!--  <i class="icon-remove-sign"></i> -->
+                     <td><?php echo htmlentities (ucwords($row['common_module']));?></td>
+                     <td><?php echo htmlentities (ucwords($row['core_module']));?></td>
                     </tr>
                     <?php $cnt=$cnt+1; 
                     }
