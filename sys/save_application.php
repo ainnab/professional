@@ -27,7 +27,7 @@ $modeAds = $_POST['modeAds'];
 $email = $_POST['email'];
 $intake = 'batch julai 2022';
 $roles = 'student';
-$status ='Applied';
+$status ='Register';
 
  date_default_timezone_set("asia/kuala_lumpur");
   $dte = date('Y-m-d');

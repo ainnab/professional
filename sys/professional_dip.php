@@ -114,7 +114,7 @@ if(mysqli_num_rows($result3) > 0)
                   <div class="box">
                      <div class="option_container">
                         <div class="options">
-                           <a href="umpa_pd_business.php?id=<?php echo $id;?>&stud_id=<?php echo $stud_id;?>" class="option1">
+                           <a href="diploma_stud_rk.php?id=<?php echo $id;?>&stud_id=<?php echo $stud_id;?>" class="option1">
                            Enroll Now
                            </a>
 

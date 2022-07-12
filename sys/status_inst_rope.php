@@ -111,7 +111,7 @@
                                                                 <th class="wd-25p">NAME</th>
                                                                 <th class="wd-15p">IC</th>
                                                                 <th class="wd-20p">EMAIL</th>
-
+                                                                <th class="wd-15p">OFFER LETTER</th>
                                                                 <th class="wd-15p">STATUS</th>
                                                                 <th class="wd-20p">ACTION</th>
                                                                 <th class="wd-20p">PROGRAM</th>
@@ -146,6 +146,7 @@ $i++;
                                                                 <td><?php echo $stud_ic;?></td>
                                                                 <td><?php echo $email;?></td>
                                                                 <td><?php echo $status;?></td>
+                                                                <td><a href="offer_letter.php?id=<?php echo $stud_ic; ?>">Offer Letter</a></td>
                                                                 <td><a href="tab_test_rk.php?id=<?php echo $stud_ic;?>"><button
                                                                             name="update"
                                                                             class="btn btn-primary btn-md">Update</button></a>

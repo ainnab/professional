@@ -210,6 +210,8 @@ body {
 			<?php
             /*$rec = mysqli_query($dbconfig,"select * from running_no where stud_ic='$ic'"); 
             while($data = mysqli_fetch_array($rec)) { 
+
+              
             $run=$data['running_no'];?>
 			<div align="right" class="div3">
 			<?php

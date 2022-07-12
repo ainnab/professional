@@ -168,9 +168,11 @@ $records3 = mysqli_query($dbconfig,"select * from document where stud_ic='$ic'")
                     <button type="submit" name="submit_workexp"  class="btn btn-lg btn-primary waves-effect waves-light">
                         <i class="far fa-save"></i>&nbsp;&nbsp;Simpan
                     </button>
+                    <?php if($app_status!='Applied'){?>
                     <button type="button" onclick="window.location.href = 'tab_declaration.php'" class="btn btn-lg btn-secondary waves-effect waves-light">
                         Seterusnya&nbsp;&nbsp;<i class="far fa-arrow-alt-circle-right"></i>
                     </button>
+                    <?php } ?>
                 </div>
             </div><!-- card-body -->
         </div><!-- card -->

@@ -48,7 +48,7 @@
   $role = $userRow['role'];
   $agent = $userRow['agent'];
   $app_status=$userRow['app_status'];
-  $stud_name=$userRow['stud_name'];
+  $stud_name =$userRow['stud_name'];
 
   
 }
@@ -100,7 +100,7 @@ if ($role == 'student' ){?>
               <li class="nav-sub-item"><a href="dashboard2.php" class="nav-sub-link">Dashboard</a></li>
             </ul>
             
-            <?php if($app_status=='Register'){?>
+            <?php if($app_status=='Register' or $app_status=='Applied'){?>
             <li class="nav-item show">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-clipboard"></i>Admission</a>
             <ul class="nav-sub">
@@ -111,11 +111,13 @@ if ($role == 'student' ){?>
               <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_workexp.php' ?'active' : " ");?>"><a href="tab_workexp.php" class="nav-sub-link">Work Experience</a></li>
               <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_academic.php' ?'active' : " ");?>"><a href="tab_academic.php" class="nav-sub-link">Academic Background</a></li>
               <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_upload.php' ?'active' : " ");?>"><a href="tab_upload.php" class="nav-sub-link">Video CV/Attachment</a></li>
+              <?php if ($app_status=='Register'){?>
               <li class="nav-sub-item <?php echo (basename($_SERVER['PHP_SELF']) == 'tab_declaration.php' ?'active' : " ");?>"><a href="tab_declaration.php" class="nav-sub-link">Declaration</a></li>
+              <?php }?>
             </ul>
           </li>
           <?php }?>
-          <?php if($app_status=='Submitted' or $app_status=='Approved'){?>
+          <?php if($app_status=='Submitted' or $app_status=='Applied' or $app_status=='Approved'){?>
             <li class="nav-item show">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>View</a>
             <ul class="nav-sub">
@@ -130,9 +132,9 @@ if ($role == 'student' ){?>
             <li class="nav-item show">
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>Program</a>
             <ul class="nav-sub">
-            <li class="nav-sub-item"><a href="" class="nav-sub-link">Master Eksekutif</a></li>
-            <li class="nav-sub-item"><a href="" class="nav-sub-link">Bachelor Eksekutif</a></li>
-            <li class="nav-sub-item"><a href="professional_dip_stud.php" class="nav-sub-link">Professional Diploma</a></li>
+            <li class="nav-sub-item"><a href="master_exec_stud.php?id=<?php echo $ic;?>" class="nav-sub-link">Master Eksekutif</a></li>
+            <li class="nav-sub-item"><a href="bach_exec_stud.php?id=<?php echo $ic;?>" class="nav-sub-link">Bachelor Eksekutif</a></li>
+            <li class="nav-sub-item"><a href="professional_dip_stud.php?id=<?php echo $ic;?>" class="nav-sub-link">Professional Diploma</a></li>
             <li class="nav-sub-item"><a href="" class="nav-sub-link">Short Courses</a></li>
               
                
@@ -143,14 +145,6 @@ if ($role == 'student' ){?>
 
 
  <?php } ?>
-
-
-
-
-
-
-
-
 
       </div><!-- az-sidebar-body -->
     </div><!-- az-sidebar -->
@@ -168,10 +162,6 @@ if ($role == 'student' ){?>
           </div><!-- az-header-center -->
           <div class="az-header-right">
             <div class="az-header-message">
-              <!--<a href="app-chat.html"><i class="typcn typcn-messages"></i></a>
-            </div> az-header-message 
-            <div class="dropdown az-header-notification">
-              <a href="" class="new"><i class="typcn typcn-bell"></i></a>-->
               <div class="dropdown-menu">
                 <div class="az-dropdown-header mg-b-20 d-sm-none">
                   <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
@@ -224,11 +214,6 @@ if ($role == 'student' ){?>
                   <b><p><?php echo $stud_name;?></p></b>
                  <!-- <span>Premium Member</span>-->
                 </div><!-- az-header-profile -->
-
-                <!--<a href="" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
-                <a href="" class="dropdown-item"><i class="typcn typcn-edit"></i> Edit Profile</a>
-                <a href="" class="dropdown-item"><i class="typcn typcn-time"></i> Activity Logs</a>
-                <a href="" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Account Settings</a>-->
                 <a href="signout.php" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Sign Out</a>
               </div><!-- dropdown-menu -->
             </div>

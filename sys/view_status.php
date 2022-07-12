@@ -56,17 +56,6 @@
       
        }     
     ?>
-<?php 
-$records3 = mysqli_query($dbconfig,"select * from programselection where stud_ic='$ic'"); 
-while($data3=mysqli_fetch_array($records3)){
-    $pg_name=$data3['pg_name'];
-    $status=ucwords($data3['status']);
-}
-date_default_timezone_set("Asia/Bangkok");
-$date='Y';
-?>
-
-
 <div class="az-content-header d-block d-md-flex">
   <div>
     <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">Status of Application</h2>
@@ -97,6 +86,15 @@ $date='Y';
                   </div>
                 </div>
    <br>
+            <?php 
+          $records3 = mysqli_query($dbconfig,"select * from programselection where stud_ic='$ic'"); 
+          while($data3=mysqli_fetch_array($records3)){
+            $pg_name=$data3['pg_name'];
+              $status=ucwords($data3['status']);
+          }
+          date_default_timezone_set("Asia/Bangkok");
+          $date='Y';
+          ?>
         <div class="module">
                             <div class="module-body table">
                                <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped  display" width="100%">

@@ -433,7 +433,7 @@ if(isset($_GET['deletedoc']))
   } else{
         echo "ERROR: Hush! Sorry. " 
             . mysqli_error($dbconfig);
-        echo "<script type='text/javascript'>alert('PLEASE COMPLETE YOUR FORM BEFORE SUBMITTED!'); window.location.href = 'tab_test.php';</script>";
+        echo "<script type='text/javascript'>alert('PLEASE COMPLETE YOUR FORM BEFORE SUBMITTED!'); window.location.href = 'tab_test.php?id=$ic';</script>";
     }
   
 }
