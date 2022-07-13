@@ -64,7 +64,7 @@ if(isset($_SESSION['ic']))
 
     $records = mysqli_query($dbconfig,"select * from student where stud_ic='$stud_id'");
     while($data = mysqli_fetch_array($records)) {
-
+$status = $data['app_status'];
       $now_year = date('Y');
   $card_year  = substr($ic,0,2);
   if ($card_year<50){
@@ -1070,7 +1070,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                     </br>
                                     <div class="card card-dashboard-seven">
                                         <div class="card-body">
-
+<?php if ($status =='Register'){?>
                                             <p><strong>Declaration</strong></p>
                                             <p>Please ensure that information provided is <strong>true and
                                                     correct</strong>. No changes is allowed once the application is
@@ -1083,6 +1083,11 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
 
                                             <hr />
 
+
+
+
+
+                            
 
                                             <form action="save_rk.php" method="post">
                                                 <div class="col-md mg-t-10 mg-md-t-0">
@@ -1097,7 +1102,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                         name="submit_final">Submit</button>
                                                 </div>
                                             </form>
-
+<?php }?>
                                         </div><!-- card-body -->
                                     </div><!-- card -->
 
