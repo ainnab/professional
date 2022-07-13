@@ -82,13 +82,14 @@ if(isset($_SESSION['ic']))
     $records = mysqli_query($dbconfig,"select * from student where stud_ic='$stud_id'");
     while($data = mysqli_fetch_array($records)) {
 
-  $now_year = date('Y');
-  $card_year  = substr($ic,0,2);
-  if ($card_year<50){
-  $age = $now_year - intval("20".$card_year);
-  }else{
-  $age = $now_year - intval("19".$card_year);
-  }
+    $status = $data['app_status'];
+    $now_year = date('Y');
+    $card_year  = substr($ic,0,2);
+    if ($card_year<50){
+    $age = $now_year - intval("20".$card_year);
+    }else{
+    $age = $now_year - intval("19".$card_year);
+    }
 
 
 
@@ -219,8 +220,13 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                             Document</button>
                                         <button class="tablinks" onclick="openCity(event, 'Certificate')">Upload
                                             Certificate</button>
+                                        <?php if ($status == 'Finance') {?>
                                         <button class="tablinks"
                                             onclick="openCity(event, 'Declaration')">Declaration</button>
+                                        <?php }else{?>
+                                            <button class="tablinks"
+                                            onclick="openCity(event, 'Declaration')" disabled>Declaration</button>
+                                            <?php } ?>
 
                                     </div>
 
