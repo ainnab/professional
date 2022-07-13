@@ -31,6 +31,9 @@ img {
   width: 100%;
   height: auto;
 }
+pre {
+  white-space: pre-wrap;
+}
 
 </style>
 
@@ -103,12 +106,12 @@ img {
     <div class="az-header">
       <div class="container">
         <div class="az-header-left">
-          <a href="index.html" class="az-logo"><span></span>Admission</a>
+          <a href="" class="az-logo"><span></span>Admission</a>
           <a href="" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span></a>
         </div><!-- az-header-left -->
         <div class="az-header-menu">
           <div class="az-header-menu-header">
-            <a href="index.html" class="az-logo"><span></span>Admission</a>
+            <a href="" class="az-logo"><span></span>Admission</a>
             <a href="" class="close">&times;</a>
           </div><!-- az-header-menu-header -->
         </div><!-- az-header-menu -->
@@ -236,9 +239,9 @@ $courseN = explode(',', $course);
                         <h4>
                           <a href=""  ></a>
                         </h4>
-                        <ul class="post-meta">
+                        <ul class="post-meta"><pre>
                        <li><span class="label label-warning"><i class="fa fa-bookmark" aria-hidden="true"></i> </span><?php echo $courseN[$indx];?></li>
-
+</pre>
                                                      <!--  <li><i class="fa fa-clock-o" aria-hidden="true"></i> 16 Hours</li>
                           
                                                       <li><i class="fa fa-barcode" aria-hidden="true"></i> HMP1604</li> -->
@@ -288,9 +291,9 @@ $courseN = explode(',', $course);
                         <h4>
                           <a href=""  ></a>
                         </h4>
-                        <ul class="post-meta">
+                        <ul class="post-meta"><pre>
                           <li><span class="label label-warning"><i class="fa fa-bookmark" aria-hidden="true"></i> </span><?php echo $courseN[$indx];?></li>
-
+ </pre>
                                                      <!--  <li><i class="fa fa-clock-o" aria-hidden="true"></i> 16 Hours</li>
                           
                                                       <li><i class="fa fa-barcode" aria-hidden="true"></i> HMP1604</li> -->

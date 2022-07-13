@@ -135,10 +135,7 @@ if(mysqli_num_rows($result3) > 0)
 
                         </div>
                      </div> <center><?php echo $inst_name; ?></center>
-                     <div class="img-box">
-
-                        <img src="images/udbm.jpg" alt="">
-                     </div>
+                     
                      <div class="detail-box">
                        <h5>
                            <?php echo $code; ?>

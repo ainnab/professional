@@ -87,7 +87,7 @@
                 </div>
    <br>
             <?php 
-          $records3 = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
+          $records3 = mysqli_query($dbconfig,"select * from programselection as ps join student as s on s.stud_ic=ps.stud_ic where s.stud_ic='$ic'"); 
           while($data3=mysqli_fetch_array($records3)){
               $pg_name=$data3['pg_name'];
               $status=ucwords($data3['app_status']);
