@@ -107,7 +107,8 @@
                             <tbody>
                     <tr>
                       <td><?php echo $pg_name;?></td>
-                      <td><?php echo $status;?></td>             
+                      <td><?php if ($status!=='Approved') {
+                        echo 'pending';} else{}?></td>             
                     </tr>
                    
 

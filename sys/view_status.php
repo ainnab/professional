@@ -118,7 +118,7 @@
 
                 </table>
 
-                //letak button student accept offer
+                
               </div>
             </div>
         <div class="col-lg-12 text-right">

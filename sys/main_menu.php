@@ -122,11 +122,12 @@ if ($role == 'student' ){?>
             <a href="" class="nav-link with-sub"><i class="typcn typcn-document"></i>View</a>
             <ul class="nav-sub">
             <li class="nav-sub-item"><a href="view_submission.php" class="nav-sub-link">View Submission</a></li>
+            <?php }if($app_status=='Submitted' or $app_status=='Applied' or $app_status=='Verified'){?>
             <li class="nav-sub-item"><a href="view_status1.php" class="nav-sub-link">View Status</a></li>
 
-              <?php if($app_status=='Approved'){?>
+              <?php }if($app_status=='Approved'){?>
               <li class="nav-sub-item"><a href="view_status.php" class="nav-sub-link">View Offer Letter</a></li>
-              <?php }?>
+              
             </ul>
             <?php }?>
             <?php if($app_status=='Submitted' or $app_status=='Applied'){?>
