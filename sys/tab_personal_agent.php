@@ -85,7 +85,7 @@
                 <div class="card card-dashboard-seven">
                     <div class="card-body">
 
-                        <form action="save_application.php" method="post"">
+                        <form action="save_application.php" method="post" enctype="multipart/form-data">
             <div class=" form-group">
                             <label>Full Name</label>
                             <input type="hidden" class="form-control" name="agent" placeholder="Enter your full name"
@@ -108,11 +108,15 @@
                     </div>
                     <div class="form-group">
                         <label for="">Mode Admission</label>
-                        <select name="modeAds" id="" class="form-control">
+                        <select name="modeAds" id="mode" class="form-control">
                             <option value="NULL">PLEASE SELECT</option>
                             <option value="ROPE">ROPE</option>
                             <option value="NORMAL">NORMAL</option>
                         </select>
+                    </div>
+                    <div class="form-group" id="receipt_rope" style="display: none;">
+                        <label for="">Upload Receipt</label>
+                        <input type="file" class="form-control" id="receipt_rope" name="receipt_rope" required>
                     </div>
                     <button class="btn btn-az-primary btn-block" type="submit" name="submit_student">Create
                         Account</button>
@@ -174,7 +178,16 @@
                 } else {
                     $('body').toggleClass('az-sidebar-show');
                 }
-            })
+            });
+
+            $('#mode').on('change', function() {
+            if(this.value == 'ROPE'){
+                $("#receipt_rope").show();
+            }else{
+                $("#receipt_rope").hide();
+            }
+               
+        });
 
             /* ----------------------------------- */
             /* Dashboard content */

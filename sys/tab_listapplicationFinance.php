@@ -40,12 +40,11 @@
                             <td><?php echo $row["stud_name"]; ?></td>
                             <td><?php echo $row["stud_ic"]; ?></td>
                             <td><?php echo $row["stud_email"]; ?></td>
-                            <td><a href="folder/upload/<?php echo $row['receipt']; ?>" target="_blank"><?php echo $row['receipt']; ?></a></td>
+                            <td><a href="folder/upload/<?php echo $row["receipt"]; ?>"target="_blank"><?php echo $row["receipt"]; ?></td>
                             <?php if ($row['app_status'] == 'Register') {  ?>
                               <td><a href="save.php?id=<?php echo $row['id']?>&finance=finance" onClick="return confirm('Are you sure you want to verify this student?')" ><button name="finance"
                                 class="btn btn-primary btn-md">Verify</button></a></td>
                             <?php } ?>
-
                             </tr>
             <?php $i++;  } ?>
               </tbody>

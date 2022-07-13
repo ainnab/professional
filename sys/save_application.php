@@ -28,6 +28,9 @@ $email = $_POST['email'];
 $intake = 'batch julai 2022';
 $roles = 'student';
 $status ='Register';
+$receipt = $_FILES['receipt_rope']['name'];
+$receipt_rope= $ic."_".$receipt;
+$target = "folder/upload/" .basename($receipt_rope);
 
  date_default_timezone_set("asia/kuala_lumpur");
   $dte = date('Y-m-d');
@@ -42,8 +45,8 @@ if (mysqli_num_rows($res_u) > 0) {
       echo "<script type='text/javascript'>alert('Sorry.. you already signup.Please sigin!'); window.location.href = 'signup.php';</script>";
     
     }else{
-
-        $sql="INSERT INTO student (stud_name,stud_ic,stud_email,modeAds,password,intake,agent,date,role,app_status) VALUES ('$firstname','$ic','$email','$modeAds','$hashPassword','$intake','$agent','$dte','$roles','$status')";
+        move_uploaded_file($_FILES['receipt_rope']['tmp_name'], $target);
+        $sql="INSERT INTO student (stud_name,stud_ic,stud_email,modeAds,receipt,password,intake,agent,date,role,app_status) VALUES ('$firstname','$ic','$email','$modeAds','$receipt_rope','$hashPassword','$intake','$agent','$dte','$roles','$status')";
         $result = mysqli_query($dbconfig, $sql);
 
 if($result)
