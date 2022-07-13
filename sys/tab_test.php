@@ -238,6 +238,8 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                 class="tx-danger">*</span></label>
                                                         <input id="ic" class="form-control" name="ic" type="text"
                                                             value="<?php echo  $stud_id; ?>" readonly>
+                                                            <br>
+                <label>Age</label> <input id="age" class="form-control" name="age" type="text" value="<?php echo $age; ?>" readonly>
                                                     </div><!-- form group -->
                                                 </div>
                                                 <!--col-->
