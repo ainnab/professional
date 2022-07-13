@@ -561,54 +561,56 @@ if (isset($_POST['enrol'])) {
 }
 
 
- if (isset($_POST['submit_final'])) {
-    $check_stud=mysqli_query($dbconfig,"select * from student where stud_ic='$ic'");
-    while($stud=mysqli_fetch_array($check_stud)){
-      $stud_name=$stud['stud_name'];
-      $stud_nation=$stud['stud_nation'];
-      $stud_pob=$stud['pob'];
-      $stud_gender=$stud['gender'];
-      $stud_dob=$stud['dob'];
-      $stud_marital=$stud['marital'];
-      $stud_race=$stud['stud_race'];
-      $stud_religion=$stud['stud_religion'];
-      $stud_height=$stud['height'];
-      $stud_weight=$stud['weight'];
+if (isset($_POST['submit_final'])) {
+  $check_stud=mysqli_query($dbconfig,"select * from student where stud_ic='$ic'");
+  while($stud=mysqli_fetch_array($check_stud)){
 
-    }
-    $check_parent=mysqli_query($dbconfig,"select * from parent where stud_ic='$ic'");
-    while($parent=mysqli_fetch_array($check_parent)){
-      $p1_name=$parent['p1_name'];
-      $p1_ic=$parent['p1_ic'];
-      $p1_occupation=$parent['p1_occupation'];
-      $p2_name=$parent['p2_name'];
-      $p2_ic=$parent['p2_ic'];
-      $p2_occupation=$parent['p2_occupation'];
-      $p_household=$parent['household'];
-      $p_income=$parent['income'];
-    }
-    if($stud_name!='' && $stud_nation != '' && $stud_pob != '' && $stud_gender != '' && $stud_dob != '' && $stud_marital != '' && $stud_race != '' && $stud_religion != '' && $stud_height != '' && $stud_weight != '' && $p1_name != '' && $p1_ic != '' && $p1_occupation != '' && $p2_name != '' && $p2_ic != '' && $p2_occupation != '' && $p_household != '' && $p_income != '')
-    {
-    $sql = "UPDATE student (stud_ic,app_option,app_status) VALUES ('$ic','1','Submitted')";
+    $firstname=$stud['stud_name'];
+    $nation=$stud['stud_nation'];
+    $pob=$stud['pob'];
+    $gender=$stud['gender'];
+    $dob=$stud['dob'];
+    $marital=$stud['marital'];
+    $race=$stud['stud_race'];
+    $religion=$stud['stud_religion'];
+    $height=$stud['height'];
+    $weight=$stud['weight'];
 
-    $result="UPDATE student AS a SET";
-    $result.= " a.app_option='1', a.app_status='Submitted'";
-    $result.= " WHERE a.stud_ic='$ic'";
+  }
+
+  $check_parent=mysqli_query($dbconfig,"select * from parent where stud_ic='$ic'");
+  while($parent=mysqli_fetch_array($check_parent)){
+    $p1_name=$parent['p1_name'];
+    $p1_ic=$parent['p1_ic'];
+    $p1_occupation=$parent['p1_occupation'];
+    $p2_name=$parent['p2_name'];
+    $p2_ic=$parent['p2_ic'];
+    $p2_occupation=$parent['p2_occupation'];
+    $p_household=$parent['household'];
+    $p_income=$parent['income'];
+
+  }
+  if($firstname!='' && $nation != '' && $pob != '' && $gender != '' && $dob != '' && $marital != '' && $race != '' && $religion != '' && $height != '' && $weight != '' && $p1_name != '' && $p1_ic != '' && $p1_occupation != '' && $p2_name != '' && $p2_ic != '' && $p2_occupation != '' && $p_household != '' && $p_income != '')
+  {
+  $sql = "UPDATE student (stud_ic,app_option,app_status) VALUES ('$ic','1','Submitted')";
+
+  $result="UPDATE student AS a SET";
+  $result.= " a.app_option='1', a.app_status='Submitted'";
+  $result.= " WHERE a.stud_ic='$ic'";
 
 
-  if(mysqli_query($dbconfig, $result) == TRUE){
-     echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'view_submission.php';</script>";
+if(mysqli_query($dbconfig, $result) == TRUE){
+   echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'view_submission.php';</script>";
 
-    }
-    
-  } else{
-        /*echo "ERROR: Hush! Sorry. " 
-            . mysqli_error($dbconfig);*/
-        echo "<script type='text/javascript'>alert('PLEASE COMPLETE YOUR FORM BEFORE SUBMITTED!'); window.location.href = 'tab_personal.php';</script>";
-    }
+  }
   
-}
+} else{
+      /*echo "ERROR: Hush! Sorry. " 
+          . mysqli_error($dbconfig);*/
+      echo "<script type='text/javascript'>alert('PLEASE COMPLETE YOUR FORM BEFORE SUBMITTED!'); window.location.href = 'tab_personal.php';</script>";
+  }
 
+}
     mysqli_close($dbconfig);
       
    

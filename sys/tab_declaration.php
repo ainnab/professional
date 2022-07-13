@@ -110,29 +110,15 @@
                 <hr/>
                
 
-                        <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
+                        <form action="save_personal.php" method="post">
                         <div class="col-md mg-t-10 mg-md-t-0">
                         <label class="ckbox"><input type="checkbox" name="app" value="Submitted" required><span>I hereby certify that all information given are true.  </span></label></br></div>
                         <div class="col-md mg-t-10 mg-md-t-0">
-                        <button class="btn btn-az-primary btn-block" name="submit">Submit</button>
+                        <button class="btn btn-az-primary btn-block" name="submit_final">Submit</button>
                         </div>
                         </form>
 
-                        <?php include 'talum.php';
-                        if(isset($_POST['submit'])){
-                            $app = $_POST['app'];
-                            $result2="UPDATE student SET";
-                            $result2.= " app_status ='$app'";
-                            $result2.= " WHERE stud_ic='$ic'";
-                            if(mysqli_query($dbconfig, $result2) == TRUE){
-                                $result2 = mysqli_query($dbconfig, $result2);
-                                echo "<script type='text/javascript'>alert('Thankyou! You have submitted the application.'); window.location.href = 'view_submission.php';</script>";
-                            } else{
-                                echo "ERROR: Hush! Sorry $result. " 
-                                    . mysqli_error($dbconfig);
-                            }
-                            mysqli_close($dbconfig);
-                        } ?>
+                      
 
             </div><!-- card-body -->
         </div><!-- card -->

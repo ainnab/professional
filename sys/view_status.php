@@ -65,7 +65,7 @@
 </div><!-- az-content-header -->
 <div class="az-content-body">
 <div class="row row-sm">
-<div class="col-md-12 col-lg-12 col-xl-10">
+<div class="col-md-12 col-lg-12 col-xl-12">
   <div class="card card-dashboard-seven">
     <div class="card-body">
     
@@ -87,10 +87,10 @@
                 </div>
    <br>
             <?php 
-          $records3 = mysqli_query($dbconfig,"select * from programselection where stud_ic='$ic'"); 
+          $records3 = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
           while($data3=mysqli_fetch_array($records3)){
             $pg_name=$data3['pg_name'];
-              $status=ucwords($data3['status']);
+              $status=ucwords($data3['app_status']);
           }
           date_default_timezone_set("Asia/Bangkok");
           $date='Y';
@@ -109,12 +109,16 @@
                     <tr>
                       <td><?php echo $pg_name;?></td>
                       <td><?php echo $status;?></td>
-                      <td><a href='offer_letter.php' target='_blank'>Offer Letter</td>
+                      <td><a href='offer_letter_student.php' target='_blank'>Offer Letter
+                        <br>
+                        <a href='acceptance_letter.php' target='_blank'>Acceptance Letter</td>
                      
                     </tr>
                    
 
                 </table>
+
+                //letak button student accept offer
               </div>
             </div>
         <div class="col-lg-12 text-right">
@@ -125,6 +129,7 @@
         </div><!-- card -->
     </div><!-- col -->
   </div><!-- row -->
+</div>
       <div class="az-footer ht-40">
         <div class="container-fluid pd-t-0-f ht-100p">
           <span>&copy; 2019 Azia Responsive Bootstrap 4 Dashboard Template</span>

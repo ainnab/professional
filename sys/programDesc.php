@@ -31,6 +31,9 @@ img {
   width: 100%;
   height: auto;
 }
+pre {
+  white-space: pre-wrap;
+}
 
 </style>
 
@@ -235,9 +238,9 @@ $courseN = explode(',', $course);
                       <div class="post-title">COMMON MODULES
                         <h4>
                           <a href=""  ></a>
-                        </h4>
+                        </h4><pre>
                         <ul class="post-meta">
-                       <li><span class="label label-warning"><i class="fa fa-bookmark" aria-hidden="true"></i> </span><?php echo $courseN[$indx];?></li>
+                       <li><span class="label label-warning"><i class="fa fa-bookmark" aria-hidden="true"></i> </span><?php echo $courseN[$indx];?></pre></li>
 
                                                      <!--  <li><i class="fa fa-clock-o" aria-hidden="true"></i> 16 Hours</li>
                           
@@ -288,12 +291,12 @@ $courseN = explode(',', $course);
                         <h4>
                           <a href=""  ></a>
                         </h4>
-                        <ul class="post-meta">
-                          <li><span class="label label-warning"><i class="fa fa-bookmark" aria-hidden="true"></i> </span><?php echo $courseN[$indx];?></li>
-
+                        <ul class="post-meta"><pre>
+                          <li><span class="label label-warning"><i class="fa fa-bookmark" aria-hidden="true"></i> </span><?php echo $courseN[$indx];?></pre></li>
+ 
                                                      <!--  <li><i class="fa fa-clock-o" aria-hidden="true"></i> 16 Hours</li>
                           
-                                                      <li><i class="fa fa-barcode" aria-hidden="true"></i> HMP1604</li> -->
+     <li><i class="fa fa-barcode" aria-hidden="true"></i> HMP1604</li> -->
                                                   </ul>
                       </div>
                     </div>

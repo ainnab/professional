@@ -88,6 +88,7 @@ body {
     $row = mysqli_fetch_assoc($rs);
     $_SESSION['ic']=$row['stud_ic'];
         $role=$row['role'];
+        /*$modeAds=$row['modeAds'];*/
         $status=$row['app_status'];
         $app=$row['app_option'];
         $_SESSION['role']=$role;
