@@ -91,6 +91,13 @@
           while($data3=mysqli_fetch_array($records3)){
             $pg_name=$data3['pg_name'];
               $status=ucwords($data3['app_status']);
+
+
+
+              $records4 = "SELECT * from programselection where stud_ic='$ic'";
+              $data2=mysqli_query($dbconfig,$records4);
+                         $row5=mysqli_fetch_array($data2,MYSQLI_ASSOC);
+                             $status1=$row5['status'];
           }
           date_default_timezone_set("Asia/Bangkok");
           $date='Y';
@@ -117,8 +124,34 @@
                    
 
                 </table>
+                <form action="save_personal.php" method="post">
+                <div class="alert alert-success" role="alert">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-12 col-sm-12">
+                    <input id="ic" class="form-control" name="ic" type="text" value="<?php echo $_SESSION['ic']; ?>"hidden>
+											<div class="custom-control custom-checkbox mb-5">
+												<input type="radio" id="customRadio1" name="tawaran" class="custom-control-input" value="Accepted" <?php if ($status1=='Accepted') { echo "checked"; }?>  required>
+												<label class="custom-control-label" for="customRadio1">Sukacita saya menerima tawaran program di atas dan mematuhi semua syarat yang ditetapkan.</label>
+											</div>
+											<div class="custom-control custom-checkbox mb-5">
+												<input type="radio" id="customRadio2" name="tawaran" class="custom-control-input" value="NotAccepted" <?php if ($status1=='NotAccepted') { echo "checked"; }?>  required>
+												<label class="custom-control-label" for="customRadio2">Dukacita saya menolak tawaran seperti di atas.</label>
+											</div>
+										</div>
+									  </div>
+
+								</div>
+							</div>
+                <div class="modal-footer">
+							
+							<button type="submit" class="btn btn-primary" name="submit_accept">Confirm</button>
+        </form>
+						  </div>
 
                 
+              
+              
               </div>
             </div>
         <div class="col-lg-12 text-right">

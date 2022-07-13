@@ -611,6 +611,25 @@ if(mysqli_query($dbconfig, $result) == TRUE){
   }
 
 }
+
+
+if (isset($_POST['submit_accept'])) {
+  
+  $tawaran = $_POST['tawaran'];
+  $ic = $_POST['ic'];
+  
+
+
+  $sql = "UPDATE programselection SET status = '$tawaran' WHERE stud_ic = '$ic'";
+  
+  if (mysqli_query($dbconfig, $sql) == TRUE) {
+    echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'view_status.php?id=$ic';</script>";
+  } else{
+      echo "ERROR: Hush! Sorry $result. " 
+          . mysqli_error($dbconfig);
+  }
+}
+
     mysqli_close($dbconfig);
       
    
