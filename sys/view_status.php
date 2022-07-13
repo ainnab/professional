@@ -109,12 +109,16 @@
                     <tr>
                       <td><?php echo $pg_name;?></td>
                       <td><?php echo $status;?></td>
-                      <td><a href='offer_letter.php' target='_blank'>Offer Letter</td>
+                      <td><a href='offer_letter_student.php' target='_blank'>Offer Letter
+                        <br>
+                        <a href='acceptance_letter.php' target='_blank'>Acceptance Letter</td>
                      
                     </tr>
                    
 
                 </table>
+
+                //letak button student accept offer
               </div>
             </div>
         <div class="col-lg-12 text-right">
