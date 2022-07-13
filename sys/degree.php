@@ -127,7 +127,7 @@ if(mysqli_num_rows($result3) > 0)
                   <div class="box">
                      <div class="option_container">
                         <div class="options">
-                           <a href="diploma_stud_rk.php?id=<?php echo $id;?>&stud_id=<?php echo $stud_id;?>" class="option1">
+                           <a href="programDesc.php?id=<?php echo $id;?>&stud_id=<?php echo $stud_id;?>" class="option1">
                            Enroll Now
                            </a>
 
@@ -135,10 +135,7 @@ if(mysqli_num_rows($result3) > 0)
 
                         </div>
                      </div> <center><?php echo $inst_name; ?></center>
-                     <div class="img-box">
-
-                        <img src="images/udbm.jpg" alt="">
-                     </div>
+                     
                      <div class="detail-box">
                        <h5>
                            <?php echo $code; ?>

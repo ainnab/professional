@@ -145,7 +145,7 @@ $i++;
                    <td><?php echo $email;?></td>
                     <td><?php echo $status;?></td>
                     <?php  ?>
-                    <td><a href="offer_letter.php?id=<?php echo $stud_ic; ?>">Offer Letter</a></td>
+                    <td>    <?php if ($status == 'Approved') { ?><a href="offer_letter.php?id=<?php echo $stud_ic; ?>">Offer Letter</a>  <?php  }else{ }?></td>
                     <td><a href="tab_test.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md">Update</button></a></td>
           <?php if ($status == 'Submitted') { ?>
             <td><a href="master.php?id=<?php echo $stud_ic;?>" ><button name="update" class="btn btn-primary btn-md mb-2">MASTER</button></a>
@@ -158,16 +158,7 @@ $i++;
         <?php } ?>
 
 
-           <!--  <td>
-                      <a class="btn btn-link font-24  no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                        <i class="dw dw-more"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                        <a class="dropdown-item" href="professional_dip.php?id=<?php echo $stud_ic;?>"><i class="dw dw-eye"></i> Diploma</a>
-                        <a class="dropdown-item" href="coordinator_inst_update.php?id=<?php echo $id;?>"><i class="dw dw-eye"></i> Degree</a>
-                        <a class="dropdown-item" href="coordinator_inst_update.php?id=<?php echo $id;?>"><i class="dw dw-eye"></i> Master</a>
-                      </div>
-                    </td> -->
+          
 
 
                 </tr>

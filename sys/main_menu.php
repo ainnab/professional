@@ -211,7 +211,7 @@ if ($role == 'student' ){?>
                   <div class="az-img-user">
                     <img src="../img/faces/face1.jpg" alt="">
                   </div><!-- az-img-user -->
-                  <b><p><?php echo $stud_name;?></p></b>
+                  <b><p></p></b>
                  <!-- <span>Premium Member</span>-->
                 </div><!-- az-header-profile -->
                 <a href="signout.php" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Sign Out</a>

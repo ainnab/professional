@@ -92,6 +92,17 @@
                             <input type="text" class="form-control" id="coreModule" name="coreModule" placeholder="Module1,Module2" >
                            
                           </div>
+                          <div class="form-group">
+                            <label>Yuran Pendaftaran</label>
+                            <input type="text" class="form-control" id="feeDaftar" name="feeDaftar" placeholder="605.00" >
+                           
+                          </div>
+                           <div class="form-group">
+                            <label>Yuran Pengajian</label>
+                            <input type="text" class="form-control" id="feeStudy" name="feeStudy" placeholder="605.00" >
+                           
+                          </div>
+                        </div>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

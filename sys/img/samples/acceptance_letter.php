@@ -2,7 +2,7 @@
 <head>
   <!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>Surat Tawaran Rasmi</title>
+	<title>Acceptance Letter</title>
 
 	<!-- Site favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="vendors/images/apple-touch-icon.png">
@@ -137,12 +137,12 @@ body {
         while($data2 = mysqli_fetch_array($records)) { 
            
      $role = $data2['role'];
-    $agent=$data2['stud_name'];
+    $agent=$data2['agent'];
     $app_status = $data2['app_status'];
-     $stud_id = $_GET['id'];
+    
 }
 
-    $queryS = "SELECT * FROM `student`  where  agent='$agent' and  stud_ic='$stud_id'";
+    $queryS = "SELECT * FROM `student`  where    stud_ic='$ic'";
 
                              $apps=mysqli_query($dbconfig,$queryS);
 
@@ -152,13 +152,13 @@ body {
             
             
         
-            $sql4="SELECT matrik_no FROM matrik_no WHERE ic = '$stud_id'   ";
+            $sql4="SELECT matrik_no FROM matrik_no WHERE ic = '$ic'   ";
             //echo $sql1;
             $result4=mysqli_query($dbconfig,$sql4);
             $row4=mysqli_fetch_array($result4,MYSQLI_ASSOC);
             $matrik_no = $row4['matrik_no'];
             
-            $sql5="SELECT * FROM programselection where stud_ic='$stud_id'";
+            $sql5="SELECT * FROM programselection where stud_ic='$ic'";
             $result5=mysqli_query($dbconfig,$sql5);
             $row5=mysqli_fetch_array($result5,MYSQLI_ASSOC);
                 $pg_code=$row5['pg_code'];
@@ -174,8 +174,6 @@ body {
                 $new_date = date("d-m-Y", $timestamp);
                 $learningCentre=$row6['learningCentre'];
                 $Specialization=$row6['Specialization'];
-                $feeDaftar=$row6['feeDaftar'];
-                 $feeStudy=$row6['feeStudy'];
 
           $sql7="SELECT * FROM contact where stud_ic='$ic'";
           $result7=mysqli_query($dbconfig,$sql7);
@@ -215,7 +213,13 @@ body {
 			<div class="div1">
 				<img src="img/ol.png" width="100%" style="float:left"></td>
 				<!--<img src="img/border.png" width="0.6%" align="top" ></td>-->
-				<p class="p">Ref. Number/No. Ruj:<?php echo $stud_id?> </p>
+				<p class="p">Kompleks Pentadbiran Utama,<br>
+Universiti Malaysia Pahang<br>
+Lebuhraya Tun Razak<br>
+26300 Gambang, Kuantan<br>
+Pahang Darul Makmur<br>
+Tel : +609 549 3177 / 3172<br>
+Fax : +609 549 3166 </p>
 				
                 <br>
                 <br>
@@ -227,40 +231,35 @@ body {
 		<br>
     
 		<div>
-			<b>
-            <dt class="p" ><?php echo strtoupper($name)?> (NO K/P:<?php echo $stud_id?>)</dt>
-            <dt class="p" >Matric Number/Nombor Matrik:<?php echo $stud_id?></dt>
-			<dt class="p" ><?php echo strtoupper($mailaddress)?></dt>
-			<dt class="p" ><?php echo $postcode?> <?php echo strtoupper($city)?>, <?php echo strtoupper($state_name)?></dt>
-            </b>
-		</div>
+			
+		</div><br><br><br><br><br>
         <div>
 
-                    <p class="p">Saudara/i,</p>
+                    <p class="p"></p>
 
-					<p class="p"><b>TAWARAN KEMASUKAN KE PROGRAM AKADEMIK PEMBELAJARAN SEPANJANG HAYAT (PSH) UNIVERSITI MALAYSIA PAHANG SESI <?php echo strtoupper($adsName);?></p></b>
+					<p class="p"><b><br>TAWARAN KEMASUKAN KE UNIVERSITI MALAYSIA PAHANG SESI <?php echo strtoupper($adsName);?></p></b>
 					
-					<p class="p">Tahniah kerana saudara/i telah terpilih untuk mengikuti program pengajian serta yuran pengajian seperti berikut :</p>
+					<p class="p">Saya dengan ini menerima kemasukan ke program pengajian seperti berikut :</p>
 				
                     <table  style="width:100%" border="0">
 					  <tr valign="top">
-						<th class="r" width="30%">Program Name/Program Pengajian</th>
+						<th class="r" width="30%">Program Name</th>
 						<td class="r" width="3%">:</td>
                         <td class="r" width="65%"><?php echo strtoupper($pg_name);?></td>
 					  </tr>
 					  <tr valign="top">
-						<th class="r" width="30%">Program Code/Kod Program</th>
+						<th class="r" width="30%">Matric Number:</th>
 						<td class="r" width="3%">:</td>
-						<td class="r" width="65%"><?php echo $pg_code;?></td>
+						<td class="r" width="65%"><?php echo $ic;?></td>
 					  </tr>
 					 
 					  <tr valign="top">
-						<th class="r" width="30%">Registration Date/Tarikh Pendaftaran</th>
+						<th class="r" width="30%">Registration Date</th>
 						<td class="r" width="3%">:</td>
 						<td class="r" width="65%"><?php echo $new_date;?></td>
 					  </tr>
 					  <tr valign="top">
-						<th class="r" width="30%">Learning Centre/Pusat Pembelajaran</th>
+						<th class="r" width="30%">Learning Centre</th>
 						<td class="r" width="3%">:</td>
 						<td class="r" width="65%"><?php echo $learningCentre;?></td>
 					  </tr>
@@ -270,49 +269,45 @@ body {
 					<?php
 						
 					?>
-					<table class="table table-bordered mg-b-0" style="width:100%" border="1px solid black">
-						<tr>
-							<td class="r" >&nbsp;<b>Fees/Yuran </b></td>
-							<td class="r" >&nbsp;<b>Total/Jumlah (RM)</b></td>
-					</tr>
-					<tr>
-						<td class="r" >&nbsp;YURAN PENGAJIAN</td>
-						<td class="r" >&nbsp;RM <?php echo $feeDaftar;?></td>
-					</tr>
-                    <tr>
-						<td class="r" >&nbsp;YURAN PENDAFTARAN</td>
-						<td class="r" >&nbsp;RM <?php echo $feeStudy;?></td>
-					</tr>
-                    <tr>
-						<td class="r" >&nbsp;<b>Total/Jumlah</b></td>
-						<td class="r" >&nbsp;<b>RM <?php echo $feeStudy+$feeDaftar,".00" ;?></b></td>
-					</tr>
-					</table>
 					
 					
-					<p class="p" >2.    Tawaran ini adalah tertakluk kepada syarat-syarat tawaran kemasukan sedia ada. Pihak universiti berhak membatalkan tawaran ini pada bila-bila
-                     masa, jika kenyataan dan maklumat yang diberikan dalam borang permohonan kemasukan didapati <b>tidak benar</b>.
 					
-					<p class="p" >3.    Untuk makluman, program ini merupakan program terminal yang bermaksud ianya tidak boleh digunakan untuk melanjutkan pengajian di aliran
-                    perdana. Program ini dianugerahkan oleh Universiti Malaysia Pahang dan tidak tertakluk kepada bahan pengiktirafan.</p>
+					<p class="p" >Saya dengan ini :
 					
-					<p class="p" >4.    Adalah diharapkan pihak saudara/i dapat mengembalikan Borang Jawapan Penerimaan <b>(UMP-UAE D.E. 01)</b> kepada kami sebelum <b>7 hari dari tarikh
-                    pendaftaran</b> untuk tujuan rekod. Semoga dengan penawaran program ini dapat memperkasakan agenda Pembelajaran Sepanjang Hayat seperti yang
-                    digariskan dalam Pelan Pembangunan Pendidikan Malaysia (2015-2025) - Pengajian Tinggi (Lonjakan Ketiga) ke arah melahirkan generasi yang berilmu
-                    pengetahuan dan berdaya saing.</p>
+					<p class="p" >(1) Mengesahkan bahawa maklumat yang diberikan semasa pemohonan adalah benar;</p>
+					
+					<p class="p" >(2) Bersetuju dengan syarat-syarat tawaran kemasukan. Pihak universiti berhak membatalkan tawaran ini pada bila-bila masa, jika 
+kenyataan dan maklumat yang diberikan dalam permohonan kemasukan didapati tidak benar;
+</p>
 		
-					<p class="p" >5.    Sila hubungi Puan Natrah Azira binti Amran di talian 013 - 3369486 untuk sebarang pertanyaan <b>(dapatkan nama pic dan no telefon pic).</b>
+					<p class="p" >(3) Akan menjelaskan bayaran yuran pengajian seperti yang dimaklumkan oleh pihak universiti; dan
 
-					<p class="p">Sekian, terima kasih.</p>
+</b>
+
+					<p class="p">(4) Mengambil maklum bahawa program ini adalah program terminal bermaksud ianya tidak boleh digunakan untuk melanjutkan 
+pengajian di aliran perdana. Program ini dianugerahkan oleh Universiti Malaysia Pahang dan tidak tertakluk kepada badan 
+pengiktirafan</p>
                     </br>
-                    <p class="p">Yang Benar,</p>
-					<img src="img/sign1.png" width="30%">
-					<p class="p"><b>SHAMSULKAHAR ABDUL SHUKOR
-					<br class="p">Penolong Pendaftar Kanan
-					<br class="p">UMP Advanced
-					<br class="p">Universiti Malaysia Pahang</b></p>
+                    <p class="p"></p>
+					<br class="p">
+					<br class="p">
+					<br>
+					<br class="p">
+					<br class="p">
+					<br class="p">
+					<br class="p">
+					<br class="p">
+					<br class="p">
+					<br class="p">
+					<br class="p">
+					<br class="p">
+					<br class="p">
+					<p class="p"><b>
+					<br class="p">
+					<br class="p">
+					<br class="p"></b></p>
                     </div>
-                    <br class="p"><b>s.k.- <?php echo strtoupper($agent)?></b></p>   <img src="img/footerupdate.png" width="100%" style="float:left">
+                    <br class="p"><b></b></p>   <img src="img/footerupdate.png" width="100%" style="float:left">
                     </div>
                  
                     </div>

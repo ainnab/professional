@@ -64,19 +64,23 @@
        
     ?>
     <?php     
-    $sql31 = "SELECT * FROM `spm_subject`";
-    $all_sub = mysqli_query($dbconfig,$sql31);
+   
 
-    // $sql40="SELECT count(ps.status) as applied FROM `student` as s join programselection as ps on ps.stud_ic=s.stud_ic WHERE s.agent='IUTC' and ps.status='pending'";
-    // $
 
-    $sql32 = "SELECT * FROM `spm_grade`";  
-    $records3 = mysqli_query($dbconfig,"SELECT count(ps.status) as status FROM `student` as s join programselection as ps on ps.stud_ic=s.stud_ic WHERE s.agent='$agent' and ps.status='pending'"); 
+ 
+    $records3 = mysqli_query($dbconfig,"SELECT count(app_status) as status from student where agent='$agent' and app_status='Approved'"); 
     while($data = mysqli_fetch_array($records3)) {   
 
 
   $status =$data['status'];
 
+$records4 = "SELECT count(app_status) as status from student where agent='$agent' and app_status='Verified'";
+ $data2=mysqli_query($dbconfig,$records4);
+            $row5=mysqli_fetch_array($data2,MYSQLI_ASSOC);
+                $status1=$row5['status'];
+
+                
+                
 
     ?>
       </head>
@@ -109,13 +113,17 @@
               <h6 style="color:white;" class="az-content-label">Total Application</h6>
               <div class="card-body">
                 <div>
-                  <a href='tab_listapplication.php'><h6><?php echo $status?></h6></a>
+                  <h6><?php echo $status?></h6>
+                  <label>Approved</label>
+                  
+                </div>
+<div>
+                  <h6><?php echo $status1?></h6>
                   <label>Pending</label>
+                  
                 </div>
-                <div>
-                  <h6></h6>
-                  <label>Submitted</label>
-                </div>
+
+                
                 
               </div><!-- card-body -->
             </div>      

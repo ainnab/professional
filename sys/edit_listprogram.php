@@ -102,7 +102,20 @@
                                           </select>
                       </div>
 
+<div class="form-group">
+                            <label>Yuran Pendaftaran</label>
+                            <input type="text" class="form-control" id="feeDaftar" name="feeDaftar" placeholder="605.00" value="<?php echo $row['feeDaftar']; ?>">
+                           
+                          </div>
+                           <div class="form-group">
+                            <label>Yuran Pengajian</label>
+                            <input type="text" class="form-control" id="feeStudy" name="feeStudy" placeholder="605.00" value="<?php echo $row['feeStudy']; ?>">
+                           
+                          </div>
+                        </div>
 									      </div>
+                        
+
 									      <div class="modal-footer">
                           <?php 
                           $mode = $row['mode'];

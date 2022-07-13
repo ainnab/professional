@@ -137,12 +137,12 @@ body {
         while($data2 = mysqli_fetch_array($records)) { 
            
      $role = $data2['role'];
-    $agent=$data2['stud_name'];
+    $agent=$data2['agent'];
     $app_status = $data2['app_status'];
-     $stud_id = $_GET['id'];
+    
 }
 
-    $queryS = "SELECT * FROM `student`  where  agent='$agent' and  stud_ic='$stud_id'";
+    $queryS = "SELECT * FROM `student`  where    stud_ic='$ic'";
 
                              $apps=mysqli_query($dbconfig,$queryS);
 
@@ -152,13 +152,13 @@ body {
             
             
         
-            $sql4="SELECT matrik_no FROM matrik_no WHERE ic = '$stud_id'   ";
+            $sql4="SELECT matrik_no FROM matrik_no WHERE ic = '$ic'   ";
             //echo $sql1;
             $result4=mysqli_query($dbconfig,$sql4);
             $row4=mysqli_fetch_array($result4,MYSQLI_ASSOC);
             $matrik_no = $row4['matrik_no'];
             
-            $sql5="SELECT * FROM programselection where stud_ic='$stud_id'";
+            $sql5="SELECT * FROM programselection where stud_ic='$ic'";
             $result5=mysqli_query($dbconfig,$sql5);
             $row5=mysqli_fetch_array($result5,MYSQLI_ASSOC);
                 $pg_code=$row5['pg_code'];
@@ -215,7 +215,7 @@ body {
 			<div class="div1">
 				<img src="img/ol.png" width="100%" style="float:left"></td>
 				<!--<img src="img/border.png" width="0.6%" align="top" ></td>-->
-				<p class="p">Ref. Number/No. Ruj:<?php echo $stud_id?> </p>
+				<p class="p">Ref. Number/No. Ruj:<?php echo $ic?> </p>
 				
                 <br>
                 <br>
@@ -228,8 +228,8 @@ body {
     
 		<div>
 			<b>
-            <dt class="p" ><?php echo strtoupper($name)?> (NO K/P:<?php echo $stud_id?>)</dt>
-            <dt class="p" >Matric Number/Nombor Matrik:<?php echo $stud_id?></dt>
+            <dt class="p" ><?php echo strtoupper($name)?> (NO K/P:<?php echo $ic?>)</dt>
+            <dt class="p" >Matric Number/Nombor Matrik:<?php echo $ic?></dt>
 			<dt class="p" ><?php echo strtoupper($mailaddress)?></dt>
 			<dt class="p" ><?php echo $postcode?> <?php echo strtoupper($city)?>, <?php echo strtoupper($state_name)?></dt>
             </b>

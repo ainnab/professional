@@ -24,6 +24,7 @@
                   <th class="wd-5p">NO</th>
                   <th class="wd-25p">PROGRAM NAME</th>
                   <th class="wd-15p">CERTIFICATE CATEGORY</th>
+                  <th class="wd-15p">ADMISSION NAME</th>
                 </tr>
               </thead>
               <tbody>
@@ -32,6 +33,7 @@
                             <td><?php echo $j++;  ?></td>
                             <td><?php echo strtoupper($row["pg_name"]); ?></td>
                             <td><?php echo strtoupper($row["certificate"]); ?></td>
+                            <td><?php echo strtoupper($row["adsName"]); ?></td>
                             </tr>
             <?php $i++;  } ?>
               </tbody>

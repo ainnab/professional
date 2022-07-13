@@ -145,13 +145,15 @@ $i++;
                                                                 <td><?php echo $stud_name;?></td>
                                                                 <td><?php echo $stud_ic;?></td>
                                                                 <td><?php echo $email;?></td>
+                                                                
+                                                                
+                                                                <td><?php if ($status == 'Approved') { ?><a href="offer_letter.php?id=<?php echo $stud_ic; ?>">Offer Letter</a><?php  }else{ }?></td>
                                                                 <td><?php echo $status;?></td>
-                                                                <td><a href="offer_letter.php?id=<?php echo $stud_ic; ?>">Offer Letter</a></td>
                                                                 <td><a href="tab_test_rk.php?id=<?php echo $stud_ic;?>"><button
                                                                             name="update"
                                                                             class="btn btn-primary btn-md">Update</button></a>
                                                                 </td>
-                                                                <?php if ($status == 'Submitted') { ?>
+                                                                <?php if ($status == 'Finance') { ?>
                                                                 <td><a
                                                                         href="professional_dip.php?id=<?php echo $stud_ic;?>"><button
                                                                             name="update"

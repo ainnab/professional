@@ -27,7 +27,7 @@
       </a>
     </div>
     <?php while($data = mysqli_fetch_array($records)) { ?>
-         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student where role='student' AND app_status='Applied'"); ?>
+         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student left join programselection as pg on pg.stud_ic=student.stud_ic where student.role='student' and student.app_status='Applied' order by pg.stud_ic"); ?>
             <?php if (mysqli_num_rows($result) > 0) { ?>
     <div id="collapseOne" data-parent="#accordion" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
       <div class="card-body">
@@ -38,6 +38,7 @@
                 <tr>
                    <th>ID</th>
                   <th>NAME</th>
+                  <th>PROGRAM</th>
                   <th>IC</th>
                   <th>STATUS</th>
                   <th>APPROVE</th>
@@ -49,6 +50,7 @@
                              <tr>
                             <td><?php echo $j++;  ?></td>
                             <td><?php echo $row["stud_name"]; ?></td>
+                            <td><?php echo $row["pg_name"]; ?></td>
                             <td><?php echo $row["stud_ic"]; ?></td>
                             <td><?php echo $row["app_status"]; ?></td>
                             <?php if ($row['app_status'] == 'Approved' || $row['app_status'] == 'Submitted' || $row['app_status'] == 'Rejected') { ?>
