@@ -334,7 +334,7 @@ $courseN = explode(',', $course);
         <span class="font-size-13"></span></div><br>
 
         <!-- <a class="btn btn-block btn-primary margin-top-40" type="submit" name="enrol">Enrol Now</a> -->
-        <input type="submit" name="enrol" value="Enrol" class="btn btn-az-primary btn-block">
+        <input type="submit" name="enrol_rk" value="Enrol" class="btn btn-az-primary btn-block">
       </div>
   </form>
 <?php }}?>

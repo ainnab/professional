@@ -220,14 +220,12 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                             Document</button>
                                         <button class="tablinks" onclick="openCity(event, 'Certificate')">Upload
                                             Certificate</button>
-                                        <?php if ($status == 'Finance') {?>
+                                       
                                         <button class="tablinks"
-                                            onclick="openCity(event, 'Declaration')">Declaration</button>
-                                        <?php }else{?>
-                                            <button class="tablinks"
-                                            onclick="openCity(event, 'Declaration')" disabled>Declaration</button>
-                                            <?php } ?>
-
+                                         
+                                         
+                                            onclick="openCity(event, 'Declaration')" >Declaration</button>
+                                           
                                     </div>
 
 
@@ -1212,7 +1210,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                     </br>
                                                                     <div class="card card-dashboard-seven">
                                                                         <div class="card-body">
-
+                                                                        <?php if ($status =='Register'){?>
                                                                             <p><strong>Declaration</strong></p>
                                                                             <p>Please ensure that information provided
                                                                                 is <strong>true and
@@ -1251,6 +1249,7 @@ $sql25 = "SELECT * FROM `guardian_relations` ";
                                                                                         name="submit_final">Submit</button>
                                                                                 </div>
                                                                             </form>
+                                                                            <?php }?>
                                                                         </div><!-- card-body -->
                                                                     </div><!-- card -->
                                                                 </div>

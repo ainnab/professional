@@ -147,15 +147,15 @@ $i++;
                                                                 <td><?php echo $email;?></td>
                                                                 
                                                                 
-                                                                <td><?php if ($status == 'Approved') { ?><a href="offer_letter.php?id=<?php echo $stud_ic; ?>">Offer Letter</a><?php  }else{ }?></td>
+                                                                <td><?php if ($status == 'Approved')   { ?><a href="offer_letter.php?id=<?php echo $stud_ic; ?>">Offer Letter</a><?php  }else{ }?></td>
                                                                 <td><?php echo $status;?></td>
-                                                                <td><?php if ($status == 'Register') { ?><a href="tab_test_rk.php?id=<?php echo $stud_ic;?>"><button
+                                                                <td><?php if ($status == 'Register' or  $status == 'Applied' or  $status == 'Verified' or  $status == 'Approved'){ ?><a href="tab_test_rk.php?id=<?php echo $stud_ic;?>"><button
                                                                             name="update"
-                                                                            class="btn btn-primary btn-md" disabled>Update</button></a>
-                                                                    <?php }else{?>
+                                                                            class="btn btn-primary btn-md" >Update</button></a>
+                                                                    <?php }else{if ($status == 'Finance')?>
                                                                         <a href="tab_test_rk.php?id=<?php echo $stud_ic;?>"><button
                                                                             name="update"
-                                                                            class="btn btn-primary btn-md">Update</button></a>
+                                                                            class="btn btn-primary btn-md" disabled>Update</button></a>
                                                                     <?php } ?>
                                                                 </td>
                                                                 <?php if ($status == 'Register') { ?>

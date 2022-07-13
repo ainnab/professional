@@ -27,7 +27,7 @@
       </a>
     </div>
     <?php while($data = mysqli_fetch_array($records)) { ?>
-         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student left join programselection as pg on pg.stud_ic=student.stud_ic where student.role='student' and student.app_status='Applied' order by pg.stud_ic"); ?>
+         <?php $result = mysqli_query($dbconfig,"SELECT * FROM student left join programselection as pg on pg.stud_ic=student.stud_ic where student.role='student' and student.app_status='Applied' order by pg.stud_ic,pg.keyin_date ASC  "); ?>
             <?php if (mysqli_num_rows($result) > 0) { ?>
     <div id="collapseOne" data-parent="#accordion" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
       <div class="card-body">
@@ -41,6 +41,7 @@
                   <th>PROGRAM</th>
                   <th>IC</th>
                   <th>STATUS</th>
+                  <th>INTAKE</th>
                   <th>APPROVE</th>
                   <th>ACTION</th>
                 </tr>
@@ -53,6 +54,7 @@
                             <td><?php echo $row["pg_name"]; ?></td>
                             <td><?php echo $row["stud_ic"]; ?></td>
                             <td><?php echo $row["app_status"]; ?></td>
+                            <td><?php echo $row["batch"]; ?></td>
                             <?php if ($row['app_status'] == 'Approved' || $row['app_status'] == 'Submitted' || $row['app_status'] == 'Rejected') { ?>
                               <td><a href="save.php?id=<?php echo $row['id']?>&approve=approve" onClick="return confirm('Are you sure you want to approve this student?')" ><button name="approve"
                                 class="btn btn-primary btn-md" disabled>Approve</button></a></td>

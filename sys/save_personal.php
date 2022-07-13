@@ -551,10 +551,10 @@ if (isset($_POST['enrol'])) {
 
 
   if(mysqli_query($dbconfig, $sql_u) == TRUE){
-    //$sql_p = "UPDATE student SET app_status='Applied'";
-    
+    $sql_p = "UPDATE student SET app_status='Applied' where stud_ic='$stud_id'";
+    if(mysqli_query($dbconfig, $sql_p) == TRUE){
       echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'view_submission.php';</script>";
- } else{
+ }} else{
         echo "ERROR: Hush! Sorry $result. " 
             . mysqli_error($dbconfig);
     } 
@@ -605,8 +605,7 @@ if(mysqli_query($dbconfig, $result) == TRUE){
   }
   
 } else{
-      /*echo "ERROR: Hush! Sorry. " 
-          . mysqli_error($dbconfig);*/
+     
       echo "<script type='text/javascript'>alert('PLEASE COMPLETE YOUR FORM BEFORE SUBMITTED!'); window.location.href = 'tab_personal.php';</script>";
   }
 

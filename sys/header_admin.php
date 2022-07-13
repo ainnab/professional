@@ -56,12 +56,12 @@ include 'talum.php';
   <body class="az-body az-body-sidebar">
     <div class="az-sidebar">
       <div class="az-sidebar-header">
-        <a href="index.html" class="az-logo ml-3 mt-3">Admission</a>
+        <a href="" class="az-logo ml-3 mt-3">Admission</a>
       </div><!-- az-sidebar-header -->
       <div class="az-sidebar-loggedin">
-        <div class="az-img-user online"><img src="../img/faces/face1.jpg" alt=""></div>
+        <div class=""></div>
         <div class="media-body">
-          <h6>Applicant</h6>
+          <h6></h6>
           <span></span>
         </div><!-- media-body -->
       </div><!-- az-sidebar-loggedin -->
@@ -122,18 +122,18 @@ include 'talum.php';
             <a href="" id="azSidebarToggle" class="az-header-menu-icon"><span></span></a>
           </div><!-- az-header-left -->
           <div class="az-header-center">
-            <input type="search" class="form-control" placeholder="Search for anything...">
-            <button class="btn"><i class="fas fa-search"></i></button>
+           
+          
           </div><!-- az-header-center -->
           <div class="az-header-right">
             <div class="az-header-message">
-              <a href="app-chat.html"><i class="typcn typcn-messages"></i></a>
+             
             </div><!-- az-header-message -->
             <div class="dropdown az-header-notification">
-              <a href="" class="new"><i class="typcn typcn-bell"></i></a>
+              
               <div class="dropdown-menu">
                 <div class="az-dropdown-header mg-b-20 d-sm-none">
-                  <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
+                
                 </div>
                 <h6 class="az-notification-title">Notifications</h6>
                 <p class="az-notification-text">You have 2 unread notification</p>
@@ -180,8 +180,8 @@ include 'talum.php';
                   <div class="az-img-user">
                     <img src="../img/faces/face1.jpg" alt="">
                   </div><!-- az-img-user -->
-                  <h6>Aziana Pechon</h6>
-                  <span>Premium Member</span>
+                
+                  <span></span>
                 </div><!-- az-header-profile -->
 
                <!--  <a href="" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
