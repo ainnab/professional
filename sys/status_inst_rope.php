@@ -149,35 +149,40 @@ $i++;
                                                                 
                                                                 <td><?php if ($status == 'Approved') { ?><a href="offer_letter.php?id=<?php echo $stud_ic; ?>">Offer Letter</a><?php  }else{ }?></td>
                                                                 <td><?php echo $status;?></td>
-                                                                <td><a href="tab_test_rk.php?id=<?php echo $stud_ic;?>"><button
+                                                                <td><?php if ($status == 'Register') { ?><a href="tab_test_rk.php?id=<?php echo $stud_ic;?>"><button
+                                                                            name="update"
+                                                                            class="btn btn-primary btn-md" disabled>Update</button></a>
+                                                                    <?php }else{?>
+                                                                        <a href="tab_test_rk.php?id=<?php echo $stud_ic;?>"><button
                                                                             name="update"
                                                                             class="btn btn-primary btn-md">Update</button></a>
+                                                                    <?php } ?>
                                                                 </td>
-                                                                <?php if ($status == 'Finance') { ?>
+                                                                <?php if ($status == 'Register') { ?>
                                                                 <td><a
                                                                         href="professional_dip.php?id=<?php echo $stud_ic;?>"><button
                                                                             name="update"
-                                                                            class="btn btn-primary btn-md mb-2">DIPLOMA</button></a>
+                                                                            class="btn btn-primary btn-md mb-2" disabled>DIPLOMA</button></a>
                                                                     <a href="degree.php?id=<?php echo $stud_ic;?>"><button
                                                                             name="update"
-                                                                            class="btn btn-primary btn-md mb-2">DEGREE</button></a>
+                                                                            class="btn btn-primary btn-md mb-2" disabled>DEGREE</button></a>
                                                                     <a href="master.php?id=<?php echo $stud_ic;?>"><button
                                                                             name="update"
-                                                                            class="btn btn-primary btn-md">MASTER</button></a>
+                                                                            class="btn btn-primary btn-md" disabled>MASTER</button></a>
                                                                 </td>
                                                                 <?php  }else{ ?>
                                                                 <td><a
                                                                         href="professional_dip.php?id=<?php echo $stud_ic;?>"><button
                                                                             name="update"
                                                                             class="btn btn-primary btn-md mb-2"
-                                                                            disabled>DIPLOMA</button></a>
+                                                                            >DIPLOMA</button></a>
                                                                     <a href="degree.php?id=<?php echo $stud_ic;?>"><button
                                                                             name="update"
                                                                             class="btn btn-primary btn-md mb-2"
-                                                                            disabled>DEGREE</button></a>
+                                                                            >DEGREE</button></a>
                                                                     <a href="master.php?id=<?php echo $stud_ic;?>"><button
                                                                             name="update" class="btn btn-primary btn-md"
-                                                                            disabled>MASTER</button></a></td>
+                                                                            >MASTER</button></a></td>
                                                                 <?php } ?>
 
 

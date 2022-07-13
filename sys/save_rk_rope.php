@@ -490,14 +490,14 @@ if(isset($_GET['deletedoc']))
 
 
   if(mysqli_query($dbconfig, $result) == TRUE){
-     echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'status_inst_rope.php?id=';</script>";
+     echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'status_inst_rope.php';</script>";
 
     }
     
   } else{
         echo "ERROR: Hush! Sorry. " 
             . mysqli_error($dbconfig);
-        echo "<script type='text/javascript'>alert('PLEASE COMPLETE YOUR FORM BEFORE SUBMITTED!'); window.location.href = 'tab_test_rk.php';</script>";
+        echo "<script type='text/javascript'>alert('PLEASE COMPLETE YOUR FORM BEFORE SUBMITTED!'); window.location.href = 'tab_test_rk.php?id=$ic';</script>";
     }
   
 }
