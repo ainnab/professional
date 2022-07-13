@@ -564,18 +564,20 @@ if (isset($_POST['enrol'])) {
  if (isset($_POST['submit_final'])) {
     $check_stud=mysqli_query($dbconfig,"select * from student where stud_ic='$ic'");
     while($stud=mysqli_fetch_array($check_stud)){
-      $stud_name=$stud['stud_name'];
-      $stud_nation=$stud['stud_nation'];
-      $stud_pob=$stud['pob'];
-      $stud_gender=$stud['gender'];
-      $stud_dob=$stud['dob'];
-      $stud_marital=$stud['marital'];
-      $stud_race=$stud['stud_race'];
-      $stud_religion=$stud['stud_religion'];
-      $stud_height=$stud['height'];
-      $stud_weight=$stud['weight'];
+
+      $firstname=$stud['stud_name'];
+      $nation=$stud['stud_nation'];
+      $pob=$stud['pob'];
+      $gender=$stud['gender'];
+      $dob=$stud['dob'];
+      $marital=$stud['marital'];
+      $race=$stud['stud_race'];
+      $religion=$stud['stud_religion'];
+      $height=$stud['height'];
+      $weight=$stud['weight'];
 
     }
+
     $check_parent=mysqli_query($dbconfig,"select * from parent where stud_ic='$ic'");
     while($parent=mysqli_fetch_array($check_parent)){
       $p1_name=$parent['p1_name'];
@@ -586,8 +588,9 @@ if (isset($_POST['enrol'])) {
       $p2_occupation=$parent['p2_occupation'];
       $p_household=$parent['household'];
       $p_income=$parent['income'];
+
     }
-    if($stud_name!='' && $stud_nation != '' && $stud_pob != '' && $stud_gender != '' && $stud_dob != '' && $stud_marital != '' && $stud_race != '' && $stud_religion != '' && $stud_height != '' && $stud_weight != '' && $p1_name != '' && $p1_ic != '' && $p1_occupation != '' && $p2_name != '' && $p2_ic != '' && $p2_occupation != '' && $p_household != '' && $p_income != '')
+    if($firstname!='' && $nation != '' && $pob != '' && $gender != '' && $dob != '' && $marital != '' && $race != '' && $religion != '' && $height != '' && $weight != '' && $p1_name != '' && $p1_ic != '' && $p1_occupation != '' && $p2_name != '' && $p2_ic != '' && $p2_occupation != '' && $p_household != '' && $p_income != '')
     {
     $sql = "UPDATE student (stud_ic,app_option,app_status) VALUES ('$ic','1','Submitted')";
 

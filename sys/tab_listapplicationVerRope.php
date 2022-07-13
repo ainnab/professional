@@ -59,7 +59,7 @@
          </div><!-- card-body -->
         </div><!-- card -->
     </div><!-- col -->
-  </div><br>
+  <br>
 
    <?php
     $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'");
@@ -102,8 +102,8 @@
          </div><!-- card-body -->
         </div><!-- card -->
     </div><!-- col -->
-  </div>
-</div>
+ 
+
 
       <div class="az-footer ht-40">
         <div class="container-fluid pd-t-0-f ht-100p">
