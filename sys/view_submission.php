@@ -687,7 +687,7 @@ $now_year = date('Y');
                 </table>
               </div>
             </div>
-            <?php if ($app_status=='Applied'){?>
+            <?php if ($app_status=='Submitted'){?>
             <center><button class="btn btn-outline-indigo ">  <a href="tab_personal.php">Edit</a></button></center>
             <?php } ?>
             </div><!-- card-body -->

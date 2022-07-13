@@ -186,8 +186,8 @@ $records3 = mysqli_query($dbconfig,"select * from academic where stud_ic='$ic'")
                       <td>
                        
 
-                     <a href="edit_academic.php?id=<?php echo $row['id']?>" ><button name="update" class="btn btn-primary btn-md">Edit</button></a>
-                      <a href="save_personal.php?id=<?php echo $row['id']?>&deleteacd=delete" onClick="return confirm('Are you sure you want to delete?')"><button type="submit" name="deleteacd" id="btn-submit" class="btn btn-primary btn-md">Delete</button></a>
+                     <a href="edit_academic.php?id=<?php echo $row['id']?>" ><button name="update" class="btn btn-primary"><i class="fa fa-edit"></i></button></a>
+                      <a href="save_personal.php?id=<?php echo $row['id']?>&deleteacd=delete" onClick="return confirm('Are you sure you want to delete?')"><button type="submit" name="deleteacd" id="btn-submit" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
 
                        <!--  <i class="icon-remove-sign"></i> -->
                     </tr>

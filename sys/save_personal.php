@@ -329,13 +329,13 @@ if(isset($_GET['deleteacd']))
                 {
 
                   echo "<script>alert('Successfully delete');</script>";
-                 echo "<script>window.location.assign('tab_workexp.php')</script>";
+                 echo "<script>window.location.assign('tab_academic.php')</script>";
                 }
 
                 else
                 {
                   echo"<script>alert('Tidak dapat diproses');</script>";
-                  echo "<script>window.location.assign('tab_workexp.php')</script>";
+                  echo "<script>window.location.assign('tab_academic.php')</script>";
                 }
  }
 
@@ -528,7 +528,7 @@ if(isset($_GET['deletedoc']))
                 {
 
                   echo "<script>alert('Successfully delete');</script>";
-                 //echo "<script>window.location.assign('tab_upload.php')</script>";
+                 echo "<script>window.location.assign('tab_upload.php')</script>";
                 }
 
                 else
@@ -551,7 +551,7 @@ if (isset($_POST['enrol'])) {
 
 
   if(mysqli_query($dbconfig, $sql_u) == TRUE){
-    $sql_p = "UPDATE student SET app_status='Applied'";
+    //$sql_p = "UPDATE student SET app_status='Applied'";
     
       echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'view_submission.php';</script>";
  } else{

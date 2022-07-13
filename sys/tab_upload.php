@@ -150,8 +150,8 @@ $records3 = mysqli_query($dbconfig,"select * from document where stud_ic='$ic'")
                       <td>
                        
 
-                     <a href="edit_upload.php?id=<?php echo $row['id']?>" ><button name="update" class="btn btn-primary btn-md">Edit</button></a>
-                      <a href="save_personal.php?id=<?php echo $row['id']?>&deletedoc=delete" onClick="return confirm('Are you sure you want to delete?')"><button type="submit" name="deletedoc" id="btn-submit" class="btn btn-primary btn-md">Delete</button></a>
+                     <a href="edit_upload.php?id=<?php echo $row['id']?>" ><button name="update" class="btn btn-primary"><i class="fa fa-edit"></i></button></a>
+                      <a href="save_personal.php?id=<?php echo $row['id']?>&deletedoc=delete" onClick="return confirm('Are you sure you want to delete?')"><button type="submit" name="deletedoc" id="btn-submit" class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
 
                        <!--  <i class="icon-remove-sign"></i> -->
                     </tr>
@@ -165,10 +165,8 @@ $records3 = mysqli_query($dbconfig,"select * from document where stud_ic='$ic'")
             </div>
         <div class="col-lg-12 text-right">
             <div class="form-group m-b-0">
-                    <button type="submit" name="submit_workexp"  class="btn btn-lg btn-primary waves-effect waves-light">
-                        <i class="far fa-save"></i>&nbsp;&nbsp;Simpan
-                    </button>
-                    <?php if($app_status!='Applied'){?>
+                    
+                    <?php if($app_status=='Register'){?>
                     <button type="button" onclick="window.location.href = 'tab_declaration.php'" class="btn btn-lg btn-secondary waves-effect waves-light">
                         Seterusnya&nbsp;&nbsp;<i class="far fa-arrow-alt-circle-right"></i>
                     </button>

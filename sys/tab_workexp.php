@@ -253,7 +253,6 @@ $records3 = mysqli_query($dbconfig,"select * from academic where stud_ic='$ic'")
                                                                                 type="submit" name="deletewrk"
                                                                                 id="btn-submit"
                                                                                 class="btn btn-danger"><i class="fa fa-trash"></i></button></a>
-
                                                                         <!--  <i class="icon-remove-sign"></i> -->
                                                                 </tr>
                                                                 <?php $cnt=$cnt+1;
