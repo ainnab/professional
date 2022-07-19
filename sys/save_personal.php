@@ -614,22 +614,25 @@ if(mysqli_query($dbconfig, $result) == TRUE){
 
 if (isset($_POST['submit_accept'])) {
   
+  $checkbox = $_POST["cb"];
   $tawaran = $_POST['tawaran'];
   $ic = $_POST['ic'];
-  
+  $id_select=$_POST['id_select'];
 
+  for ($x = 0; $x < count($checkbox); $x++) {
 
-  $sql = "UPDATE programselection SET status = '$tawaran' WHERE stud_ic = '$ic'";
-  
-  if (mysqli_query($dbconfig, $sql) == TRUE) {
-    echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'view_status.php?id=$ic';</script>";
-  } else{
-      echo "ERROR: Hush! Sorry $result. " 
-          . mysqli_error($dbconfig);
+    $sql = "UPDATE programselection SET status = '$tawaran' WHERE stud_ic = '$ic' and pg_id='$checkbox[$x]'";
+
+    if (mysqli_query($dbconfig, $sql) == TRUE) {
+      echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'view_status2.php?id=$ic';</script>";
+    } else{
+        echo "ERROR: Hush! Sorry $result. " 
+            . mysqli_error($dbconfig);
+    }
   }
-}
-
-    mysqli_close($dbconfig);
+    
+    }
+  mysqli_close($dbconfig);
       
    
 ?>

@@ -10,7 +10,6 @@
 
       gtag('config', 'UA-90680653-2');
     </script>
-
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -58,7 +57,7 @@
     ?>
 <div class="az-content-header d-block d-md-flex">
   <div>
-    <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">Status of Application</h2>
+    <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">Offer Letter & Acceptance Letter</h2>
   </div>
   <div class="az-dashboard-header-right">
   </div><!-- az-dashboard-header-right -->
@@ -92,7 +91,7 @@
 
 
               $count=1;
-              $records4 = "SELECT * from programselection where stud_ic='$ic'";
+              $records4 = "SELECT * from programselection where stud_ic='$ic' and status='Accepted'";
               $data2=mysqli_query($dbconfig,$records4);
                          /*$row5=mysqli_fetch_array($data2,MYSQLI_ASSOC);
                              $status1=$row5['status'];
@@ -104,18 +103,12 @@
           ?>
         <div class="module">
                             <div class="module-body table">
-                            <div class="alert alert-danger" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>Please tick on your preferred programme before click Confirm. 
-             </br>Accepted programme <strong>STRICTLY could not be UNDONE. </strong></div>
                                <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped  display" width="100%">
                                 <thead>
                                    <tr>
-                                     <th>#</th>
                                     <th>Program Name</th>
                                     <th>Status</th>
+                                    <th>View</th>
                                   </tr>
                                 </thead>
                             <tbody>
@@ -127,21 +120,20 @@
                         
 	    ?>     
                     <tr>
-                    <form action="save_personal.php" method="post">
-                    <td><input type="checkbox" class="listCheckbox checkkbox" name="cb[]" value='<?php echo $id_selection;?>'></td>
                     <td><?php echo $pg_name;?></td>
                       <td><?php echo $status1;?></td>
-                      </tr>
+                      <td><a href='offer_letter_student.php?i=<?php echo base64_encode($id_selection); ?>' target='_blank'>Offer Letter
+                        <br>
+                        <a href='acceptance_letter.php?i=<?php echo base64_encode($id_selection); ?>' target='_blank'>Acceptance Letter</td>
+                     
+                    </tr>
                       
                 
                
 								<div class="form-group">
 									<div class="row">
 										<div class="col-md-12 col-sm-12">
-                    <input id="ic" class="form-control" name="ic" type="text" value="<?php echo $_SESSION['ic']; ?>"hidden>
-                    <input id="id_select" class="form-control" name="id_select" type="text" value="<?php echo $id_selection; ?>"hidden>
-                    <input type="hidden" name='tawaran' value='Accepted'>
-											
+                    
 										</div>
 									  </div>
 
@@ -157,9 +149,7 @@
 ?>
                 </table>
 						  </div>
-              <?php if ($status1!='Accepted'){?>
-              <button type="submit" class="btn btn-primary" name="submit_accept">Confirm</button>
-              <?php } ?>
+              
               </form> 
               
               
