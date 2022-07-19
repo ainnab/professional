@@ -10,6 +10,7 @@
     $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
     while($data2 = mysqli_fetch_array($records)) { 
         $app_status=$data2['app_status']; 
+        $modeAds = $data2['modeAds'];
        }     
   
   $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
@@ -635,7 +636,8 @@ $now_year = date('Y');
                 </table>
               </div>
             </div>
-            <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">Certificate</h2>
+            <?php if($modeAds == 'ROPE'){ ?>
+              <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">Certificate</h2>
           </br>
 
            <div class="module">
@@ -643,8 +645,6 @@ $now_year = date('Y');
                                <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped  display" width="100%">
                                 <thead>
                                    <tr>
-                                    <th>#</th>
-                                    <th>File Name</th>
                                     <th>Certificate</th>
                                   </tr>
                                 </thead>
@@ -658,9 +658,7 @@ $now_year = date('Y');
                           {
                           ?>
                     <tr>
-                      <td><?php echo htmlentities($cnt);?></td>
-                      <td><?php echo htmlentities (ucwords($row4['namaFail']));?></td>
-                      <td><a href="folder/workExp/<?php echo $row4["fileDoc"]; ?>" target="_blank"><?php echo $row4["fileDoc"]; ?></td>
+                      <td><a href="folder/workExp/<?php echo $row4["certDoc"]; ?>" target="_blank"><?php echo $row4["certDoc"]; ?></td>
 
                        <!--  <i class="icon-remove-sign"></i> -->
                     </tr>
@@ -671,7 +669,8 @@ $now_year = date('Y');
 
                 </table>
               </div>
-            </div>
+            </div>  
+        <?php } ?>
        <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">Program Applied</h2>
           </br>
 

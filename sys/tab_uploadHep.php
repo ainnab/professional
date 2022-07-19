@@ -10,6 +10,7 @@
 
       gtag('config', 'UA-90680653-2');
     </script>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,7 +35,8 @@
     <link href="lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet">
 
     <!-- azia CSS -->
-    <link rel="stylesheet" href="css/azia.css">   
+    <link rel="stylesheet" href="css/azia.css">    <?php include 'talum.php'; ?>
+
     <?php 
     include 'talum.php';
    
@@ -48,101 +50,37 @@
     $ic=$_SESSION['ic'];       
     $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
     while($data2 = mysqli_fetch_array($records)) { 
-        $role = $data2['role'];
-        $app_status = $data2['app_status'];
-   $stud_name=$data2['stud_name']; 
-        include 'main_menu.php';
       
-       }     
-    ?>
-<div class="az-content-header d-block d-md-flex">
-  <div>
-    <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">Offer Letter & Acceptance Letter</h2>
-  </div>
-  <div class="az-dashboard-header-right">
-  </div><!-- az-dashboard-header-right -->
-</div><!-- az-content-header -->
-<div class="az-content-body">
-<div class="row row-sm">
-<div class="col-md-12 col-lg-12 col-xl-12">
-  <div class="card card-dashboard-seven">
-    <div class="card-body">
-    
-    <div class="modal fade" id="addDoc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        
-                      </div>
-                     
-                        <div class="modal-body">
-                        </div>
-                      
-                      
-                    </div>
-                  </div>
-                </div>
-   <br>
-            <?php 
-          $records3 = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
-          while($data3=mysqli_fetch_array($records3)){
-            //$pg_name=$data3['pg_name'];
-              $status=ucwords($data3['app_status']);
+           
+    $role = $data2['role'];
+    $agent=$data2['stud_name'];  
+    $app_status = $data2['app_status'];
 
+        include 'main_menu.php';
+      }
+      ?>
+  </head>
 
-              $count=1;
-              $records4 = "SELECT * from programselection where stud_ic='$ic' and status='Accepted'";
-              $data2=mysqli_query($dbconfig,$records4);
-          }
-          date_default_timezone_set("Asia/Bangkok");
-          $date='Y';
-          ?>
-        <div class="module">
-                            <div class="module-body table">
-                               <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped  display" width="100%">
-                                <thead>
-                                   <tr>
-                                    <th>Program Name</th>
-                                    <th>Status</th>
-                                    <th>View</th>
-                                    <th>Action</th>
-                                  </tr>
-                                </thead>
-                            <tbody>
-                            <?php
-	    while($row5 = mysqli_fetch_array($data2)){
-        $status1=ucwords($row5['status']);
-        $pg_name=$row5['pg_name'];
-        $id_selection=$row5['pg_id'];
-                        
-	    ?>     
-                    <tr>
-                    <td><?php echo $pg_name;?></td>
-                      <td><?php echo $status1;?></td>
-                      <td><a href='offer_letter_student.php?i=<?php echo base64_encode($id_selection); ?>' target='_blank'>Offer Letter
-                        <br>
-                        <a href='acceptance_letter.php?i=<?php echo base64_encode($id_selection); ?>' target='_blank'>Acceptance Letter</td>
-                     <td><button name="update" data-toggle="modal" data-target="#addDoc" class="btn btn-primary btn-md">Upload</button></td>
-                    </tr>
-                    
-                    <div class="modal fade" id="addDoc" tabindex="-1" role="dialog"
-                                                    aria-labelledby="myModalLabel" aria-hidden="true"
-                                                    style="display: none;">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close"><span
-                                                                        aria-hidden="true">×</span></button>
-                                                                <h4 class="modal-title" id="myModalLabel">Upload Document
-                                                                </h4>
-                                                            </div>
-                                                            <form action="save_rk_rope.php" method="POST"
+      <div class="az-content-header d-block d-md-flex">
+        <div>
+          <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">Upload Document</h2>
+          <p class="mg-b-0">Please upload all the information below.</p>
+        </div>
+        <div class="az-dashboard-header-right">
+        </div><!-- az-dashboard-header-right -->
+      </div><!-- az-content-header -->
+      <div class="az-content-body">
+      <div class="row row-sm">
+      <div class="col-md-12 col-lg-12 col-xl-12">
+        <div class="card card-dashboard-seven">
+          <div class="card-body">
+            <p class="mg-b-20"></p>
+            <form action="save_rk_rope.php" method="POST"
                                                                 enctype="multipart/form-data">
                                                                 <div class="modal-body">
 
                                                                     <div class="form-group">
-                                                                        <label>Document Name</label>
+                                                                        <label>Filename:</label>
                                                                         <select name="namaFail" class="form-control">
                                                                             <option value=" " selected disabled=""
                                                                                 style="font-size:14px;">Please
@@ -175,37 +113,11 @@
                                                                         class="btn btn-primary">Save</button>
                                                                 </div>
                                                             </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <form action="save_rk_rope.php" method="post">
-
-							</div>
-							
-						
-        
-      </th>
-                    <?php
-		$count=$count+1;
-                    }
-?>
-                </table>
-						  </div>
-              
-              </form> 
-              
-              
-              </div>
-            </div>
-        <div class="col-lg-12 text-right">
-            <div class="form-group m-b-0">
-                    
-                </div>
             </div><!-- card-body -->
         </div><!-- card -->
     </div><!-- col -->
-  </div><!-- row -->
-</div>
+
+  </div><!-- row --></div>
       <div class="az-footer ht-40">
         <div class="container-fluid pd-t-0-f ht-100p">
           <span>&copy; 2019 Azia Responsive Bootstrap 4 Dashboard Template</span>
@@ -225,7 +137,6 @@
 
     <script src="../js/azia.js"></script>
     <script>
- 
       $(function(){
         'use strict'
 
