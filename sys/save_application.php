@@ -57,7 +57,15 @@ if($result)
 
         $sql3 = "insert into parent (stud_ic) value('".$ic."')";
         $result3 = mysqli_query($dbconfig, $sql3);
-       echo "<script type='text/javascript'>alert('Registration Successfully!'); window.location.href = 'dashboard_agent.php';</script>";
+        if ($result3) {
+          if ($modeAds == 'ROPE') {
+            $sql4 = "insert into certificate (stud_ic) value('".$ic."')";
+            $result4 = mysqli_query($dbconfig, $sql4);
+            echo "<script type='text/javascript'>alert('Registration Successfully!'); window.location.href = 'dashboard_agent.php';</script>";
+          }else{
+            echo "<script type='text/javascript'>alert('Registration Successfully!'); window.location.href = 'dashboard_agent.php';</script>";
+          }
+        }
         }
       }
       else{

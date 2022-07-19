@@ -38,12 +38,12 @@
     <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
     <meta name="author" content="BootstrapDash">
 
-    <title>Azia Responsive Bootstrap 4 Dashboard Template</title>
+   <link rel="icon"  href="img/logo.png"> <title>AdmissionPro</title>
 
     <!-- vendor css -->
-    <link href="../lib/fontawesome-free/css/all.min.css" rel="stylesheet">
-    <link href="../lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="../lib/typicons.font/typicons.css" rel="stylesheet">
+    <link href="lib/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="lib/typicons.font/typicons.css" rel="stylesheet">
     <style>
 body {
   background-image: url('img/header4.jpg');
@@ -68,7 +68,7 @@ body {
 </style>
 
     <!-- azia CSS -->
-    <link rel="stylesheet" href="../css/azia.css">
+    <link rel="stylesheet" href="css/azia.css">
 
   </head>
   <?php 
@@ -121,6 +121,9 @@ body {
       if ($role =='finance' ){
         header("Location:dashboard_finance.php");
       }
+      if ($role =='hep' ){
+        header("Location:dashboard_hep.php");
+      }
 
       
     }
@@ -160,11 +163,11 @@ body {
       </div><!-- az-card-signin -->
     </div><!-- az-signin-wrapper -->
 
-    <script src="../lib/jquery/jquery.min.js"></script>
-    <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../lib/ionicons/ionicons.js"></script>
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/ionicons/ionicons.js"></script>
 
-    <script src="../js/azia.js"></script>
+    <script src="js/azia.js"></script>
     <script>
       $(function(){
         'use strict'

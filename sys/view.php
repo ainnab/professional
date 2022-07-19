@@ -6,16 +6,10 @@
 <?php
     include 'header_admin.php';
 
-   $ic=$_GET['id'];       
+  $ic=$_GET['id'];       
     $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
     while($data2 = mysqli_fetch_array($records)) { 
         $app_status=$data2['app_status']; 
-      // if($data2['app_option'] == '1'){
-        
-      // }
-      // else{
-      //   include 'header_degree.php';
-      // }
        }     
   
   $records = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
@@ -641,6 +635,43 @@ $now_year = date('Y');
                 </table>
               </div>
             </div>
+            <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">Certificate</h2>
+          </br>
+
+           <div class="module">
+                            <div class="module-body table">
+                               <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped  display" width="100%">
+                                <thead>
+                                   <tr>
+                                    <th>#</th>
+                                    <th>File Name</th>
+                                    <th>Certificate</th>
+                                  </tr>
+                                </thead>
+                            <tbody>
+
+                          <?php $sqll4=mysqli_query($dbconfig,"SELECT * FROM certificate WHERE stud_ic = '$ic'");
+                          $cnt=1;
+                          while($row4=mysqli_fetch_array($sqll4)){
+                            $id=$row4['id'];
+                          
+                          {
+                          ?>
+                    <tr>
+                      <td><?php echo htmlentities($cnt);?></td>
+                      <td><?php echo htmlentities (ucwords($row4['namaFail']));?></td>
+                      <td><a href="folder/workExp/<?php echo $row4["fileDoc"]; ?>" target="_blank"><?php echo $row4["fileDoc"]; ?></td>
+
+                       <!--  <i class="icon-remove-sign"></i> -->
+                    </tr>
+                    <?php $cnt=$cnt+1; 
+                    }
+                  }
+                   ?>
+
+                </table>
+              </div>
+            </div>
        <h2 class="az-content-title tx-24 mg-b-5 mg-b-lg-8">Program Applied</h2>
           </br>
 
@@ -692,17 +723,17 @@ $now_year = date('Y');
     </div><!-- az-content -->
 
 
-    <script src="../lib/jquery/jquery.min.js"></script>
-    <script src="../lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../lib/ionicons/ionicons.js"></script>
-    <script src="../lib/jquery-sparkline/jquery.sparkline.min.js"></script>
-    <script src="../lib/raphael/raphael.min.js"></script>
-    <script src="../lib/morris.js/morris.min.js"></script>
-    <script src="../lib/jqvmap/jquery.vmap.min.js"></script>
-    <script src="../lib/jqvmap/maps/jquery.vmap.usa.js"></script>
-    <script src="../lib/jquery.maskedinput/jquery.maskedinput.js"></script>
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/ionicons/ionicons.js"></script>
+    <script src="lib/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <script src="lib/raphael/raphael.min.js"></script>
+    <script src="lib/morris.js/morris.min.js"></script>
+    <script src="lib/jqvmap/jquery.vmap.min.js"></script>
+    <script src="lib/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <script src="lib/jquery.maskedinput/jquery.maskedinput.js"></script>
 
-    <script src="../js/azia.js"></script>
+    <script src="js/azia.js"></script>
     <script>
         function printInvoice() {
             printDiv = ".print"; // id of the div you want to print

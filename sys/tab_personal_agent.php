@@ -116,7 +116,7 @@
                     </div>
                     <div class="form-group" id="receipt_rope" style="display: none;">
                         <label for="">Upload Receipt</label>
-                        <input type="file" class="form-control" id="receipt_rope" name="receipt_rope" required>
+                        <input type="file" class="form-control" id="receipt_rope" name="receipt_rope">
                     </div>
                     <button class="btn btn-az-primary btn-block" type="submit" name="submit_student">Create
                         Account</button>
