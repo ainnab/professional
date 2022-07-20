@@ -68,7 +68,7 @@
   <div class="card card-dashboard-seven">
     <div class="card-body">
     
-    <div class="modal fade" id="addDoc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <!-- <div class="modal fade" id="addDoc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -81,7 +81,7 @@
                       
                     </div>
                   </div>
-                </div>
+                </div> -->
    <br>
             <?php 
           $records3 = mysqli_query($dbconfig,"select * from student where stud_ic='$ic'"); 
@@ -147,15 +147,9 @@
                                                                             <option value=" " selected disabled=""
                                                                                 style="font-size:14px;">Please
                                                                                 select</option>
-                                                                            <?php $sql11 = "SELECT * FROM document_type";
-                                                    $result11 = mysqli_query($dbconfig, $sql11) or die("database error:". mysqli_error($dbconfig));
-                                                    while( $row11 = mysqli_fetch_assoc($result11) ) {
-                                                        $docname=$row11['document_name'];
-                                                        ?>
-                                                                            <option value="<?php echo $docname; ?>">
-                                                                                <?php echo ucwords($docname); ?>
-                                                                            </option>
-                                                                            <?php } ?>
+                                                                                <option value="aku_janji">Borang Aku Janji</option>
+                                                                                <option value="accept_letter">Acceptance Letter</option>
+                                                                                <option value="yuran">Payment Receipt(Fees)</option>
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group">
@@ -166,8 +160,6 @@
                                                                             30MB</span>
                                                                     </div>
                                                                 </div>
-                                                                <input type='hidden' name='id'
-                                                                    value=<?php echo  $stud_id?>>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-default"
                                                                         data-dismiss="modal">Close</button>
