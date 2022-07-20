@@ -631,7 +631,29 @@ if (isset($_POST['submit_accept'])) {
     }
   }
     
-    }
+   }
+
+   if (isset($_POST['submitDoc'])) {
+
+    $pgID = $_POST['pgID'];
+    $code = $_POST['code'];
+    $ic = $_POST['ic'];
+    $fileType = $_POST['file_type'];
+    $fileDoc = $_FILES['fileDoc']['name']; 
+    $newfilenameD=$ic."_".$code."_".$fileDoc;
+    $target2 = "../sys/folder/upload/";
+    $target_file = $target2 . basename($newfilenameD);
+
+    $sql_u = "INSERT into hep (stud_ic,pg_id,file_type,fileDoc) VALUES ('$ic', '$pgID', '$fileType', '$newfilenameD')";
+
+  if(mysqli_query($dbconfig, $sql_u) == TRUE){
+    move_uploaded_file($_FILES['fileDoc']['tmp_name'], $target_file);
+      //echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'view_status2.php?id=$ic';</script>";
+ } else{
+        echo "ERROR: Hush! Sorry $result. " 
+            . mysqli_error($dbconfig);
+    } 
+}
   mysqli_close($dbconfig);
       
    

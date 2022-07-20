@@ -114,6 +114,7 @@
         $status1=ucwords($row5['status']);
         $pg_name=$row5['pg_name'];
         $id_selection=$row5['pg_id'];
+        $pg_code = $row5['pg_code'];
                         
 	    ?>     
                     <tr>
@@ -121,8 +122,18 @@
                       <td><?php echo $status1;?></td>
                       <td><a href='offer_letter_student.php?i=<?php echo base64_encode($id_selection); ?>' target='_blank'>Offer Letter
                         <br>
-                        <a href='acceptance_letter.php?i=<?php echo base64_encode($id_selection); ?>' target='_blank'>Acceptance Letter</td>
-                     <td><button name="update" data-toggle="modal" data-target="#addDoc" class="btn btn-primary btn-md">Upload</button></td>
+                        <a href='acceptance_letter.php?i=<?php echo base64_encode($id_selection); ?>' target='_blank'>Acceptance Letter
+                        <br>
+                        <?php
+                        $records5 = "SELECT * from hep where stud_ic='$ic'";
+                        $data3=mysqli_query($dbconfig,$records5);
+                        while($row6 = mysqli_fetch_array($data3)){
+                          $fileDOc = $row6['fileDoc'];
+                        ?>
+                        <a href="/folder/upload/<?php echo $fileDoc;?>" target="_blank"><?php echo $fileDOc; ?></a>
+                      </td>
+                      <?php } ?>
+                     <td><button name="update" data-toggle="modal" data-target="#addDoc" class="btn btn-primary btn-md">Upload Documents</button></td>
                     </tr>
                     
                     <div class="modal fade" id="addDoc" tabindex="-1" role="dialog"
@@ -137,19 +148,19 @@
                                                                 <h4 class="modal-title" id="myModalLabel">Upload Document
                                                                 </h4>
                                                             </div>
-                                                            <form action="save_rk_rope.php" method="POST"
+                                                            <form action="save_personal.php" method="POST"
                                                                 enctype="multipart/form-data">
                                                                 <div class="modal-body">
 
                                                                     <div class="form-group">
                                                                         <label>Document Name</label>
-                                                                        <select name="namaFail" class="form-control">
+                                                                        <select name="file_type" class="form-control">
                                                                             <option value=" " selected disabled=""
                                                                                 style="font-size:14px;">Please
                                                                                 select</option>
-                                                                                <option value="aku_janji">Borang Aku Janji</option>
-                                                                                <option value="accept_letter">Acceptance Letter</option>
-                                                                                <option value="yuran">Payment Receipt(Fees)</option>
+                                                                                <option value="Borang Aku Janji">Borang Aku Janji</option>
+                                                                                <option value="Acceptance Letter">Acceptance Letter</option>
+                                                                                <option value="Payment Receipt(Fees)">Payment Receipt(Fees)</option>
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group">
@@ -160,18 +171,19 @@
                                                                             30MB</span>
                                                                     </div>
                                                                 </div>
+                                                                <input type="text" value="<?php echo $pg_code;?>" name="code" hidden>
+                                                                <input type="text" value="<?php echo $id_selection;?>" name="pgID" hidden>
+                                                                <input type="text" value="<?php echo $ic;?>" name="ic" hidden>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-default"
                                                                         data-dismiss="modal">Close</button>
-                                                                    <button type="submit" name="submitdoc"
+                                                                    <button type="submit" name="submitDoc"
                                                                         class="btn btn-primary">Save</button>
                                                                 </div>
                                                             </form>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <form action="save_rk_rope.php" method="post">
-
 							</div>
 							
 						
