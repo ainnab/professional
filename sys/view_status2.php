@@ -125,17 +125,18 @@
                         <a href='acceptance_letter.php?i=<?php echo base64_encode($id_selection); ?>' target='_blank'>Acceptance Letter
                         <br>
                         <?php
-                        $records5 = "SELECT * from hep where stud_ic='$ic'";
+                        $records5 = "SELECT * from hep where stud_ic='$ic' and pg_id = '$id_selection'";
                         $data3=mysqli_query($dbconfig,$records5);
                         while($row6 = mysqli_fetch_array($data3)){
-                          $fileDOc = $row6['fileDoc'];
+                          $fileDoc = $row6['fileDoc'];
                         ?>
-                        <a href="/folder/upload/<?php echo $fileDoc;?>" target="_blank"><?php echo $fileDOc; ?></a>
+                        <a href="../sys/folder/upload/<?php echo $fileDoc;?>" target="_blank"><?php echo $fileDoc; ?></a>
+                        <?php } ?>
                       </td>
-                      <?php } ?>
-                     <td><button name="update" data-toggle="modal" data-target="#addDoc" class="btn btn-primary btn-md">Upload Documents</button></td>
+                     <td><button name="update" href="#addDoc<?php echo $id_selection; ?>" data-toggle="modal" data-target="#addDoc" class="btn btn-primary btn-md">Upload Documents</button></td>
                     </tr>
                     
+
                     <div class="modal fade" id="addDoc" tabindex="-1" role="dialog"
                                                     aria-labelledby="myModalLabel" aria-hidden="true"
                                                     style="display: none;">

@@ -640,7 +640,8 @@ if (isset($_POST['submit_accept'])) {
     $ic = $_POST['ic'];
     $fileType = $_POST['file_type'];
     $fileDoc = $_FILES['fileDoc']['name']; 
-    $newfilenameD=$ic."_".$code."_".$fileDoc;
+    $ext = pathinfo($fileDoc, PATHINFO_EXTENSION);
+    $newfilenameD=$ic."_".$code."_".$fileType.".".$ext;
     $target2 = "../sys/folder/upload/";
     $target_file = $target2 . basename($newfilenameD);
 
@@ -648,7 +649,7 @@ if (isset($_POST['submit_accept'])) {
 
   if(mysqli_query($dbconfig, $sql_u) == TRUE){
     move_uploaded_file($_FILES['fileDoc']['tmp_name'], $target_file);
-      //echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'view_status2.php?id=$ic';</script>";
+    echo "<script type='text/javascript'>alert('Data Update Successfully!'); window.location.href = 'view_status2.php?id=$ic';</script>";
  } else{
         echo "ERROR: Hush! Sorry $result. " 
             . mysqli_error($dbconfig);

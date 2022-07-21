@@ -85,7 +85,7 @@ $id = $_REQUEST['id'];
 }
 
 
-if (isset($_POST['submit_new_acd_rk'])) {
+if (isset($_POST['submit_new_acd_rk'])) { 
 
   $edu_type = $_POST['edu_type'];
   $edu_school = $_POST['edu_school'];
